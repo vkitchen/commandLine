@@ -32,3 +32,5 @@ void FullScreen() {
     ReleaseKey(VK_RETURN, FALSE); // Enter key up
     ReleaseKey(VK_MENU, FALSE);  // Alt key up
 }
+
+
