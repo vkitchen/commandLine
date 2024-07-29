@@ -1,0 +1,1 @@
+g++ main.cpp readArt.cpp terminalHelpers.cpp textBox.cpp -o a.exe
