@@ -1,9 +1,10 @@
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "fullscreen.h"
-#include "clearScreen.h"
-#include "loadArt.h"
+#include "renderArt.hpp"
+#include "fullscreen.hpp"
+#include "clearScreen.hpp"
+#include "loadArt.hpp"
 
 
 // Function to get console size
