@@ -1,1 +1,1 @@
-g++ main.cpp readArt.cpp terminalHelpers.cpp textBox.cpp -o a.exe
+g++ main.cpp readArt.cpp terminalHelpers.cpp textBox.cpp renderArt.cpp inputListener.cpp -o a.exe

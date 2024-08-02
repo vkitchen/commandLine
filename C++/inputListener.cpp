@@ -3,8 +3,8 @@
 #include <fstream>
 #include <vector>
 #include <string>
-#include <inputListener.hpp>
-#include <readArt.hpp>
+#include "inputListener.hpp"
+#include "renderArt.hpp"
 
 void chooseAndUseInput(int currentWallIndex, char input, std::string& listenerType) {
         
@@ -16,7 +16,7 @@ void chooseAndUseInput(int currentWallIndex, char input, std::string& listenerTy
             } else if (input == 77) { // Right arrow key
                 currentWallIndex = (currentWallIndex + 1) % 4;
             }
-            loadAndRenderWall(wallFiles[currentWallIndex], art, artWidth, artHeight);
+            loadAndRenderWall(room1[currentWallIndex], art, artWidth, artHeight);
         }
 
 }

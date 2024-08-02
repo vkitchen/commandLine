@@ -6,7 +6,7 @@
 #include <vector>
 #include <string>
 
-extern int totalConsoleHeight, totalConsoleWidth, textBoxHeight;
+extern int totalConsoleHeight, totalConsoleWidth, fullScreenTextBoxHeight;
 
 void getFullScreenDimensions();
 

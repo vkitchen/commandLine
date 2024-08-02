@@ -8,12 +8,23 @@
 #include "terminalHelpers.hpp"
 #include "textBox.hpp"
 
+// Room set up
 const int numWalls = 4;
+const std::string room1[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+const std::string room2[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+const std::string room3[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+const std::string room4[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+
+int roomNumber = 1;
+int currentWallIndex = 0;
+char** art = nullptr;
+int artWidth = 0, artHeight = 0;
 int totalConsoleHeight = 0;
 int totalConsoleWidth = 0;
-int  textBoxHeight = 0;
+int  fullScreenTextBoxHeight = 0;
 char input = ' ';
 bool running = true;
+
 
 
 std::vector<std::string> currentWall;
@@ -71,24 +82,19 @@ void processInput(char &input) {
 int main() {
 
 
-    const std::string wallFiles[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
-    int currentWallIndex = 0;
-    char** art = nullptr;
-    int artWidth = 0, artHeight = 0;
 
     setFullScreen();
     getFullScreenDimensions();
     hideCursor();
     clearWholeScreen();
-    loadAndRenderWall(wallFiles[currentWallIndex], art, artWidth, artHeight);
+    loadAndRenderWall(room1[currentWallIndex], art, artWidth, artHeight);
     renderCenteredArt(art, artWidth, artHeight);
-
-    std::string test = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-    std::string test2 = "%";
     std::string test3 = "ESCAPE OWHEOOOOOOOOOOOO";
+
+    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, test3, test2); 
+
     while (running) {
         
-        renderBox(0, totalConsoleWidth, textBoxHeight, totalConsoleHeight, test3, test2); 
         processInput(input);
         //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 

@@ -10,7 +10,7 @@ void getFullScreenDimensions() {
     if (GetConsoleScreenBufferInfo(console, &csbi)) {
         totalConsoleWidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
         totalConsoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
-        textBoxHeight = totalConsoleHeight * 4 / 5;
+        fullScreenTextBoxHeight = totalConsoleHeight * 4 / 5;
     } else {
         totalConsoleWidth = 0;
         totalConsoleHeight = 0;
