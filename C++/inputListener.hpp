@@ -9,6 +9,6 @@
 extern char input;
 extern bool running;
 
-void chooseAndUseInput(char input, std::string& listenerType);
+void chooseAndUseInput(int currentWallIndex, char input, std::string& listenerType);
 
 #endif // INPUT_LISTENER__HPP
