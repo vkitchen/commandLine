@@ -24,12 +24,12 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
         if (i == startY) {
             boxContent[i].replace(startX, contentLength, content.substr(0, contentLength));
         }
-        boxContent[i][0] = '#';
-        boxContent[i][boxWidth - 1] = '#';
+        boxContent[i][0] = '|';
+        boxContent[i][boxWidth - 1] = '|';
     }
 
-    boxContent[0] = std::string(boxWidth, '#');
-    boxContent[boxHeight - 1] = std::string(boxWidth, '#');
+    boxContent[0] = std::string(boxWidth, '_');
+    boxContent[boxHeight - 1] = std::string(boxWidth, '_');
 
     return boxContent;
 }

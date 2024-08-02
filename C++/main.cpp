@@ -107,9 +107,10 @@ int main() {
 
     std::string test = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
     std::string test2 = "%";
+    std::string test3 = "ESCAPE OWHEOOOOOOOOOOOO";
     while (running) {
         
-        renderBox(0, totalConsoleWidth, textBoxHeight, totalConsoleHeight, test, test2); 
+        renderBox(0, totalConsoleWidth, textBoxHeight, totalConsoleHeight, test3, test2); 
         processInput(input);
         //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 
