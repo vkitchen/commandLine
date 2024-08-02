@@ -8,6 +8,6 @@
 
 extern int totalConsoleHeight, totalConsoleWidth;
 
-void renderBox(int startX, int endX, int startY, int endY, std::string& text);
+void renderBox(int startX, int endX, int startY, int endY, std::string& text, std::string& borderChar);
 
 #endif // TEXT_BOX_HPP

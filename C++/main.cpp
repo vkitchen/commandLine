@@ -10,7 +10,9 @@
 const int numWalls = 4;
 int totalConsoleHeight = 0;
 int totalConsoleWidth = 0;
-int  textBoxHeight = totalConsoleHeight * 4 / 5;
+int  textBoxHeight = 0;
+char input = ' ';
+bool running = true;
 
 
 std::vector<std::string> currentWall;
@@ -89,8 +91,8 @@ void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, 
 }
 
 int main() {
-    char input = ' ';
-    bool running = true;
+
+
     const std::string wallFiles[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
     int currentWallIndex = 0;
     char** art = nullptr;
@@ -103,25 +105,16 @@ int main() {
     loadAndRenderWall(wallFiles[currentWallIndex], art, artWidth, artHeight);
     renderCenteredArt(art, artWidth, artHeight);
 
-    std::string test = "TEST";
-    
+    std::string test = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+    std::string test2 = "%";
     while (running) {
         
-        //renderBox(0, totalConsoleWidth, textBoxHeight, totalConsoleHeight, test); 
+        renderBox(0, totalConsoleWidth, textBoxHeight, totalConsoleHeight, test, test2); 
         processInput(input);
-        //std::cout << "Screen dimensions: WIDTH=" << width << ", HEIGHT=" << height << std::endl;
+        //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 
 
-        if (input == 'q') {
-            running = false; // Quit the game
-        } else if (input == 75 || input == 77) { // Left or Right arrow keys
-            if (input == 75) { // Left arrow key
-                currentWallIndex = (currentWallIndex - 1 + 4) % 4;
-            } else if (input == 77) { // Right arrow key
-                currentWallIndex = (currentWallIndex + 1) % 4;
-            }
-            loadAndRenderWall(wallFiles[currentWallIndex], art, artWidth, artHeight);
-        }
+
 
         // Clear the input
         input = ' ';

@@ -3,7 +3,7 @@
 #include "textBox.hpp"
 
 // Function that populates box with content fed into it
-std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content) {
+std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content, const std::string& borderChar) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
 
     int verticalPadding = 1; // One line padding from the top and bottom
@@ -38,20 +38,17 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
 // startX = top left x-coord
 // endX   = bottom right x-coord
 // startY = top left y-coord
-// endY   = nottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, std::string& text) {
+// endY   = bottom right y-coord
+void renderBox(int startX, int endX, int startY, int endY, std::string& text, std::string& borderChar) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
-    std::string topBottomBorder(boxWidth, '#');
-    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, text);
 
-    // // Render top border
-    COORD coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY)};  // from top left corner
+    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, text, borderChar);
+
+    COORD coord; 
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
-    // SetConsoleCursorPosition(console, coord);
-    // std::cout << topBottomBorder << std::endl;
 
-    // Render middle lines
+    // Render box lines
     for (int i = 0; i < boxHeight; ++i) {
         coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY + i)};
         SetConsoleCursorPosition(console, coord);
