@@ -93,7 +93,7 @@ void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, 
 int main() {
 
 
-    const std::string wallFiles[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+    const std::string wallFiles[numWalls] = {"art/f1r1w4.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
     int currentWallIndex = 0;
     char** art = nullptr;
     int artWidth = 0, artHeight = 0;
