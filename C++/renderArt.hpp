@@ -8,7 +8,12 @@
 
 extern char input;
 extern bool running;
-extern std::string room1[], room2[], room3[], room4[];
+extern const std::string room1[];
+extern const std::string room2[];
+extern const std::string room3[];
+extern const std::string room4[];
+extern char** art;
+extern int artWidth, artHeight;
 
 
 void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, int &artHeight);

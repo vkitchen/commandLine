@@ -7,14 +7,16 @@
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"
 #include "textBox.hpp"
+#include "inputListener.hpp"
 
 // Room set up
 const int numWalls = 4;
-const std::string room1[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
-const std::string room2[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
-const std::string room3[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
-const std::string room4[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+const std::string room1[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room2[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room3[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room4[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 
+std::string listenerType = "RoomLeftRight";
 int roomNumber = 1;
 int currentWallIndex = 0;
 char** art = nullptr;
@@ -28,6 +30,8 @@ bool running = true;
 
 
 std::vector<std::string> currentWall;
+
+
 
 void loadWall(const std::string& filename) {
     std::ifstream file(filename);
@@ -82,6 +86,8 @@ void processInput(char &input) {
 int main() {
 
 
+    //const std::string wallFiles[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
+
 
     setFullScreen();
     getFullScreenDimensions();
@@ -90,7 +96,7 @@ int main() {
     loadAndRenderWall(room1[currentWallIndex], art, artWidth, artHeight);
     renderCenteredArt(art, artWidth, artHeight);
     std::string test3 = "ESCAPE OWHEOOOOOOOOOOOO";
-
+    std::string test2 = "c";
     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, test3, test2); 
 
     while (running) {
@@ -98,7 +104,7 @@ int main() {
         processInput(input);
         //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 
-
+        chooseAndUseInput(input, listenerType);
 
 
         // Clear the input

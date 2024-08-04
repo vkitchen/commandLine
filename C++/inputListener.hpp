@@ -6,9 +6,9 @@
 #include <vector>
 #include <string>
 
-extern char input;
-extern bool running;
+extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, roomNumber;
 
-void chooseAndUseInput(int currentWallIndex, char input, std::string& listenerType);
+
+void chooseAndUseInput(char input, std::string& listenerType);
 
 #endif // INPUT_LISTENER__HPP

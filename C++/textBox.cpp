@@ -3,7 +3,7 @@
 #include "textBox.hpp"
 
 // Function that populates box with content fed into it
-std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content, const std::string& borderChar) {
+std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content, std::string& borderChar) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
 
     int verticalPadding = 1; // One line padding from the top and bottom
