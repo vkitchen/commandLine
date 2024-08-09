@@ -1,1 +1,0 @@
-cl main.c clearScreen.c fullscreen.c loadArt.c user32.lib
