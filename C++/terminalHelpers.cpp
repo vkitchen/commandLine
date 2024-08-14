@@ -62,3 +62,17 @@ void setFullScreen() {
     HWND consoleWindow = GetConsoleWindow(); // Get the console window handle
     ShowWindow(consoleWindow, SW_MAXIMIZE);  // Maximize the console windo
 }
+
+void enableUTF8Console() {
+    // Set the console output code page to UTF-8
+    if (!SetConsoleOutputCP(CP_UTF8)) {
+        std::cerr << "Error setting UTF-8 code page." << std::endl;
+    } else {
+        std::cout << "UTF-8 encoding enabled for the console." << std::endl;
+    }
+
+    // Set the console input code page to UTF-8
+    if (!SetConsoleCP(CP_UTF8)) {
+        std::cerr << "Error setting UTF-8 input code page." << std::endl;
+    }
+}

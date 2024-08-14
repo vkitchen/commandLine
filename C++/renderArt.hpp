@@ -16,7 +16,8 @@ extern char** art;
 extern int artWidth, artHeight;
 
 
-void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, int &artHeight);
+void loadArt(const std::string& filename, char** &art, int &artWidth, int &artHeight);
 void renderCenteredArt(char** art, int artWidth, int artHeight);
+void renderArt(char** art, int artWidth, int artHeight, int startX, int startY);
 
 #endif // RENDER_ART_HPP

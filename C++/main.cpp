@@ -8,10 +8,11 @@
 #include "terminalHelpers.hpp"
 #include "textBox.hpp"
 #include "inputListener.hpp"
+#include "startScreen.hpp"
 
 // Room set up
 const int numWalls = 4;
-const std::string room1[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room1[numWalls] = {"show.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room2[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room3[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room4[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
@@ -58,15 +59,6 @@ void renderWall() {
     }
 }
 
-void processInput(char &input) {
-    if (_kbhit()) {
-        input = _getch();
-        if (input == 0 || input == 224) {
-            input = _getch(); // Handle arrow keys
-        }
-    }
-}
-
 
 // void updateWall(char input) {
 //     clearScreen();
@@ -85,28 +77,32 @@ void processInput(char &input) {
 
 int main() {
 
-
-    //const std::string wallFiles[numWalls] = {"art/skull.txt", "art/demon.txt", "art/artTest3.txt", "art/artTest4.txt"};
-
-
+    // Terminal setups
+    enableUTF8Console();
     setFullScreen();
     getFullScreenDimensions();
     hideCursor();
     clearWholeScreen();
-    loadAndRenderWall(room1[currentWallIndex], art, artWidth, artHeight);
+
+    //std::cout << totalConsoleHeight + " " + totalConsoleWidth << std::endl;
+
+    startScreen();
+
+    // Below code is jank, but when hit new game need to intialise from start screen the room
+    loadArt(room1[currentWallIndex], art, artWidth, artHeight);
     renderCenteredArt(art, artWidth, artHeight);
-    std::string test3 = "ESCAPE OWHEOOOOOOOOOOOO";
-    std::string test2 = "c";
-    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, test3, test2); 
+    std::string output = "Room " + std::to_string(roomNumber) + " Wall " + std::to_string(currentWallIndex + 1);
+    std::string borderChar = "#";
+    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar); 
 
     while (running) {
         
-        processInput(input);
+        processInput();
         //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 
-        chooseAndUseInput(input, listenerType);
+        roomLeftRightListener(listenerType);
 
-
+        
         // Clear the input
         input = ' ';
 

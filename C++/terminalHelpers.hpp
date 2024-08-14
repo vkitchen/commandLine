@@ -18,4 +18,6 @@ void clearPartialScreen(int startY, int endY);
 
 void setFullScreen();
 
+void enableUTF8Console();
+
 #endif // TERMINAL_HELPERS_HPP

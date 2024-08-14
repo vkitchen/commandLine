@@ -5,11 +5,10 @@
 
 
 void renderCenteredArt(char** art, int artWidth, int artHeight) {
-    int startX = (totalConsoleWidth - artWidth) / 2;
+    int startX = (totalConsoleWidth - artWidth) / 2;  // artWidth needs to be /3 due to UTF8 using 3 bytes, but artWidth being 1 byte
     int startY = (totalConsoleHeight * 4 / 5 - artHeight) / 2;
 
-    clearPartialScreen(0, totalConsoleHeight * 4 / 5 - 1); // Clear the screen area above the box
-
+    clearWholeScreen();
 
     for (int i = 0; i < artHeight; ++i) {
         COORD coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY + i)};
@@ -19,8 +18,20 @@ void renderCenteredArt(char** art, int artWidth, int artHeight) {
     }
 }
 
+void renderArt(char** art, int artWidth, int artHeight, int startX, int startY) {
 
-void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, int &artHeight) {
+    clearWholeScreen();
+
+    for (int i = 0; i < artHeight; ++i) {
+        COORD coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY + i)};
+        HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+        SetConsoleCursorPosition(console, coord);
+        std::cout << art[i];
+    }    
+}
+
+
+void loadArt(const std::string& filename, char** &art, int &artWidth, int &artHeight) {
     // Deallocate the previous 2D array
     if (art != nullptr) {
         delete2DArray(art, artHeight);
@@ -28,5 +39,5 @@ void loadAndRenderWall(const std::string& filename, char** &art, int &artWidth, 
 
     // Load the new wall
     art = readFileTo2DArray(filename, artWidth, artHeight);
-    renderCenteredArt(art, artWidth, artHeight);
+    //renderCenteredArt(art, artWidth, artHeight);
 }

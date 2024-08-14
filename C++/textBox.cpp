@@ -55,12 +55,3 @@ void renderBox(int startX, int endX, int startY, int endY, std::string& text, st
         std::cout << boxContent[i] << std::endl;
     }
 } 
-
-void makeBoxArray(int height, int width) {
-    char** array = new char*[height];
-    for (int i = 0; i < height; i++) {
-        array[i] = new char[width + 1]; // +1 for null terminator
-        std::fill(array[i], array[i] + width, ' '); // Fill with spaces
-        array[i][width] = '\0'; // Null terminator
-    }
-}

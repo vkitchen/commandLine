@@ -7,8 +7,11 @@
 #include <string>
 
 extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, roomNumber;
+extern char input;
+extern std::vector<std::string> options;
 
-
-void chooseAndUseInput(char input, std::string& listenerType);
+void roomLeftRightListener(std::string& listenerType);
+int startMenuListener();
+void processInput();
 
 #endif // INPUT_LISTENER__HPP
