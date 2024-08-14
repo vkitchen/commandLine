@@ -22,8 +22,8 @@ jobs:
         run: cd C++
 
       - name: Build Test
-        shell: cmd
-        run: build.bat param
+        run: |
+          cmd /c "cd C++ && build.bat"
 
       # - name: Run tests
       #   run: |
