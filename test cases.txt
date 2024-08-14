@@ -1,0 +1,8 @@
+
+
+Test Cases for the program:
+- Test all images loaded are the correct dimensions
+- Test display size is as expected // check the display is full screen
+- Test all keys presses except allowed keys are blocked
+- Test user input is being read correctly
+- Test puzzles can only be solved with a single answers
