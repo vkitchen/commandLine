@@ -21,7 +21,7 @@ jobs:
 
       - name: Run build script
         run: |
-          ./C++/build.bat
+          \C++\build.bat
 
       # - name: Run tests
       #   run: |
