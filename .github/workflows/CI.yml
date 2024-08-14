@@ -22,7 +22,8 @@ jobs:
         run: cd C++
 
       - name: Run build script
-        run: .\build.bat
+        run: |
+          cmd /c "C++\build.bat"
 
       # - name: Run tests
       #   run: |
