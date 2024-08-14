@@ -21,9 +21,9 @@ jobs:
       - name: Change to C++ directory
         run: cd C++
 
-      - name: Run build script
-        run: |
-          cmd /c "build.bat"
+      - name: Build Test
+        shell: cmd
+        run: build.bat param
 
       # - name: Run tests
       #   run: |
