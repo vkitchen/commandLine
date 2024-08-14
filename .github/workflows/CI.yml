@@ -19,10 +19,10 @@ jobs:
       - name: Build Test
         run: |
           cmd /c "cd C++ && build.bat"
-          
-      - name: Run executable
-        run: |
-          cmd /c "cd C++ && a.exe"
+      # Will add this in later (might get it to run the test files instead of the actual program)
+      # - name: Run executable
+      #   run: |
+      #     cmd /c "cd C++ && a.exe"
 
       # - name: Run tests
       #   run: |
