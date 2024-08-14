@@ -23,7 +23,7 @@ jobs:
 
       - name: Run build script
         run: |
-          cmd /c "C++\build.bat"
+          cmd /c "build.bat"
 
       # - name: Run tests
       #   run: |
