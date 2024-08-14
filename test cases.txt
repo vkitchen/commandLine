@@ -6,3 +6,13 @@ Test Cases for the program:
 - Test all keys presses except allowed keys are blocked
 - Test user input is being read correctly
 - Test puzzles can only be solved with a single answers
+
+
+- My puzzle room
+    1. Main wall with caeser design and input slot for answer (input will be a computer on a desk) -> able to zoom in an type?
+    2. Left wall, window looking out at MT. cargill, will include hidden number value e.g angle of window join?
+    3. Right wall, a whiteboard with an equation that gives you the second value
+    4. Back wall, a bookshelf and a mirror, the amount of books in the shelf gives you the final number
+
+    - all the values sum together to provide the caeser offset e.g 16.
+    - the value is typed into the computers screen once zoomed and the correct answer will take you to the next floor
