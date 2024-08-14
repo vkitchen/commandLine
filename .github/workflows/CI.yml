@@ -18,10 +18,11 @@ jobs:
 
       # - name: Set up MSBuild (if needed)
       #   uses: microsoft/setup-msbuild@v1
+      - name: Change to C++ directory
+        run: cd C++
 
       - name: Run build script
-        run: |
-          ./C++/build.bat
+        run: ./build.bat
 
       # - name: Run tests
       #   run: |
