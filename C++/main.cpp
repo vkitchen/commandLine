@@ -12,7 +12,7 @@
 
 // Room set up
 const int numWalls = 4;
-const std::string room1[numWalls] = {"show.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room1[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room2[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room3[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room4[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
@@ -100,7 +100,7 @@ int main() {
         processInput();
         //std::cout << "TCH =" << textBoxHeight << ", HEIGHT=" << totalConsoleHeight << std::endl;
 
-        roomLeftRightListener(listenerType);
+        roomLeftRightListener();
 
         
         // Clear the input

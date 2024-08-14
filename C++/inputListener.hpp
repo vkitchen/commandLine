@@ -10,7 +10,7 @@ extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalCo
 extern char input;
 extern std::vector<std::string> options;
 
-void roomLeftRightListener(std::string& listenerType);
+void roomLeftRightListener();
 int startMenuListener();
 void processInput();
 

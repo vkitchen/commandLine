@@ -24,7 +24,7 @@ void processInput() {
     }
 }
 
-void roomLeftRightListener(std::string& listenerType) {
+void roomLeftRightListener() {
         
     if (input == 'q') {
         running = false; // Quit the game

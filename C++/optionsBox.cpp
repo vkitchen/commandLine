@@ -154,8 +154,6 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
         
         upDown = startMenuListener();
 
-        std::cout << upDown << "    " << selectedIndex << std::endl;
-
         if (upDown == 1) { // up arrow was pressed
             selectedIndex = (selectedIndex - 1 + numOfOptions) % numOfOptions;
             displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
