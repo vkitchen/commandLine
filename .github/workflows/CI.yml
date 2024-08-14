@@ -1,17 +1,30 @@
 name: CI
 
-on: push
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  super-lint:
-    name: Lint code base
-    runs-on: ubuntu-latest
+  build:
+    runs-on: windows-latest
+
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
-      - name: Run Super-Linter
-        uses: github/super-linter@v4
-        env:
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Set up MSBuild (if needed)
+      #   uses: microsoft/setup-msbuild@v1
+
+      - name: Run build script
+        run: |
+          ./C++/build.bat
+
+      # - name: Run tests
+      #   run: |
+      #     # Assuming your build.bat compiles the project and generates an executable or runs tests.
+      #     # Replace `your_test_executable.exe` with the name of your actual test executable.
+      #     ./path/to/your_test_executable.exe
