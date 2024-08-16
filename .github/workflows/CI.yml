@@ -19,13 +19,8 @@ jobs:
       - name: Build Test
         run: |
           cmd /c "cd C++ && build.bat"
-      # Will add this in later (might get it to run the test files instead of the actual program)
-      # - name: Run executable
+# Doing this means all our unit tests will run each time we push code and we can see if they all still pass
+      # - name: Run executable in test mode
       #   run: |
-      #     cmd /c "cd C++ && a.exe"
+      #     cmd /c "cd C++ && a.exe -t"
 
-      # - name: Run tests
-      #   run: |
-      #     # Assuming your build.bat compiles the project and generates an executable or runs tests.
-      #     # Replace `your_test_executable.exe` with the name of your actual test executable.
-      #     ./path/to/your_test_executable.exe
