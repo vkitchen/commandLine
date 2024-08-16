@@ -15,7 +15,7 @@ void renderCenteredArt(char** art, int artWidth, int artHeight) {
             bool res = imageSize(artWidth, artHeight);
         }catch(const std::runtime_error& e){
             std::cerr << e.what() << std::endl;
-            return;
+            running = false;
         }
     }
     
