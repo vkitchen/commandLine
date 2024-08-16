@@ -1,5 +1,8 @@
 #include "readArt.hpp"
 
+int imgHeight_TEST = 0;
+int imgWidth_TEST = 0;
+
 // Function to read a .txt file into a 2D array of chars
 char** readFileTo2DArray(const std::string& filename, int &width, int &height) {
     std::ifstream file(filename);
@@ -37,7 +40,6 @@ char** readFileTo2DArray(const std::string& filename, int &width, int &height) {
             array[i][j] = lines[i][j];
         }
     }
-
     return array;
 }
 

@@ -26,9 +26,16 @@ extern int totalConsoleWidth;
 extern int  fullScreenTextBoxHeight;
 extern char input;
 extern bool running;
+extern const int numWalls;
+extern const std::string room1[];
+extern const std::string room2[];
+extern const std::string room3[];
+extern const std::string room4[];
+extern int imageHeight_TEST;
+extern int imageWidth_TEST;
 
 void testMain();
 
-bool imageSize(int artHeight, int artWidth);
+bool imageSize(const std::string& filename, char** &art, int &artWidth, int &artHeight);
 
 #endif // TEEST_HPP
