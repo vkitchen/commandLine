@@ -20,7 +20,7 @@ jobs:
         run: |
           cmd /c "cd C++ && build.bat"
 # Doing this means all our unit tests will run each time we push code and we can see if they all still pass
-      # - name: Run executable in test mode
-      #   run: |
-      #     cmd /c "cd C++ && a.exe -t"
+      - name: Run executable in test mode
+        run: |
+          cmd /c "cd C++ && a.exe -t"
 
