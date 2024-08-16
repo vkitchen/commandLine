@@ -1,7 +1,10 @@
-#include <iostream>
-#include <stdexcept>
+#include "test.hpp"
 
 // Checks if the images for the rooms being rendered are the correct dimensions
+void testMain(){
+    running = false;
+}
+
 bool imageSize(int artWidth, int artHeight){
 
     if(artWidth == 660 && artHeight == 68){

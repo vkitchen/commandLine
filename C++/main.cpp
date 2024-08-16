@@ -29,9 +29,6 @@ int totalConsoleWidth = 0;
 int  fullScreenTextBoxHeight = 0;
 char input = ' ';
 bool running = true;
-bool testMode = false;
-
-
 
 std::vector<std::string> currentWall;
 
@@ -75,30 +72,22 @@ void renderWall() {
 // }
 
 
-
-
-
 int main(int argc, char* argv[]) {
     for(int i = 1; i < argc; i++){
         if(std::strcmp(argv[i], "-t") == 0){
-            testMode = true;
+            testMain();
+            return 0;
         }
     }
 
-    if(testMode){
-        enableUTF8Console();
-        totalConsoleHeight = 100;
-        totalConsoleWidth = 300;
-        fullScreenTextBoxHeight = 50;
-    }else{
-    // Terminal setups
-        enableUTF8Console();
-        setFullScreen();
-        getFullScreenDimensions();
-        hideCursor();
-        clearWholeScreen();
-    }
-    
+
+// Terminal setups
+    enableUTF8Console();
+    setFullScreen();
+    getFullScreenDimensions();
+    hideCursor();
+    clearWholeScreen();
+
 
     //std::cout << totalConsoleHeight + " " + totalConsoleWidth << std::endl;
 
