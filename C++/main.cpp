@@ -84,12 +84,21 @@ int main(int argc, char* argv[]) {
             testMode = true;
         }
     }
+
+    if(testMode){
+        enableUTF8Console();
+        totalConsoleHeight = 100;
+        totalConsoleWidth = 300;
+        fullScreenTextBoxHeight = 50;
+    }else{
     // Terminal setups
-    enableUTF8Console();
-    setFullScreen();
-    getFullScreenDimensions();
-    hideCursor();
-    clearWholeScreen();
+        enableUTF8Console();
+        setFullScreen();
+        getFullScreenDimensions();
+        hideCursor();
+        clearWholeScreen();
+    }
+    
 
     //std::cout << totalConsoleHeight + " " + totalConsoleWidth << std::endl;
 
