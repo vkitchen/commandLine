@@ -10,7 +10,7 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
     if(artWidth == 660 && artHeight == 68){
         return true;
     }else{
-        throw std::runtime_error("Incorrect image size, expcted (660 x 63) -> UTF8");
+        throw std::runtime_error("Incorrect image size in " + filename + ", expcted (660 x 63) -> UTF8");
         return false;
     }
 }
