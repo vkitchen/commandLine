@@ -14,7 +14,7 @@
 
 // Room set up
 const int numWalls = 4;
-const std::string room1[numWalls] = {"art/room4/ascii-art (10).txt", "art/room4/ascii-art (10).txt", "art/room4/ascii-art (10).txt", "art/room4/ascii-art (10).txt"};
+const std::string room1[numWalls] = {"art/room4/ascii-art (10).txt", "art/room4/ascii-art (10).txt", "art/room4/ascii-art (10).txt", "art/room4/ascii-art (4).txt"};
 const std::string room2[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room3[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
 const std::string room4[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
@@ -89,9 +89,10 @@ int main(int argc, char* argv[]) {
     clearWholeScreen();
 
 
-    //std::cout << totalConsoleHeight + " " + totalConsoleWidth << std::endl;
-
-    startScreen();
+    startScreen(); // Display Start Screen for input
+    if (running == false) {
+        return 0;
+    }
 
     // Below code is jank, but when hit new game need to intialise from start screen the room
     loadArt(room1[currentWallIndex], art, artWidth, artHeight);

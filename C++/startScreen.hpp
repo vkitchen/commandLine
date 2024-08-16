@@ -10,6 +10,7 @@ extern char input;
 extern bool running;
 extern char** art;
 extern int artWidth, artHeight;
+extern bool running;
 
 
 void startScreen();

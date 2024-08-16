@@ -20,4 +20,6 @@ void setFullScreen();
 
 void enableUTF8Console();
 
+void setConsoleFontSize(int sizeX, int sizeY);
+
 #endif // TERMINAL_HELPERS_HPP

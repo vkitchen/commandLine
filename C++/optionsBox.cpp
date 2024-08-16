@@ -70,8 +70,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vec
 
         int startX = (boxWidth - contentLength) / 2;
 
-        int startY = boxHeight / numOfOptions * (i + 1);
-
+        int startY = (boxHeight / (numOfOptions+1)) * (i + 1);
         
 
         for (int j = 0; j < boxHeight; ++j) {
@@ -126,21 +125,19 @@ std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selecte
 
 
 int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn) {
-    std::string selectedOption = "";
     options = optionsIn;
-
-    int printableLines = endY - startY - 3;  // lines that can be printed to within box, -1 due to line count starting at 1
     int numOfOptions = options.size();
+    
+    std::string selectedOption = "";
+    int selectedIndex = 0;
 
-    // makesleected versions of options
+    // make selected versions of options
     std::vector<std::string> selectOptions(numOfOptions);
     for (int i = 0; i < numOfOptions; ++i) {
         selectOptions[i] = "< " + options[i] + " >";
     }
-    
-    int selectedIndex = 0;
 
-    // make intial display with option 0 selected
+    // make intial display with option 0 initally selected
     std::vector<std::string> displayedOptions;
     displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
 
