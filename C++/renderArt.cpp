@@ -1,11 +1,25 @@
 #include <windows.h>
+#include <iostream>
+#include <stdexcept>
 #include "renderArt.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"
+#include "test.hpp"
+
+extern bool testMode;
 
 
 void renderCenteredArt(char** art, int artWidth, int artHeight) {
-    int startX = (totalConsoleWidth - artWidth) / 2;  // artWidth needs to be /3 due to UTF8 using 3 bytes, but artWidth being 1 byte
+    if(testMode){
+        try{
+            bool res = imageSize(artWidth, artHeight);
+        }catch(const std::runtime_error& e){
+            std::cerr << e.what() << std::endl;
+            return;
+        }
+    }
+    
+    int startX = (totalConsoleWidth - (artWidth / 3)) / 2;  // artWidth needs to be /3 due to UTF8 using 3 bytes, but artWidth being 1 byte
     int startY = (totalConsoleHeight * 4 / 5 - artHeight) / 2;
 
     clearWholeScreen();
