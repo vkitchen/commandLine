@@ -23,4 +23,8 @@ jobs:
       - name: Run executable in test mode
         run: |
           cmd /c "cd C++ && a.exe -t"
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_ORG_TOKEN }}
 
