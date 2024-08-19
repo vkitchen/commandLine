@@ -11,6 +11,7 @@
 #include "inputListener.hpp"
 #include "startScreen.hpp"
 #include "test.hpp"
+#include "../HelloCov/HelloCov.h"
 
 // Room set up
 const int numWalls = 4;
