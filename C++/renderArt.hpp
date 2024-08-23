@@ -10,6 +10,7 @@
 extern char input;
 extern bool running;
 extern const std::string room1[];
+extern const std::string room1ZOOMED[];
 extern const std::string room2[];
 extern const std::string room3[];
 extern const std::string room4[];

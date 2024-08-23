@@ -47,6 +47,15 @@ void roomInputListenerOscar() {
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
+    }else if (input == enter && (currentWallIndex == 0 || currentWallIndex == 2)){
+        loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
+        renderCenteredArt(art, artWidth, artHeight);
+        std::string output = "4";            
+        std::string borderChar = "#";
+        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+        zoomed = true;
+    }else if (input == 'o' && zoomed == true){
+        zoomed = false;
     }
 }
 
