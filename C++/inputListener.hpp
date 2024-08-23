@@ -9,6 +9,7 @@
 extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, roomNumber;
 extern char input;
 extern std::vector<std::string> options;
+extern bool zoomed;
 
 void roomLeftRightListener();
 int startMenuListener();
