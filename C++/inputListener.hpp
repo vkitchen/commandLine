@@ -13,5 +13,6 @@ extern std::vector<std::string> options;
 void roomLeftRightListener();
 int startMenuListener();
 void processInput();
+void roomInputListenerOscar();
 
 #endif // INPUT_LISTENER__HPP

@@ -34,11 +34,19 @@ void roomLeftRightListener() {
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-        loadArt(room1[currentWallIndex], art, artWidth, artHeight);
-        renderCenteredArt(art, artWidth, artHeight);
-        std::string output = "Room " + std::to_string(roomNumber) + " Wall " + std::to_string(currentWallIndex + 1);
-        std::string borderChar = "#";
-        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar); 
+    }
+}
+
+void roomInputListenerOscar() {
+        
+    if (input == 'q') {
+        running = false; // Quit the game
+    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys
+        if (input == leftArrow) { // Left arrow key
+            currentWallIndex = (currentWallIndex - 1 + 4) % 4;
+        } else if (input == rightArrow) { // Right arrow key
+            currentWallIndex = (currentWallIndex + 1) % 4;
+        }
     }
 }
 

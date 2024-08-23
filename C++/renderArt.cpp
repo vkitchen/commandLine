@@ -22,7 +22,7 @@ void renderCenteredArt(char** art, int artWidth, int artHeight) {
     int startX = (totalConsoleWidth - (artWidth / 3)) / 2;  // artWidth needs to be /3 due to UTF8 using 3 bytes, but artWidth being 1 byte
     int startY = (totalConsoleHeight * 4 / 5 - artHeight) / 2;
 
-    clearWholeScreen();
+    //clearWholeScreen();
 
     for (int i = 0; i < artHeight; ++i) {
         COORD coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY + i)};
@@ -34,7 +34,7 @@ void renderCenteredArt(char** art, int artWidth, int artHeight) {
 
 void renderArt(char** art, int artWidth, int artHeight, int startX, int startY) {
 
-    clearWholeScreen();
+    //clearWholeScreen();
 
     for (int i = 0; i < artHeight; ++i) {
         COORD coord = {static_cast<SHORT>(startX), static_cast<SHORT>(startY + i)};
