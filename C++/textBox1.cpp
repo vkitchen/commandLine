@@ -54,11 +54,22 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
         std::cout << boxContent[i] << std::endl;
     }
 
-    // Print text character by character
+    // Non-blocking text rendering
     int startXText = (boxWidth - text.length()) / 2 + startX;
     int startYText = (boxHeight - 1) / 2 + startY;
 
     for (char c : text) {
+        // Check for input before printing the next character
+        if (_kbhit()) {
+            int input = _getch();
+            if (input == 0 || input == 224) {
+                input = _getch(); // Handle arrow keys
+            }
+            // Process input immediately (like switching rooms)
+            roomInputListenerOscar(); // Or the appropriate listener function
+            return; // Exit the text rendering if an input is detected
+        }
+
         coord = {static_cast<SHORT>(startXText++), static_cast<SHORT>(startYText)};
         SetConsoleCursorPosition(console, coord);
         std::cout << c;
