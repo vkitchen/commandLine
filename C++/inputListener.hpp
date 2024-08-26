@@ -11,6 +11,7 @@ extern char input;
 extern std::vector<std::string> options;
 extern bool zoomed;
 
+std::string textInputListener(std::string partialWord);
 void roomLeftRightListener();
 int startMenuListener();
 void processInput();

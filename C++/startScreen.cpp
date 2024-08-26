@@ -22,6 +22,7 @@ void startScreen() {
     switch (selectedIndex) {
         case 0:
             // New Game selected, break to return to main.cpp and enter main game loop
+            input = ' ';
             break;
 
         case 1:

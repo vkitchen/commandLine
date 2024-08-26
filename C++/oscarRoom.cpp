@@ -18,6 +18,7 @@ void runOscar(){
             switch (currentWallIndex)
             {
             case 0:
+                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Welcome to the first room at owheo, welcome to hell there should be a door";
@@ -25,6 +26,7 @@ void runOscar(){
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
                 break;
             case 1:
+                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Hopefully you just turned right, if not im wrong";            
@@ -32,6 +34,7 @@ void runOscar(){
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
                 break;
             case 2:
+                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "3";            
@@ -39,6 +42,7 @@ void runOscar(){
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
                 break;
             case 3:
+                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "4";            

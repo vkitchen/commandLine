@@ -7,6 +7,7 @@
 #include "renderArt.hpp"
 #include "textBox.hpp"
 #include "optionsBox.hpp"
+#include "terminalHelpers.hpp"
 #include <conio.h>
 
 int leftArrow = 75;
@@ -48,6 +49,7 @@ void roomInputListenerOscar() {
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
     }else if (input == enter && (currentWallIndex == 0 || currentWallIndex == 2)){
+        clearWholeScreen();
         loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
         renderCenteredArt(art, artWidth, artHeight);
         std::string output = "4";            
@@ -78,4 +80,19 @@ int startMenuListener() {
     return nothingPressed;
 }
 
+
+std::string textInputListener(std::string partialWord) {
+    std::string output = partialWord;
+
+    // Check for letters (uppercase and lowercase) and space bar
+    if ((input >= 'a' && input <= 'z') || 
+        (input >= 'A' && input <= 'Z') ||  
+        input == ' ') {
+        output += input;  // Append valid character to output
+    } else if (input == '\r') {  // Check for Enter key (carriage return)
+        return output;  // Return the output when Enter is pressed
+    }
+
+    return output;
+}
 

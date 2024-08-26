@@ -11,6 +11,7 @@
 #include "inputListener.hpp"
 #include "startScreen.hpp"
 #include "test.hpp"
+#include "optionsBox.hpp"
 #include "oscarRoom.hpp"
 
 // Room set up
@@ -58,6 +59,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     clearWholeScreen();
+    stringInputBox("");
     runOscar();
     // Below code is jank, but when hit new game need to intialise from start screen the room
 

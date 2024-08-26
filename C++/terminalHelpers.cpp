@@ -8,8 +8,8 @@ void getFullScreenDimensions() {
     CONSOLE_SCREEN_BUFFER_INFO csbi;
 
     if (GetConsoleScreenBufferInfo(console, &csbi)) {
-        totalConsoleWidth = csbi.srWindow.Right - csbi.srWindow.Left + 1;
-        totalConsoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top + 1;
+        totalConsoleWidth = csbi.srWindow.Right - csbi.srWindow.Left;
+        totalConsoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
         fullScreenTextBoxHeight = totalConsoleHeight * 4 / 5;
     } else {
         totalConsoleWidth = 0;
@@ -29,15 +29,27 @@ void hideCursor() {
 
 // Clears whole screen
 void clearWholeScreen() {
-    COORD topLeft = {0, 0};
+    // Get console handle
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+
+    // Get console screen buffer info
     CONSOLE_SCREEN_BUFFER_INFO screen;
+    GetConsoleScreenBufferInfo(console, &screen);
+
+    // Calculate the total number of characters in the console
+    DWORD consoleSize = screen.dwSize.X * screen.dwSize.Y;
+
+    // Initialize variables for clearing console
+    COORD topLeft = {0, 0};
     DWORD written;
 
-    GetConsoleScreenBufferInfo(console, &screen);
-    FillConsoleOutputCharacterA(console, ' ', screen.dwSize.X * screen.dwSize.Y, topLeft, &written);
-    FillConsoleOutputAttribute(console, FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_BLUE,
-                                screen.dwSize.X * screen.dwSize.Y, topLeft, &written);
+    // Fill the entire console screen with spaces (effectively clearing it)
+    FillConsoleOutputCharacterA(console, ' ', consoleSize, topLeft, &written);
+
+    // Set the color attributes for all console characters (standard white text)
+    FillConsoleOutputAttribute(console, screen.wAttributes, consoleSize, topLeft, &written);
+
+    // Set the cursor position back to the top left of the console
     SetConsoleCursorPosition(console, topLeft);
 }
 

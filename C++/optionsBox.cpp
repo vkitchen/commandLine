@@ -125,6 +125,7 @@ std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selecte
 
 
 int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn) {
+
     options = optionsIn;
     int numOfOptions = options.size();
     
@@ -171,4 +172,33 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
     options = {};
 
     return selectedIndex;
+}
+
+
+/*!
+ * @brief Return inputed string
+ * @details Displays and processes string input box
+ * @param wordIn 
+ * @return std::string 
+ */
+std::string stringInputBox(std::string wordIn) {
+    std::vector<std::string> word(1);
+    word[0] = wordIn;
+    while (true) {
+        // Render the text box with current input
+        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, word);// Assuming default console sizes for example
+        Sleep(20);
+
+        // Get next input string
+        std::string nextInput = textInputListener(word[0]);
+
+        // Check if Enter was pressed (handled inside textInputListener)
+        if (!nextInput.empty() && input == 13) {
+            break;
+        }
+
+        // Update the input for the next loop iteration
+        word[0] = nextInput;
+    }
+    return word[0];
 }
