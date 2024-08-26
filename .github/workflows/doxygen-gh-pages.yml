@@ -14,5 +14,5 @@ jobs:
       - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
         with:
           config_file: ./C++
-          folder: ./C++/docs/html
+          folder: ./C++/docs
           github_token: ${{ secrets.GITHUB_TOKEN }}
