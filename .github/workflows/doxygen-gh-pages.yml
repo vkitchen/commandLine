@@ -11,8 +11,38 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Doxygen
+        uses: docker://doxygen/doxygen:latest
+
+      - name: Generate documentation with Doxygen
+        run: doxygen Doxyfile
+
+      - name: Deploy Doxygen documentation to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          config_file: ./C++/Doxyfile
-          folder: ./C++/docs
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs  # Directory where Doxygen output is located
+          publish_branch: gh-pages  # Branch where GitHub Pages is served from
+
+
+# name: Doxygen GitHub Pages Deploy Action
+
+# on:
+#   push:
+#     branches:
+#       - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write
+#     steps:
+#       - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
+#         with:
+#           config_file: ./C++/Doxyfile
+#           folder: ./C++/docs
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
