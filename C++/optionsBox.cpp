@@ -7,7 +7,13 @@
 #include "optionsBox.hpp"
 #include "inputListener.hpp"
 
-
+/*!
+ * @file
+ * @brief optionsBox.cpp
+ */
+/**
+ * @brief Box for options
+ */
 std::vector<std::string> options;
 
 
