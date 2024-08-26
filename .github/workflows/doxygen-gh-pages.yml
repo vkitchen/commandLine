@@ -14,9 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Set up Doxygen
-        uses: docker://doxygen/doxygen:latest
-
       - name: Generate documentation with Doxygen
         run: doxygen Doxyfile
 
