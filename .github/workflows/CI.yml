@@ -23,7 +23,7 @@ jobs:
 
       - name: Set up build directory
         id: directory
-        run: echo "build-dir=${{ github.workspace }}/build" >> $GITHUB_ENV
+        run: echo "build-dir=${{ github.workspace }}/C++/build" >> $GITHUB_ENV
 
       - name: Configure CMake
         run: >
