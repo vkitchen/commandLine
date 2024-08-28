@@ -22,21 +22,23 @@ jobs:
           pip install gcovr
 
       - name: Build Test
-        run: |
-          cmd /c "cd C++ && build.bat"
-          
+        working-directory: C++
+        run: build.bat
+
       - name: Run executable in test mode
-        run: |
-          cmd /c "cd C++ && a.exe -t"
-          
+        working-directory: C++
+        run: a.exe -t
+
       - name: Generate code coverage report
+        working-directory: C++
         run: |
-          cmd /c "cd C++ && llvm-cov gcov test.cpp"
-          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
+          llvm-cov gcov test.cpp
+          gcovr -r . --xml -o coverage.xml
 
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         with:
           fail_ci_if_error: true
-          files: coverage.xml
+          files: ./C++/coverage.xml
           token: ${{ secrets.CODECOV_TOKEN }}
+          working-directory: C++

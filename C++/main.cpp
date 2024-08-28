@@ -67,7 +67,9 @@ int main(int argc, char* argv[]) {
     std::string output = "You Win!, thankyou for playing :))))";
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
 
-    
+    clearWholeScreen();
+    std::string output = "Thank you for playing Escape Owheo Alpha :)";            
+    renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
 
     return 0;
 }
