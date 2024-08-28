@@ -1,9 +1,10 @@
-# CMakeList.txt : CMake project for cmakeci, include source and define
+# CMakeList.txt : CMake project for cmake, include source and define
 # project specific logic here.
 #
 
-# Add source to this project's executable.
+# Add testing files to this project's executable.
 add_executable (test_executable "test.cpp")
+# links the src files from C++/CMakeLists.txt
 target_link_libraries(test_executable src)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
