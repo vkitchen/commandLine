@@ -16,31 +16,40 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies for gcov and gcovr
-        run: |
-          choco install llvm  
-          pip install gcovr
+      # - name: Install dependencies for gcov and gcovr
+      #   run: |
+      #     choco install llvm  
+      #     pip install gcovr
 
-      - name: Configure CMake
+      - name: Set up build directory
+        id: directory
+        run: echo "build-dir=${{ github.workspace }}/build" >> $GITHUB_ENV
+
+       - name: Configure CMake
         run: |
-          cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
+          cmake -S ${{ github.workspace }} -B ${{ env.build-dir }} -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build Project
-        run: |
-          cmake --build build --config Debug
+        run: cmake --build ${{ env.build-dir }} --config Debug
 
       - name: Run Tests
-        run: |
-          ctest --test-dir build --output-on-failure --C Debug
+        working-directory: ${{ env.build-dir }}
+        run: ctest --build-config Debug
 
-      - name: Generate code coverage report
+      - name: Install OpenCppCoverage
         run: |
-          cmd /c "cd build && llvm-cov gcov a.exe"
-          cmd /c "cd build && gcovr -r . --xml -o coverage.xml"
+          choco install OpenCppCoverage
+          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
 
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v4
+      - name: Generate Coverage Report
+        shell: cmd
+        run: |
+          tree /F
+          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ env.build-dir }}
+
+      - name: Upload Coverage Report to Codecov
+        uses: codecov/codecov-action@v3
         with:
-          files: ./build/coverage.xml
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+          fail_ci_if_error: true
+          files: coverage.xml
+          token: ${{ secrets.CODECOV_TOKEN }}
