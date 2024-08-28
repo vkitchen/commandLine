@@ -22,9 +22,7 @@ jobs:
         run: sudo apt-get install doxygen -y
 
       - name: Generate Documentation
-        run: |
-          cd C++/docs
-          doxygen Doxyfile
+        run: doxygen Doxyfile
 
       - name: Deploy Documentation to GitHub Pages
         if: github.ref == 'refs/heads/main'
