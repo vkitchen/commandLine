@@ -1,8 +1,9 @@
-# CMakeList.txt : CMake project for cmakeci, include source and define
+# CMakeList.txt : CMake project for cmake, include source and define
 # project specific logic here.
 #
 
-# Add source to this project's executable.
+# Add source to this project's executable. 
+# New files (.cpp & .hpp) created need to be added here
 add_executable (cmakeci 
 "main.cpp"
 "inputListener.cpp"
@@ -26,6 +27,7 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET cmakeci PROPERTY CXX_STANDARD 20)
 endif()
 
+# New .cpp files should be included here
 add_library(src STATIC 
 inputListener.cpp
 optionsBox.cpp

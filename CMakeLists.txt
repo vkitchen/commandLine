@@ -16,4 +16,3 @@ include(CTest)
 # Include sub-projects.
 add_subdirectory ("C++")
 add_subdirectory ("C++/tests")
-# add_subdirectory ("external/Unity")
