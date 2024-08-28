@@ -8,7 +8,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Specify source files
-set(SOURCE_FILES
+add_executable(main_executable
     C++/inputListener.cpp
     C++/inputListener.hpp
     C++/main.cpp
@@ -30,8 +30,12 @@ set(SOURCE_FILES
     C++/textBox.hpp
 )
 
-# Add executable
-add_executable(test_executable ${SOURCE_FILES})
+# Add test executable
+add_executable(test_executable
+    C++/test.cpp
+    C++/test.hpp
+)
+
 
 # Add coverage flags if we're on GCC/Clang
 if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
@@ -43,4 +47,4 @@ endif()
 enable_testing()
 set(CTEST_OUTPUT_ON_FAILURE TRUE)
 
-add_test(NAME TestRun COMMAND test_executable)
+add_test(NAME TestRun COMMAND test_executable WORKING_DIRECTORY C++)
