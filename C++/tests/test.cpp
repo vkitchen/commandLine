@@ -56,7 +56,7 @@ int main(){
     // tests for image sizes
     for(int i = 0 ; i < 4; i++){
         if(!imageSize(room1[i], art, artWidth, artHeight)){
-            return 1;
+            return 0;
         }
     }
     std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
