@@ -25,7 +25,7 @@ jobs:
         working-directory: C++
         run: |
           g++ -fprofile-arcs -ftest-coverage -o a.exe test.cpp
-          .\a.exe -t
+          a.exe -t
 
       - name: Run executable in test mode
         working-directory: C++
