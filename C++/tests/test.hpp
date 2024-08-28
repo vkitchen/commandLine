@@ -14,6 +14,7 @@
 #include "../textBox.hpp"
 #include "../inputListener.hpp"
 #include "../startScreen.hpp"
+#include "../main.cpp"
 
 
 extern std::string listenerType;
