@@ -7,7 +7,7 @@ project(commandLine)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-# Specify source files
+# Add all files
 add_executable(main_executable
     C++/main.cpp
     C++/inputListener.cpp
@@ -28,7 +28,7 @@ add_executable(main_executable
     C++/textBox.hpp
 )
 
-# Add test executable
+# Add test files to executable
 add_executable(test_executable
     C++/test.cpp
     C++/test.hpp
@@ -55,4 +55,4 @@ add_executable(test_executable
 enable_testing()
 set(CTEST_OUTPUT_ON_FAILURE TRUE)
 
-add_test(NAME TestRun COMMAND test_executable WORKING_DIRECTORY C++)
+add_test(NAME TestRun COMMAND test_executable)
