@@ -16,15 +16,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Install dependencies for gcov and gcovr
+        run: |
+          choco install llvm  
+          pip install gcovr
+
       - name: Build Test
         run: |
           cmd /c "cd C++ && build.bat"
-# Doing this means all our unit tests will run each time we push code and we can see if they all still pass
+
       - name: Run executable in test mode
         run: |
           cmd /c "cd C++ && a.exe -t"
+
+      - name: Generate code coverage report
+        run: |
+          cmd /c "cd C++ && llvm-cov gcov main.cpp"
+          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
+        with:
+          files: ./C++/coverage.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
