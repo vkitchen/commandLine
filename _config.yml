@@ -1,4 +1,5 @@
 title: Command Line
 baseurl: /C++/docs/html
 exclude: 
-  - "README.md"
+  - "ReadMe.md"
+  - "md_read_me.tex"
