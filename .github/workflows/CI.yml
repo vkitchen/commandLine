@@ -25,7 +25,7 @@ jobs:
         id: directory
         run: echo "build-dir=${{ github.workspace }}/build" >> $GITHUB_ENV
 
-       - name: Configure CMake
+      - name: Configure CMake
         run: |
           cmake -S ${{ github.workspace }} -B ${{ env.build-dir }} -DCMAKE_BUILD_TYPE=Debug
 
