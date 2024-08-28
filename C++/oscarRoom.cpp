@@ -31,6 +31,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Zoom in on the computer to see the name of the cipher you will be performing, there are two hidden values you must use to surmise the answer. You should type your answer into the screen (text box)";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 1:
                 clearWholeScreen();
@@ -38,6 +39,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "mod opperator?";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 2:
                 clearWholeScreen();
@@ -45,6 +47,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Take a closer look at the mountain, there could be something usefull on it";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 3:
                 clearWholeScreen();
@@ -52,6 +55,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Your cipher text is bjurb, combine the two hidden values to obtain the original shift of your text";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             default:
                 break;
@@ -60,6 +64,11 @@ void runOscar(){
             clearWholeScreen();
             loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
+            if(currentWallIndex == 2){
+                output = "How lovely does Mt. Cargill look today :)";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if(room1ZOOMEDVIEWED[2] == false) room1ZOOMEDVIEWED[2] = true;     
+            }
             switch (currentWallIndex) 
             {
             case 0:
@@ -77,9 +86,7 @@ void runOscar(){
                     continue;
                 }
                 break;
-            case 2:
-                output = "How lovely does Mt. Cargill look today :)";            
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+            case 2:   
                 if (input == 45) {
                     zoomed = false;
                     continue;

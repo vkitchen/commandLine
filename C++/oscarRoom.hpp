@@ -15,6 +15,9 @@
 #include "startScreen.hpp"
 #include "test.hpp"
 
+extern bool room1VIEWED[];
+extern bool room1ZOOMEDVIEWED[];
+
 /*!
  * @file 
  * @brief Header file for oscarRoom.cpp
