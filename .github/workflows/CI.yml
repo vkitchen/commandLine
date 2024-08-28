@@ -11,64 +11,34 @@ on:
 jobs:
   build:
     runs-on: windows-latest
+    name: Build, Test, and Upload Code Coverage Report
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies for gcov and gcovr
-        run: |
-          choco install llvm  
-          pip install gcovr
+      - name: Setup MSBuild and add to PATH
+        uses: microsoft/setup-msbuild@v1.0.2
 
       - name: Build Test
-        run: |
-          cmd /c "cd C++ && build.bat"
-          
-      - name: Run executable in test mode
-        run: |
-          cmd /c "cd C++ && a.exe -t"
-          
-      - name: Generate code coverage report
-        run: |
-          cmd /c "cd C++ && llvm-cov gcov test.cpp"
-          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
+        run: msbuild /p:Configuration=Debug /p:Platform=x86 HelloCovDemo.sln
 
-      # - name: Set reusable strings
-      #   id: strings
-      #   shell: bash
-      #   run: |
-      #     echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
+      - name: Setup VSTest and add to PATH
+        uses: darenm/Setup-VSTest@v1
 
-      # - name: Configure CMake
-      #   run: >
-      #     cmake -B ${{ steps.strings.outputs.build-output-dir }}
-      #     -DCMAKE_CXX_COMPILER=cl
-      #     -DCMAKE_C_COMPILER=cl
-      #     -DCMAKE_BUILD_TYPE=Debug
-      #     -S ${{ github.workspace }}
-  
-      # - name: Build
-      #   run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Debug
-  
-      # - name: Test
-      #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      #   run: ctest --build-config Debug
-  
-      # - name: Install OpenCppCoverage
-      #   run: |
-      #     choco install OpenCppCoverage
-      #     echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-  
-      # - name: Generate Coverage Report
-      #   shell: cmd
-      #   run: | 
-      #     tree /F
-      #     OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ steps.strings.outputs.build-output-dir }}
-  
+      - name: Setup OpenCppCoverage and add to PATH
+        run: |
+          choco install OpenCppCoverage -y
+          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
+
+      - name: Generate Coverage Report
+        shell: cmd
+        run: | 
+          OpenCppCoverage --export_type cobertura:HelloCov.xml --cover_children -- "vstest.console.exe" Debug\HelloTest.dll
+
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         with:
+          files: HelloCov.xml
           fail_ci_if_error: true
-          files: coverage.xml
           token: ${{ secrets.CODECOV_TOKEN }}
