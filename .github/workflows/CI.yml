@@ -38,12 +38,12 @@ jobs:
         run: |
           choco install OpenCppCoverage
           echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-
+      
       - name: Generate Coverage Report
         shell: cmd
-        run: | 
+        run: |
           tree /F
-          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- C++\a.exe
+          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children --modules=C++ -- C++\a.exe
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
