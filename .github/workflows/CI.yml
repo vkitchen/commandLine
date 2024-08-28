@@ -21,9 +21,11 @@ jobs:
           choco install llvm  
           pip install gcovr
 
-      - name: Build Test
+      - name: Build and run tests
         working-directory: C++
-        run: build.bat
+        run: |
+          g++ -fprofile-arcs -ftest-coverage -o a.exe test.cpp
+          .\a.exe -t
 
       - name: Run executable in test mode
         working-directory: C++
