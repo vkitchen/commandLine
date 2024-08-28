@@ -1,0 +1,104 @@
+\doxysection{C++/render\+Art.cpp File Reference}
+\hypertarget{render_art_8cpp}{}\label{render_art_8cpp}\index{C++/renderArt.cpp@{C++/renderArt.cpp}}
+
+
+\doxylink{render_art_8cpp}{render\+Art.\+cpp}  
+
+
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$stdexcept$>$}\newline
+{\ttfamily \#include "{}render\+Art.\+hpp"{}}\newline
+{\ttfamily \#include "{}read\+Art.\+hpp"{}}\newline
+{\ttfamily \#include "{}terminal\+Helpers.\+hpp"{}}\newline
+{\ttfamily \#include "{}test.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{render_art_8cpp_a8ccecfc42fe3e21a86295d803c5213f2}{render\+Centered\+Art}} (char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}art, int art\+Width, int art\+Height)
+\begin{DoxyCompactList}\small\item\em Prints art to center of the terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{render_art_8cpp_ab6b531da6653af061b011322b8d608a6}{render\+Art}} (char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}art, int art\+Width, int art\+Height, int startX, int startY)
+\begin{DoxyCompactList}\small\item\em Prints art to the terminal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{render_art_8cpp_a908941f736b69750ee9f3a2a916dc825}{load\+Art}} (const std\+::string \&filename, char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&art, int \&art\+Width, int \&art\+Height)
+\begin{DoxyCompactList}\small\item\em Loads art to be used/printed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{render_art_8cpp_a4ca1649b0fc050ca483e5dd8996ac80d}\label{render_art_8cpp_a4ca1649b0fc050ca483e5dd8996ac80d} 
+bool {\bfseries test\+Mode}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{render_art_8cpp}{render\+Art.\+cpp} 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{render_art_8cpp_a908941f736b69750ee9f3a2a916dc825}\index{renderArt.cpp@{renderArt.cpp}!loadArt@{loadArt}}
+\index{loadArt@{loadArt}!renderArt.cpp@{renderArt.cpp}}
+\doxysubsubsection{\texorpdfstring{loadArt()}{loadArt()}}
+{\footnotesize\ttfamily \label{render_art_8cpp_a908941f736b69750ee9f3a2a916dc825} 
+void load\+Art (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{filename}{, }\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}\&}]{art}{, }\item[{int \&}]{art\+Width}{, }\item[{int \&}]{art\+Height}{}\end{DoxyParamCaption})}
+
+
+
+Loads art to be used/printed. 
+
+stores ASCII art in labal variable art, also sets art\+Width and art\+Height 
+\begin{DoxyParams}{Parameters}
+{\em filename} & path to .txt file containing art you wish to load and later use \\
+\hline
+{\em art} & \mbox{[}in\mbox{]} string for art to be stored as for printing \\
+\hline
+{\em art\+Width} & \mbox{[}in\mbox{]} the width of the txt file (largest amount of characters before /n) \\
+\hline
+{\em art\+Height} & \mbox{[}in\mbox{]} amount of lines in txt file \\
+\hline
+\end{DoxyParams}
+\Hypertarget{render_art_8cpp_ab6b531da6653af061b011322b8d608a6}\index{renderArt.cpp@{renderArt.cpp}!renderArt@{renderArt}}
+\index{renderArt@{renderArt}!renderArt.cpp@{renderArt.cpp}}
+\doxysubsubsection{\texorpdfstring{renderArt()}{renderArt()}}
+{\footnotesize\ttfamily \label{render_art_8cpp_ab6b531da6653af061b011322b8d608a6} 
+void render\+Art (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{art}{, }\item[{int}]{art\+Width}{, }\item[{int}]{art\+Height}{, }\item[{int}]{startX}{, }\item[{int}]{startY}{}\end{DoxyParamCaption})}
+
+
+
+Prints art to the terminal. 
+
+can print art wherever suits with the top left corner being given by startX and startY
+
+
+\begin{DoxyParams}{Parameters}
+{\em art} & \mbox{[}in\mbox{]} string for art to be read and printed from \\
+\hline
+{\em art\+Width} & \mbox{[}in\mbox{]} the width of the txt file (largest amount of characters before /n) \\
+\hline
+{\em art\+Height} & \mbox{[}in\mbox{]} amount of lines in txt file \\
+\hline
+{\em startX} & \mbox{[}in\mbox{]} \\
+\hline
+{\em startY} & \mbox{[}in\mbox{]} \\
+\hline
+\end{DoxyParams}
+\Hypertarget{render_art_8cpp_a8ccecfc42fe3e21a86295d803c5213f2}\index{renderArt.cpp@{renderArt.cpp}!renderCenteredArt@{renderCenteredArt}}
+\index{renderCenteredArt@{renderCenteredArt}!renderArt.cpp@{renderArt.cpp}}
+\doxysubsubsection{\texorpdfstring{renderCenteredArt()}{renderCenteredArt()}}
+{\footnotesize\ttfamily \label{render_art_8cpp_a8ccecfc42fe3e21a86295d803c5213f2} 
+void render\+Centered\+Art (\begin{DoxyParamCaption}\item[{char \texorpdfstring{$\ast$}{*}\texorpdfstring{$\ast$}{*}}]{art}{, }\item[{int}]{art\+Width}{, }\item[{int}]{art\+Height}{}\end{DoxyParamCaption})}
+
+
+
+Prints art to center of the terminal. 
+
+load\+Art must be called first to initialized the \textquotesingle{}art\textquotesingle{} global variable
+
+
+\begin{DoxyParams}{Parameters}
+{\em art} & \mbox{[}in\mbox{]} string for art to be read and printed from \\
+\hline
+{\em art\+Width} & \mbox{[}in\mbox{]} the width of the txt file (largest amount of characters before /n) \\
+\hline
+{\em art\+Height} & \mbox{[}in\mbox{]} amount of lines in txt file \\
+\hline
+\end{DoxyParams}
