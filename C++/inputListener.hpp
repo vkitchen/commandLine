@@ -10,7 +10,7 @@
  * @file
  * @brief Header file for inputListener.cpp
  * @details Provides other files the ability to listen for input from user. Depending on what 
- * funciton is used, the input listened to, and the effect that the input has will vary
+ * funciton is used, the input listened to, and the effect that the input has will
  */
 
 
@@ -41,8 +41,7 @@ void roomLeftRightListener();
 int startMenuListener();
 
 /**
- * @brief Testing
- * 
+ * @brief Setter for global variable 'input'
  * @details listens for the next keyboard press
  */
 void processInput();

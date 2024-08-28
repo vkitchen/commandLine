@@ -1,4 +1,5 @@
 #include "oscarRoom.hpp"
+#include "optionsBox.hpp"
 
 /*!
  * @file
@@ -8,6 +9,7 @@
 bool solved = false;
 std::string output;
 std::string borderChar;
+std::string answer;
 
 
 void runOscar(){
@@ -27,7 +29,6 @@ void runOscar(){
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Welcome to the first room at owheo, welcome to hell there should be a door";
-                borderChar = "#";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 1:
@@ -35,7 +36,6 @@ void runOscar(){
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Hopefully you just turned right, if not im wrong";            
-                borderChar = "#";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 2:
@@ -43,7 +43,6 @@ void runOscar(){
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "3";            
-                borderChar = "#";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 3:
@@ -51,7 +50,27 @@ void runOscar(){
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "4";            
-                borderChar = "#";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                break;
+            default:
+                break;
+            }
+        } else if (zoomed == true) {
+            clearWholeScreen();
+            loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
+            renderCenteredArt(art, artWidth, artHeight);
+            switch (currentWallIndex) 
+            {
+            case 0:
+                answer = stringInputBox("");
+                if (answer == "Owheo") {
+                    clearWholeScreen();
+                    std::string output = "!!! YOU WIN !!!";            
+                    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                }
+                break;
+            case 2:
+                output = "zoomd";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             default:

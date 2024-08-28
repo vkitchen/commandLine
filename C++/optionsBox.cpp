@@ -205,5 +205,6 @@ std::string stringInputBox(std::string wordIn) {
 
         input = '^';
     }
+    input = ' ';
     return word[0];
 }
