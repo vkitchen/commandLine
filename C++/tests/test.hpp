@@ -8,12 +8,12 @@
 #include <conio.h>
 #include <windows.h>
 #include <cstring>
-#include "renderArt.hpp"
-#include "readArt.hpp"
-#include "terminalHelpers.hpp"
-#include "textBox.hpp"
-#include "inputListener.hpp"
-#include "startScreen.hpp"
+#include "../renderArt.hpp"
+#include "../readArt.hpp"
+#include "../terminalHelpers.hpp"
+#include "../textBox.hpp"
+#include "../inputListener.hpp"
+#include "../startScreen.hpp"
 
 
 extern std::string listenerType;

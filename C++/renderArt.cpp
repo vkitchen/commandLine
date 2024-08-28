@@ -4,7 +4,7 @@
 #include "renderArt.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"
-#include "test.hpp"
+#include "tests/test.hpp"
 
 /*!
  * @file

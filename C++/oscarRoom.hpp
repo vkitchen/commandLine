@@ -13,7 +13,7 @@
 #include "textBox.hpp"
 #include "inputListener.hpp"
 #include "startScreen.hpp"
-#include "test.hpp"
+#include "tests/test.hpp"
 
 extern bool room1VIEWED[];
 extern bool room1ZOOMEDVIEWED[];

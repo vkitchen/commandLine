@@ -25,17 +25,13 @@ void testMain(){
         }
     }
     std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
-<<<<<<< HEAD
-    return 0;
 }
 
-int testMain(){
+// int testMain(){
     
-    // tests for image sizes
-    int result = testArt();
-    return result;
-=======
-    running = false;
->>>>>>> 51327dc26583eaa44a4b2241b51302f40e9a46e6
-}
+//     // tests for image sizes
+//     bool result = imageSize();
+//     return result;
+//     running = false;
+// }
 
