@@ -1,0 +1,117 @@
+\doxysection{C++/input\+Listener.cpp File Reference}
+\hypertarget{input_listener_8cpp}{}\label{input_listener_8cpp}\index{C++/inputListener.cpp@{C++/inputListener.cpp}}
+
+
+\doxylink{input_listener_8cpp}{input\+Listener.\+cpp}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}input\+Listener.\+hpp"{}}\newline
+{\ttfamily \#include "{}render\+Art.\+hpp"{}}\newline
+{\ttfamily \#include "{}text\+Box.\+hpp"{}}\newline
+{\ttfamily \#include "{}options\+Box.\+hpp"{}}\newline
+{\ttfamily \#include "{}terminal\+Helpers.\+hpp"{}}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{input_listener_8cpp_aab154b082dd58cba1ed43eb82adcf168}{process\+Input}} ()
+\begin{DoxyCompactList}\small\item\em Setter for global variable \textquotesingle{}input\textquotesingle{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_listener_8cpp_af96bb35adcf460a7c1f16894e28abede}{room\+Left\+Right\+Listener}} ()
+\begin{DoxyCompactList}\small\item\em listens for left and right arrow keys being pressed \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{input_listener_8cpp_a21c410d503f47573cf316183892e2812}{room\+Input\+Listener\+Oscar}} ()
+\begin{DoxyCompactList}\small\item\em Listens and responds to input inside of Oscar Room. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{input_listener_8cpp_a9047154172553f545afe0afefc9b2682}{start\+Menu\+Listener}} ()
+\begin{DoxyCompactList}\small\item\em Listens for up, down, and enter keys when in the start menu. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{input_listener_8cpp_aa3f63aa70892845252f66dc4752ca10e}{text\+Input\+Listener}} (std\+::string partial\+Word)
+\begin{DoxyCompactList}\small\item\em Listens for char input from keyboard. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{input_listener_8cpp_a3900c948ce77d862dad91b6e08814de6}\label{input_listener_8cpp_a3900c948ce77d862dad91b6e08814de6} 
+int {\bfseries left\+Arrow} = 75
+\item 
+\Hypertarget{input_listener_8cpp_a0bf0cc99a365c3af9d1694ab1d0db888}\label{input_listener_8cpp_a0bf0cc99a365c3af9d1694ab1d0db888} 
+int {\bfseries right\+Arrow} = 77
+\item 
+\Hypertarget{input_listener_8cpp_a504b034f1c3334f03771194f2420d7ea}\label{input_listener_8cpp_a504b034f1c3334f03771194f2420d7ea} 
+int {\bfseries up\+Arrow} = 72
+\item 
+\Hypertarget{input_listener_8cpp_afd8461301416ae31e27b4562f0835c6f}\label{input_listener_8cpp_afd8461301416ae31e27b4562f0835c6f} 
+int {\bfseries down\+Arrow} = 80
+\item 
+\Hypertarget{input_listener_8cpp_a4d86b645c394fabe7007f9a2839a33da}\label{input_listener_8cpp_a4d86b645c394fabe7007f9a2839a33da} 
+int {\bfseries enter} = 13
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{input_listener_8cpp}{input\+Listener.\+cpp} 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{input_listener_8cpp_aab154b082dd58cba1ed43eb82adcf168}\index{inputListener.cpp@{inputListener.cpp}!processInput@{processInput}}
+\index{processInput@{processInput}!inputListener.cpp@{inputListener.cpp}}
+\doxysubsubsection{\texorpdfstring{processInput()}{processInput()}}
+{\footnotesize\ttfamily \label{input_listener_8cpp_aab154b082dd58cba1ed43eb82adcf168} 
+void process\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Setter for global variable \textquotesingle{}input\textquotesingle{}. 
+
+listens for the next keyboard press \Hypertarget{input_listener_8cpp_a21c410d503f47573cf316183892e2812}\index{inputListener.cpp@{inputListener.cpp}!roomInputListenerOscar@{roomInputListenerOscar}}
+\index{roomInputListenerOscar@{roomInputListenerOscar}!inputListener.cpp@{inputListener.cpp}}
+\doxysubsubsection{\texorpdfstring{roomInputListenerOscar()}{roomInputListenerOscar()}}
+{\footnotesize\ttfamily \label{input_listener_8cpp_a21c410d503f47573cf316183892e2812} 
+void room\+Input\+Listener\+Oscar (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Listens and responds to input inside of Oscar Room. 
+
+Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls. Listens for \textquotesingle{}o\textquotesingle{} when zoomed in, and stops listening for left and right input when zoomed in \Hypertarget{input_listener_8cpp_af96bb35adcf460a7c1f16894e28abede}\index{inputListener.cpp@{inputListener.cpp}!roomLeftRightListener@{roomLeftRightListener}}
+\index{roomLeftRightListener@{roomLeftRightListener}!inputListener.cpp@{inputListener.cpp}}
+\doxysubsubsection{\texorpdfstring{roomLeftRightListener()}{roomLeftRightListener()}}
+{\footnotesize\ttfamily \label{input_listener_8cpp_af96bb35adcf460a7c1f16894e28abede} 
+void room\+Left\+Right\+Listener (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+listens for left and right arrow keys being pressed 
+
+Updates global variable \textquotesingle{}current\+Wall\+Index\textquotesingle{} depending on the key pressed \Hypertarget{input_listener_8cpp_a9047154172553f545afe0afefc9b2682}\index{inputListener.cpp@{inputListener.cpp}!startMenuListener@{startMenuListener}}
+\index{startMenuListener@{startMenuListener}!inputListener.cpp@{inputListener.cpp}}
+\doxysubsubsection{\texorpdfstring{startMenuListener()}{startMenuListener()}}
+{\footnotesize\ttfamily \label{input_listener_8cpp_a9047154172553f545afe0afefc9b2682} 
+int start\+Menu\+Listener (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Listens for up, down, and enter keys when in the start menu. 
+
+\begin{DoxyReturn}{Returns}
+int that signifies whether up (1), down (2), enter (0), or nothing (3) was pressed 
+\end{DoxyReturn}
+\Hypertarget{input_listener_8cpp_aa3f63aa70892845252f66dc4752ca10e}\index{inputListener.cpp@{inputListener.cpp}!textInputListener@{textInputListener}}
+\index{textInputListener@{textInputListener}!inputListener.cpp@{inputListener.cpp}}
+\doxysubsubsection{\texorpdfstring{textInputListener()}{textInputListener()}}
+{\footnotesize\ttfamily \label{input_listener_8cpp_aa3f63aa70892845252f66dc4752ca10e} 
+std\+::string text\+Input\+Listener (\begin{DoxyParamCaption}\item[{std\+::string}]{partial\+Word}{}\end{DoxyParamCaption})}
+
+
+
+Listens for char input from keyboard. 
+
+char input used to iteratively build word by adding keypressed to partial\+Input. Can place in whie loop when called and listen for global variable \textquotesingle{}input\textquotesingle{} to check if is = to your confirm key 
+\begin{DoxyParams}{Parameters}
+{\em partial\+Word} & \mbox{[}in\mbox{]} Should be intialised with "{}"{}, unless you feel like having a pre-\/completed word \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string of completed word wanting to be inputed in text box 
+\end{DoxyReturn}

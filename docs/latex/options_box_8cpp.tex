@@ -1,0 +1,92 @@
+\doxysection{C++/options\+Box.cpp File Reference}
+\hypertarget{options_box_8cpp}{}\label{options_box_8cpp}\index{C++/optionsBox.cpp@{C++/optionsBox.cpp}}
+
+
+\doxylink{options_box_8cpp}{options\+Box.\+cpp}  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$conio.\+h$>$}\newline
+{\ttfamily \#include $<$windows.\+h$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include "{}options\+Box.\+hpp"{}}\newline
+{\ttfamily \#include "{}input\+Listener.\+hpp"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{options_box_8cpp_ad2e4d44f6d70b91ca4d2561c9294dcff}\label{options_box_8cpp_ad2e4d44f6d70b91ca4d2561c9294dcff} 
+int {\bfseries get\+Visual\+Length} (const std\+::string \&input)
+\item 
+\Hypertarget{options_box_8cpp_a511a7e17068326e3578bad3f5f6b3274}\label{options_box_8cpp_a511a7e17068326e3578bad3f5f6b3274} 
+std\+::vector$<$ std\+::string $>$ {\bfseries populate\+Box\+Middle} (int box\+Width, int box\+Height, std\+::vector$<$ std\+::string $>$ displayed\+Options)
+\item 
+\Hypertarget{options_box_8cpp_ac69b7b08078935b0d6c23def9d703861}\label{options_box_8cpp_ac69b7b08078935b0d6c23def9d703861} 
+void {\bfseries render\+Box} (int startX, int endX, int startY, int endY, std\+::vector$<$ std\+::string $>$ displayed\+Options)
+\item 
+\Hypertarget{options_box_8cpp_aa40be9b0e8e7969166a55a6c02804b12}\label{options_box_8cpp_aa40be9b0e8e7969166a55a6c02804b12} 
+std\+::vector$<$ std\+::string $>$ {\bfseries populate\+Displayed\+Options} (int num\+Of\+Options, int selected\+Index, std\+::vector$<$ std\+::string $>$ select\+Options)
+\item 
+int \mbox{\hyperlink{options_box_8cpp_aed69e14a7fed909d72361bfd48533a78}{render\+Options\+Box}} (int startX, int endX, int startY, int endY, std\+::vector$<$ std\+::string $>$ options\+In)
+\begin{DoxyCompactList}\small\item\em Creates and displays box with options to select. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{options_box_8cpp_a879ca5687570b58d771d7b074efb14d8}{string\+Input\+Box}} (std\+::string word\+In)
+\begin{DoxyCompactList}\small\item\em Creates and displays box that user can input word into. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{options_box_8cpp_a9fa9234c86ca4ed27312fe875f4e47dc}\label{options_box_8cpp_a9fa9234c86ca4ed27312fe875f4e47dc} 
+std\+::vector$<$ std\+::string $>$ {\bfseries options}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{options_box_8cpp}{options\+Box.\+cpp} 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{options_box_8cpp_aed69e14a7fed909d72361bfd48533a78}\index{optionsBox.cpp@{optionsBox.cpp}!renderOptionsBox@{renderOptionsBox}}
+\index{renderOptionsBox@{renderOptionsBox}!optionsBox.cpp@{optionsBox.cpp}}
+\doxysubsubsection{\texorpdfstring{renderOptionsBox()}{renderOptionsBox()}}
+{\footnotesize\ttfamily \label{options_box_8cpp_aed69e14a7fed909d72361bfd48533a78} 
+int render\+Options\+Box (\begin{DoxyParamCaption}\item[{int}]{startX}{, }\item[{int}]{endX}{, }\item[{int}]{startY}{, }\item[{int}]{endY}{, }\item[{std\+::vector$<$ std\+::string $>$}]{options}{}\end{DoxyParamCaption})}
+
+
+
+Creates and displays box with options to select. 
+
+Evenly disperses the options in a vertical fashion (For Now) 
+\begin{DoxyParams}{Parameters}
+{\em startX} & \mbox{[}in\mbox{]} top left X coord of box \\
+\hline
+{\em endX} & \mbox{[}in\mbox{]} bottom right X coord of box \\
+\hline
+{\em startY} & \mbox{[}in\mbox{]} top left Y coord of box \\
+\hline
+{\em endY} & \mbox{[}in\mbox{]} bottom right Y coord of box \\
+\hline
+{\em options} & \mbox{[}in\mbox{]} string array of options to be displayed and chosen from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int returned is index of option chosen in inputed array 
+\end{DoxyReturn}
+\Hypertarget{options_box_8cpp_a879ca5687570b58d771d7b074efb14d8}\index{optionsBox.cpp@{optionsBox.cpp}!stringInputBox@{stringInputBox}}
+\index{stringInputBox@{stringInputBox}!optionsBox.cpp@{optionsBox.cpp}}
+\doxysubsubsection{\texorpdfstring{stringInputBox()}{stringInputBox()}}
+{\footnotesize\ttfamily \label{options_box_8cpp_a879ca5687570b58d771d7b074efb14d8} 
+std\+::string string\+Input\+Box (\begin{DoxyParamCaption}\item[{std\+::string}]{word\+In}{}\end{DoxyParamCaption})}
+
+
+
+Creates and displays box that user can input word into. 
+
+only listens for char (a-\/Z) and "{} "{} input. Needs to be calle din while loop that is checking global varibel \textquotesingle{}input\textquotesingle{} is not your desired terminating key press 
+\begin{DoxyParams}{Parameters}
+{\em word\+In} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}

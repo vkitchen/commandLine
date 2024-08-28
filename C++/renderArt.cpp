@@ -6,6 +6,11 @@
 #include "terminalHelpers.hpp"
 #include "test.hpp"
 
+/*!
+ * @file
+ * @brief renderArt.cpp
+ */
+
 extern bool testMode;
 
 

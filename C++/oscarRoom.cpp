@@ -1,5 +1,10 @@
 #include "oscarRoom.hpp"
 
+/*!
+ * @file
+ * @brief oscarRoom.cpp
+ */
+
 bool solved = false;
 std::string output;
 std::string borderChar;
@@ -23,7 +28,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Welcome to the first room at owheo, welcome to hell there should be a door";
                 borderChar = "#";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 1:
                 clearWholeScreen();
@@ -31,7 +36,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Hopefully you just turned right, if not im wrong";            
                 borderChar = "#";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 2:
                 clearWholeScreen();
@@ -39,7 +44,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "3";            
                 borderChar = "#";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 3:
                 clearWholeScreen();
@@ -47,7 +52,7 @@ void runOscar(){
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "4";            
                 borderChar = "#";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             default:
                 break;

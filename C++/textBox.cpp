@@ -9,8 +9,13 @@
 #include"inputListener.hpp"
 #include "textBox.hpp"
 
+/*!
+ * @file
+ * @brief textBox.cpp
+ */
+
 // Function that populates box with content fed into it
-std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content, std::string& borderChar) {
+std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
 
     int verticalPadding = 1; // One line padding from the top and bottom
@@ -43,11 +48,11 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, const std::string& text, std::string& borderChar) {
+void renderBox(int startX, int endX, int startY, int endY, const std::string& text) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
-    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, "", borderChar);
+    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, "");
 
     COORD coord;
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);

@@ -11,9 +11,7 @@
  * @file
  * @brief optionsBox.cpp
  */
-/**
- * @brief Box for options
- */
+
 std::vector<std::string> options;
 
 
@@ -181,12 +179,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 }
 
 
-/*!
- * @brief Return inputed string
- * @details Displays and processes string input box
- * @param wordIn 
- * @return std::string 
- */
+
 std::string stringInputBox(std::string wordIn) {
     std::vector<std::string> word(1);
     word[0] = wordIn;
