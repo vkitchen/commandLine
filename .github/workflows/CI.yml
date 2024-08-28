@@ -11,34 +11,32 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    name: Build, Test, and Upload Code Coverage Report
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Setup MSBuild and add to PATH
-        uses: microsoft/setup-msbuild@v1.0.2
+      - name: Install dependencies for gcov and gcovr
+        run: |
+          choco install llvm  
+          pip install gcovr
 
       - name: Build Test
-        run: msbuild /p:Configuration=Debug /p:Platform=x86 C++/test.cpp
-
-      - name: Setup VSTest and add to PATH
-        uses: darenm/Setup-VSTest@v1
-
-      - name: Setup OpenCppCoverage and add to PATH
         run: |
-          choco install OpenCppCoverage -y
-          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-
-      - name: Generate Coverage Report
-        shell: cmd
-        run: | 
-          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- "vstest.console.exe" Debug\test.cpp
+          cmd /c "cd C++ && build.bat"
+          
+      - name: Run executable in test mode
+        run: |
+          cmd /c "cd C++ && a.exe -t"
+          
+      - name: Generate code coverage report
+        run: |
+          cmd /c "cd C++ && llvm-cov gcov test.cpp"
+          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
 
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         with:
-          files: HelloCov.xml
           fail_ci_if_error: true
+          files: coverage.xml
           token: ${{ secrets.CODECOV_TOKEN }}
