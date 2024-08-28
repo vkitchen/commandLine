@@ -24,8 +24,8 @@ add_executable(main_executable
     C++/startScreen.hpp
     C++/terminalHelpers.cpp
     C++/terminalHelpers.hpp
-    C++/test.cpp
-    C++/test.hpp
+    # C++/test.cpp
+    # C++/test.hpp
     C++/textBox.cpp
     C++/textBox.hpp
 )
