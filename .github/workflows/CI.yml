@@ -21,44 +21,22 @@ jobs:
           choco install llvm  
           pip install gcovr
 
-      - name: Configure CMake
+      - name: Build Test
         run: |
-          cmake -B build -DCMAKE_BUILD_TYPE=Debug -G "NMake Makefiles" -S
+          cmd /c "cd C++ && build.bat"
 
-      - name: Build Project
-        run: cmake --build build --config Debug
-
-      - name: Run Tests
-        run: ctest --test-dir build --build-config Debug
+      - name: Run executable in test mode
+        run: |
+          cmd /c "cd C++ && a.exe -t"
 
       - name: Generate code coverage report
         run: |
-          llvm-cov gcov ./build/CMakeFiles/commmandLine.dir/src/*.cpp
-          gcovr -r . --xml -o build/coverage.xml
+          cmd /c "cd C++ && llvm-cov gcov main.cpp"
+          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
 
-      - name: Upload coverage report to Codecov
+      - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: build/coverage.xml
+          files: ./C++/coverage.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
-      # - name: Build Test
-      #   run: |
-      #     cmd /c "cd C++ && build.bat"
-
-      # - name: Run executable in test mode
-      #   run: |
-      #     cmd /c "cd C++ && a.exe -t"
-
-      # - name: Generate code coverage report
-      #   run: |
-      #     cmd /c "cd C++ && llvm-cov gcov main.cpp"
-      #     cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
-
-      # - name: Upload coverage to Codecov
-      #   uses: codecov/codecov-action@v4
-      #   with:
-      #     files: ./C++/coverage.xml
-      #   env:
-      #     CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
