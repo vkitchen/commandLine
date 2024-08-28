@@ -11,44 +11,44 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 add_executable(main_executable
     C++/main.cpp
     C++/inputListener.cpp
-    C++/inputListener.hpp
+    # C++/inputListener.hpp
     C++/optionsBox.cpp
-    C++/optionsBox.hpp
+    # C++/optionsBox.hpp
     C++/oscarRoom.cpp
-    C++/oscarRoom.hpp
+    # C++/oscarRoom.hpp
     C++/readArt.cpp
-    C++/readArt.hpp
+    # C++/readArt.hpp
     C++/renderArt.cpp
-    C++/renderArt.hpp
+    # C++/renderArt.hpp
     C++/startScreen.cpp
-    C++/startScreen.hpp
+    # C++/startScreen.hpp
     C++/terminalHelpers.cpp
-    C++/terminalHelpers.hpp
+    # C++/terminalHelpers.hpp
     C++/textBox.cpp
-    C++/textBox.hpp
+    # C++/textBox.hpp
 )
 
 # Add test files to executable
 add_executable(test_executable
     C++/test.cpp
-    C++/test.hpp
+    # C++/test.hpp
     C++/main.cpp
     C++/inputListener.cpp
-    C++/inputListener.hpp
+    # C++/inputListener.hpp
     C++/optionsBox.cpp
-    C++/optionsBox.hpp
+    # C++/optionsBox.hpp
     C++/oscarRoom.cpp
-    C++/oscarRoom.hpp
+    # C++/oscarRoom.hpp
     C++/readArt.cpp
-    C++/readArt.hpp
+    # C++/readArt.hpp
     C++/renderArt.cpp
-    C++/renderArt.hpp
+    # C++/renderArt.hpp
     C++/startScreen.cpp
-    C++/startScreen.hpp
+    # C++/startScreen.hpp
     C++/terminalHelpers.cpp
-    C++/terminalHelpers.hpp
+    # C++/terminalHelpers.hpp
     C++/textBox.cpp
-    C++/textBox.hpp
+    # C++/textBox.hpp
 )
 
 # Add tests
