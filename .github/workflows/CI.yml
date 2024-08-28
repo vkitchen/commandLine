@@ -16,15 +16,32 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Build Test
+      - name: Install dependencies
         run: |
-          cmd /c "cd C++ && build.bat"
-# Doing this means all our unit tests will run each time we push code and we can see if they all still pass
-      - name: Run executable in test mode
+          choco install cmake llvm
+          pip install gcovr
+
+      - name: Configure CMake
         run: |
-          cmd /c "cd C++ && a.exe -t"
+          cmake -B build -DCMAKE_BUILD_TYPE=Debug
+
+      - name: Build Project
+        run: |
+          cmake --build build
+
+      - name: Run Tests
+        run: |
+          ctest --test-dir build
+
+      - name: Generate Code Coverage Report
+        run: |
+          cd build
+          llvm-cov gcov TestRun
+          gcovr -r .. --xml -o coverage.xml
+
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
+        with:
+          files: build/coverage.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
