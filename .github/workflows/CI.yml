@@ -23,11 +23,15 @@ jobs:
 
       - name: Set up build directory
         id: directory
-        run: echo "build-dir=${{ github.workspace }}/build" >> $GITHUB_ENV
+        run: echo "build-dir=${{ github.workspace }}/build" >> $GITHUB_OUTPUT
 
       - name: Configure CMake
-        run: |
-          cmake -S ${{ github.workspace }} -B ${{ steps.directory.outputs.build-dir }} -DCMAKE_BUILD_TYPE=Debug
+        run: >
+          cmake -B ${{ steps.directory.outputs.build-dir }}
+          -DCMAKE_CXX_COMPILER=cl
+          -DCMAKE_C_COMPILER=cl
+          -DCMAKE_BUILD_TYPE=Debug
+          -S ${{ github.workspace }}
 
       - name: Build Project
         run: cmake --build ${{ steps.directory.outputs.build-dir }} --config Debug
