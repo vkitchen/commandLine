@@ -70,6 +70,8 @@ void runOscar(){
                     clearWholeScreen();
                     std::string output = "!!! YOU WIN !!!";            
                     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
+                    Sleep(2000);
+                    solved = true;
                 } else if (input == 45) {
                     zoomed = false;
                     continue;
