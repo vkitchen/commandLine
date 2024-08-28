@@ -196,7 +196,7 @@ std::string stringInputBox(std::string wordIn) {
         std::string nextInput = textInputListener(word[0]);
 
         // Check if Enter was pressed (handled inside textInputListener)
-        if (!nextInput.empty() && input == 13 || input == 27) {
+        if (!nextInput.empty() && input == 13 || input == 45) {
             break;
         }
 

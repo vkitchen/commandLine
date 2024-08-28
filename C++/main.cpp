@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <conio.h>
+//#include <conio.h>
 #include <windows.h>
 #include <cstring>
 #include "renderArt.hpp"
