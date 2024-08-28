@@ -43,7 +43,7 @@ jobs:
         shell: cmd
         run: | 
           tree /F
-          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ steps.strings.outputs.build-output-dir }}
+          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- C++\a.exe
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
