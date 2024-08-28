@@ -31,7 +31,7 @@ jobs:
 
       - name: Generate code coverage report
         run: |
-          cmd /c "cd C++ && llvm-cov gcov test.cpp"
+          cmd /c "cd C++ && llvm-cov gcov a.exe -t"
           cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
       
       # - name: Install OpenCppCoverage
