@@ -34,38 +34,6 @@ jobs:
           cmd /c "cd C++ && llvm-cov gcov test.cpp"
           cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
 
-      # - name: Set reusable strings
-      #   id: strings
-      #   shell: bash
-      #   run: |
-      #     echo "build-output-dir=${{ github.workspace }}/build" >> "$GITHUB_OUTPUT"
-
-      # - name: Configure CMake
-      #   run: >
-      #     cmake -B ${{ steps.strings.outputs.build-output-dir }}
-      #     -DCMAKE_CXX_COMPILER=cl
-      #     -DCMAKE_C_COMPILER=cl
-      #     -DCMAKE_BUILD_TYPE=Debug
-      #     -S ${{ github.workspace }}
-  
-      # - name: Build
-      #   run: cmake --build ${{ steps.strings.outputs.build-output-dir }} --config Debug
-  
-      # - name: Test
-      #   working-directory: ${{ steps.strings.outputs.build-output-dir }}
-      #   run: ctest --build-config Debug
-  
-      # - name: Install OpenCppCoverage
-      #   run: |
-      #     choco install OpenCppCoverage
-      #     echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-  
-      # - name: Generate Coverage Report
-      #   shell: cmd
-      #   run: | 
-      #     tree /F
-      #     OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ steps.strings.outputs.build-output-dir }}
-  
       - name: Upload Report to Codecov
         uses: codecov/codecov-action@v3
         with:

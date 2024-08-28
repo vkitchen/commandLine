@@ -67,17 +67,24 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
     // Non-blocking text rendering
     int startXText = (boxWidth - text.length()) / 2 + startX;
     int startYText = (boxHeight - 1) / 2 + startY;
-
-    for (char c : text) {
-        // Check for input before printing the next character
-        if (_kbhit()) {
-            return;
-        }
-
-        coord = {static_cast<SHORT>(startXText++), static_cast<SHORT>(startYText)};
+    coord = {static_cast<SHORT>(startXText), static_cast<SHORT>(startYText)};
+    if(!zoomed && room1VIEWED[currentWallIndex] == true || zoomed && room1ZOOMEDVIEWED[currentWallIndex] == true){
+        
         SetConsoleCursorPosition(console, coord);
-        std::cout << c;
+        std::cout << text;
         std::cout.flush();
-        Sleep(5); // Adjust delay as needed
+    }else{
+        for (char c : text) {
+            // Check for input before printing the next character
+            if (_kbhit()) {
+                return;
+            }
+
+            coord = {static_cast<SHORT>(startXText++), static_cast<SHORT>(startYText)};
+            SetConsoleCursorPosition(console, coord);
+            std::cout << c;
+            std::cout.flush();
+            Sleep(5); // Adjust delay as needed
+        }
     }
 }
