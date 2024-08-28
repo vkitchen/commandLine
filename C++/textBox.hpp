@@ -14,6 +14,8 @@
 
 
 extern int totalConsoleHeight, totalConsoleWidth;
+extern bool room1VIEWED[];
+extern bool room1ZOOMEDVIEWED[];
 
 /**
  * @brief renders test box on screen with text
