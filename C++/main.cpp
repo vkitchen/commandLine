@@ -41,12 +41,12 @@ bool zoomed = false;
 std::vector<std::string> currentWall;
 
 int main(int argc, char* argv[]) {
-    for(int i = 1; i < argc; i++){
-        if(std::strcmp(argv[i], "-t") == 0){
-            testMain();
-            return 0;
-        }
-    }
+    // for(int i = 1; i < argc; i++){
+    //     if(std::strcmp(argv[i], "-t") == 0){
+    //         testMain();
+    //         return 0;
+    //     }
+    // }
 
 
 // Terminal setups
