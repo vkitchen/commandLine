@@ -25,14 +25,6 @@ jobs:
         id: directory
         run: echo "build-dir=${{ github.workspace }}/C++/build" >> $GITHUB_ENV
 
-      - name: Configure CMake
-        run: >
-          cmake -B ${{ env.build-dir }}
-          -DCMAKE_CXX_COMPILER=cl
-          -DCMAKE_C_COMPILER=cl
-          -DCMAKE_BUILD_TYPE=Debug
-          -S ${{ github.workspace }}
-
       - name: Build Project
         run: cmake --build ${{ env.build-dir }} --config Debug
 
