@@ -25,6 +25,7 @@ int main(){
         }
     }
     std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
+    return 0;
 }
 
 // int testMain(){
