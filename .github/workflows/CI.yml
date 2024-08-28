@@ -29,10 +29,21 @@ jobs:
         run: |
           cmd /c "cd C++ && a.exe -t"
 
-      - name: Generate code coverage report
+      # - name: Generate code coverage report
+      #   run: |
+      #     cmd /c "cd C++ && llvm-cov gcov main.cpp"
+      #     cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
+      
+      - name: Install OpenCppCoverage
         run: |
-          cmd /c "cd C++ && llvm-cov gcov main.cpp"
-          cmd /c "cd C++ && gcovr -r . --xml -o coverage.xml"
+          choco install OpenCppCoverage
+          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
+
+      - name: Generate Coverage Report
+        shell: cmd
+        run: | 
+          tree /F
+          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ steps.strings.outputs.build-output-dir }}
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
