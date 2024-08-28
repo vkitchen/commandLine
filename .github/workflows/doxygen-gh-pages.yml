@@ -10,7 +10,7 @@ on:
 
 jobs:
   generate-docs:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     permissions:
       contents: write  # Grants write permission to the contents
 
