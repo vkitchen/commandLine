@@ -95,7 +95,7 @@ std::string textInputListener(std::string partialWord) {
         (input >= 'A' && input <= 'Z') ||  
         input == ' ') {
         output += input;  // Append valid character to output
-    } else if (input == '\r') {  // Check for Enter key (carriage return)
+    } else if (input == enter) {  // Check for Enter key (carriage return)
         return output;  // Return the output when Enter is pressed
     }
 

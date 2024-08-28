@@ -41,7 +41,8 @@ void roomLeftRightListener();
 int startMenuListener();
 
 /**
- * @brief Setter for global variable 'input'
+ * @brief Testing
+ * 
  * @details listens for the next keyboard press
  */
 void processInput();

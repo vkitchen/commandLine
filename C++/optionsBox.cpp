@@ -97,7 +97,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vec
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, std::vector<std::string> displayedOptions) {
+void renderBoxOptions(int startX, int endX, int startY, int endY, std::vector<std::string> displayedOptions) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
@@ -150,7 +150,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 
     while (true) {
 
-        renderBox(startX, endX, startY, endY, displayedOptions);
+        renderBoxOptions(startX, endX, startY, endY, displayedOptions);
 
         processInput();
         
@@ -185,8 +185,12 @@ std::string stringInputBox(std::string wordIn) {
     word[0] = wordIn;
     while (true) {
         // Render the text box with current input
-        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, word);// Assuming default console sizes for example
+        renderBoxOptions(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, word);// Assuming default console sizes for example
         Sleep(20);
+
+        if (input == '^') {
+            processInput();
+        }
 
         // Get next input string
         std::string nextInput = textInputListener(word[0]);
@@ -198,6 +202,8 @@ std::string stringInputBox(std::string wordIn) {
 
         // Update the input for the next loop iteration
         word[0] = nextInput;
+
+        input = '^';
     }
     return word[0];
 }
