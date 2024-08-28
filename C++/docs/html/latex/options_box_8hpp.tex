@@ -1,0 +1,75 @@
+\doxysection{options\+Box.\+hpp File Reference}
+\hypertarget{options_box_8hpp}{}\label{options_box_8hpp}\index{optionsBox.hpp@{optionsBox.hpp}}
+
+
+options\+Box.\+cpp  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{options_box_8hpp_aa12009c7f2600ce712f95880c383e680}{render\+Options\+Box}} (int startX, int endX, int startY, int endY, std\+::vector$<$ std\+::string $>$ options)
+\begin{DoxyCompactList}\small\item\em Creates and displays box with options to select. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{options_box_8hpp_a879ca5687570b58d771d7b074efb14d8}{string\+Input\+Box}} (std\+::string word\+In)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{options_box_8hpp_ad8f4efd9ccaed2a5ceac9cd2eef4954f}\label{options_box_8hpp_ad8f4efd9ccaed2a5ceac9cd2eef4954f} 
+int {\bfseries total\+Console\+Height}
+\item 
+\Hypertarget{options_box_8hpp_a2fbf4a6b17369615390768e775c89c9d}\label{options_box_8hpp_a2fbf4a6b17369615390768e775c89c9d} 
+int {\bfseries total\+Console\+Width}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+options\+Box.\+cpp 
+
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{options_box_8hpp_aa12009c7f2600ce712f95880c383e680}\index{optionsBox.hpp@{optionsBox.hpp}!renderOptionsBox@{renderOptionsBox}}
+\index{renderOptionsBox@{renderOptionsBox}!optionsBox.hpp@{optionsBox.hpp}}
+\doxysubsubsection{\texorpdfstring{renderOptionsBox()}{renderOptionsBox()}}
+{\footnotesize\ttfamily \label{options_box_8hpp_aa12009c7f2600ce712f95880c383e680} 
+int render\+Options\+Box (\begin{DoxyParamCaption}\item[{int}]{startX}{, }\item[{int}]{endX}{, }\item[{int}]{startY}{, }\item[{int}]{endY}{, }\item[{std\+::vector$<$ std\+::string $>$}]{options}{}\end{DoxyParamCaption})}
+
+
+
+Creates and displays box with options to select. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em startX} & \mbox{[}in\mbox{]} top left X coord of box \\
+\hline
+{\em endX} & \mbox{[}in\mbox{]} bottom right X coord of box \\
+\hline
+{\em startY} & \mbox{[}in\mbox{]} top left Y coord of box \\
+\hline
+{\em endY} & \mbox{[}in\mbox{]} bottom right Y coord of box \\
+\hline
+{\em options} & \mbox{[}in\mbox{]} string array of options to be displayed and chosen from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int returned is index of option chosen in inputed array 
+\end{DoxyReturn}
+\Hypertarget{options_box_8hpp_a879ca5687570b58d771d7b074efb14d8}\index{optionsBox.hpp@{optionsBox.hpp}!stringInputBox@{stringInputBox}}
+\index{stringInputBox@{stringInputBox}!optionsBox.hpp@{optionsBox.hpp}}
+\doxysubsubsection{\texorpdfstring{stringInputBox()}{stringInputBox()}}
+{\footnotesize\ttfamily \label{options_box_8hpp_a879ca5687570b58d771d7b074efb14d8} 
+std\+::string string\+Input\+Box (\begin{DoxyParamCaption}\item[{std\+::string}]{word\+In}{}\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em word\+In} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+std\+::string 
+\end{DoxyReturn}

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['optionsbox_2ecpp_0',['optionsBox.cpp',['../options_box_8cpp.html',1,'']]]
+  ['optionsbox_2ehpp_0',['optionsBox.hpp',['../options_box_8hpp.html',1,'']]]
 ];

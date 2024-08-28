@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Escape Owheo: optionsBox.cpp File Reference</title>
+<title>Escape Owheo: optionsBox.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -87,53 +87,41 @@ $(function(){ initResizable(false); });
   <div class="summary">
 <a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
-  <div class="headertitle"><div class="title">optionsBox.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">optionsBox.hpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><a class="el" href="options_box_8cpp.html" title="optionsBox.cpp">optionsBox.cpp</a>  
+<p>optionsBox.cpp  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
-<code>#include &lt;conio.h&gt;</code><br />
-<code>#include &lt;windows.h&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
-<code>#include &quot;<a class="el" href="options_box_8hpp_source.html">optionsBox.hpp</a>&quot;</code><br />
-<code>#include &quot;inputListener.hpp&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="options_box_8hpp_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ad2e4d44f6d70b91ca4d2561c9294dcff" id="r_ad2e4d44f6d70b91ca4d2561c9294dcff"><td class="memItemLeft" align="right" valign="top"><a id="ad2e4d44f6d70b91ca4d2561c9294dcff" name="ad2e4d44f6d70b91ca4d2561c9294dcff"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getVisualLength</b> (const std::string &amp;input)</td></tr>
-<tr class="separator:ad2e4d44f6d70b91ca4d2561c9294dcff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a511a7e17068326e3578bad3f5f6b3274" id="r_a511a7e17068326e3578bad3f5f6b3274"><td class="memItemLeft" align="right" valign="top"><a id="a511a7e17068326e3578bad3f5f6b3274" name="a511a7e17068326e3578bad3f5f6b3274"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>populateBoxMiddle</b> (int boxWidth, int boxHeight, std::vector&lt; std::string &gt; displayedOptions)</td></tr>
-<tr class="separator:a511a7e17068326e3578bad3f5f6b3274"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac69b7b08078935b0d6c23def9d703861" id="r_ac69b7b08078935b0d6c23def9d703861"><td class="memItemLeft" align="right" valign="top"><a id="ac69b7b08078935b0d6c23def9d703861" name="ac69b7b08078935b0d6c23def9d703861"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>renderBox</b> (int startX, int endX, int startY, int endY, std::vector&lt; std::string &gt; displayedOptions)</td></tr>
-<tr class="separator:ac69b7b08078935b0d6c23def9d703861"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40be9b0e8e7969166a55a6c02804b12" id="r_aa40be9b0e8e7969166a55a6c02804b12"><td class="memItemLeft" align="right" valign="top"><a id="aa40be9b0e8e7969166a55a6c02804b12" name="aa40be9b0e8e7969166a55a6c02804b12"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>populateDisplayedOptions</b> (int numOfOptions, int selectedIndex, std::vector&lt; std::string &gt; selectOptions)</td></tr>
-<tr class="separator:aa40be9b0e8e7969166a55a6c02804b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed69e14a7fed909d72361bfd48533a78" id="r_aed69e14a7fed909d72361bfd48533a78"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed69e14a7fed909d72361bfd48533a78">renderOptionsBox</a> (int startX, int endX, int startY, int endY, std::vector&lt; std::string &gt; optionsIn)</td></tr>
-<tr class="separator:aed69e14a7fed909d72361bfd48533a78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa12009c7f2600ce712f95880c383e680" id="r_aa12009c7f2600ce712f95880c383e680"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa12009c7f2600ce712f95880c383e680">renderOptionsBox</a> (int startX, int endX, int startY, int endY, std::vector&lt; std::string &gt; options)</td></tr>
+<tr class="memdesc:aa12009c7f2600ce712f95880c383e680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and displays box with options to select.  <br /></td></tr>
+<tr class="separator:aa12009c7f2600ce712f95880c383e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a879ca5687570b58d771d7b074efb14d8" id="r_a879ca5687570b58d771d7b074efb14d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a879ca5687570b58d771d7b074efb14d8">stringInputBox</a> (std::string wordIn)</td></tr>
-<tr class="memdesc:a879ca5687570b58d771d7b074efb14d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return inputed string.  <br /></td></tr>
 <tr class="separator:a879ca5687570b58d771d7b074efb14d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a9fa9234c86ca4ed27312fe875f4e47dc" id="r_a9fa9234c86ca4ed27312fe875f4e47dc"><td class="memItemLeft" align="right" valign="top"><a id="a9fa9234c86ca4ed27312fe875f4e47dc" name="a9fa9234c86ca4ed27312fe875f4e47dc"></a>
-std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>options</b></td></tr>
-<tr class="memdesc:a9fa9234c86ca4ed27312fe875f4e47dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Box for options. <br /></td></tr>
-<tr class="separator:a9fa9234c86ca4ed27312fe875f4e47dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8f4efd9ccaed2a5ceac9cd2eef4954f" id="r_ad8f4efd9ccaed2a5ceac9cd2eef4954f"><td class="memItemLeft" align="right" valign="top"><a id="ad8f4efd9ccaed2a5ceac9cd2eef4954f" name="ad8f4efd9ccaed2a5ceac9cd2eef4954f"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>totalConsoleHeight</b></td></tr>
+<tr class="separator:ad8f4efd9ccaed2a5ceac9cd2eef4954f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fbf4a6b17369615390768e775c89c9d" id="r_a2fbf4a6b17369615390768e775c89c9d"><td class="memItemLeft" align="right" valign="top"><a id="a2fbf4a6b17369615390768e775c89c9d" name="a2fbf4a6b17369615390768e775c89c9d"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>totalConsoleWidth</b></td></tr>
+<tr class="separator:a2fbf4a6b17369615390768e775c89c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p><a class="el" href="options_box_8cpp.html" title="optionsBox.cpp">optionsBox.cpp</a> </p>
+<div class="textblock"><p>optionsBox.cpp </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="aed69e14a7fed909d72361bfd48533a78" name="aed69e14a7fed909d72361bfd48533a78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed69e14a7fed909d72361bfd48533a78">&#9670;&#160;</a></span>renderOptionsBox()</h2>
+<a id="aa12009c7f2600ce712f95880c383e680" name="aa12009c7f2600ce712f95880c383e680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa12009c7f2600ce712f95880c383e680">&#9670;&#160;</a></span>renderOptionsBox()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,17 +153,19 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Creates and displays box with options to select. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">startX</td><td></td></tr>
-    <tr><td class="paramname">endX</td><td></td></tr>
-    <tr><td class="paramname">startY</td><td></td></tr>
-    <tr><td class="paramname">endY</td><td></td></tr>
-    <tr><td class="paramname">options</td><td></td></tr>
+    <tr><td class="paramname">startX</td><td>[in] top left X coord of box </td></tr>
+    <tr><td class="paramname">endX</td><td>[in] bottom right X coord of box </td></tr>
+    <tr><td class="paramname">startY</td><td>[in] top left Y coord of box </td></tr>
+    <tr><td class="paramname">endY</td><td>[in] bottom right Y coord of box </td></tr>
+    <tr><td class="paramname">options</td><td>[in] string array of options to be displayed and chosen from </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int returned is index of option chosen in inputed array </dd></dl>
 
 </div>
 </div>
@@ -193,9 +183,7 @@ std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bott
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Return inputed string. </p>
-<p>Displays and processes string input box </p><dl class="params"><dt>Parameters</dt><dd>
+<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">wordIn</td><td></td></tr>
   </table>

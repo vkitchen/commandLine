@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stringinputbox_0',['stringInputBox',['../options_box_8cpp.html#a879ca5687570b58d771d7b074efb14d8',1,'optionsBox.cpp']]]
+  ['renderoptionsbox_0',['renderOptionsBox',['../options_box_8hpp.html#aa12009c7f2600ce712f95880c383e680',1,'optionsBox.cpp']]]
 ];
