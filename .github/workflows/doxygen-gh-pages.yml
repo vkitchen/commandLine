@@ -1,32 +1,32 @@
-name: Generate Documentation
+# name: Generate Documentation
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+# on:
+#   push:
+#     branches:
+#       - main
+#   pull_request:
+#     branches:
+#       - main
 
-jobs:
-  generate-docs:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Grants write permission to the contents
+# jobs:
+#   generate-docs:
+#     runs-on: ubuntu-latest
+#     permissions:
+#       contents: write  # Grants write permission to the contents
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v3
 
-      - name: Install Doxygen
-        run: sudo apt-get install doxygen -y
+#       - name: Install Doxygen
+#         run: sudo apt-get install doxygen -y
 
-      - name: Generate Documentation
-        run: doxygen Doxyfile
+#       - name: Generate Documentation
+#         run: doxygen Doxyfile
 
-      - name: Deploy Documentation to GitHub Pages
-        if: github.ref == 'refs/heads/main'
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: C++/docs/html
+#       - name: Deploy Documentation to GitHub Pages
+#         if: github.ref == 'refs/heads/main'
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: C++/docs/html
