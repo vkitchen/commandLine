@@ -16,15 +16,24 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
 }
 
 // main method to handle al ltests
-void testMain(){
+int testArt(){
 
     // tests for image sizes
     for(int i = 0 ; i < 4; i++){
         if(!imageSize(room1[i], art, artWidth, artHeight)){
-            return;
+            std::cout << "Incorrect image size in room1[" << i << "]" << std::endl; 
+            return 1;
         }
     }
     std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
-    running = false;
+    return 0;
+}
+
+int main(){
+    result = 0;
+    
+    // tests for image sizes
+    int result = testArt();
+    return result;
 }
 

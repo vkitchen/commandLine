@@ -10,6 +10,8 @@ bool solved = false;
 std::string output;
 std::string borderChar;
 std::string answer;
+std::string instruction;
+
 
 void runOscar(){
 
@@ -70,6 +72,8 @@ void runOscar(){
             switch (currentWallIndex) 
             {
             case 0:
+                instruction = "input your cipher answer:";
+                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instruction);
                 answer = stringInputBox("");
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
