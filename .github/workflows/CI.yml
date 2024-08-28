@@ -16,32 +16,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
+      - name: Install dependencies for gcov and gcovr
         run: |
-          choco install cmake llvm
+          choco install llvm  
           pip install gcovr
 
       - name: Configure CMake
         run: |
-          cmake -B build -DCMAKE_BUILD_TYPE=Debug
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build Project
         run: |
-          cmake --build build
+          cmake --build build --config Debug
 
       - name: Run Tests
         run: |
-          ctest --test-dir build
+          ctest --test-dir build --output-on-failure --C Debug
 
-      - name: Generate Code Coverage Report
+      - name: Generate code coverage report
         run: |
-          cd build
-          llvm-cov gcov TestRun
-          gcovr -r .. --xml -o coverage.xml
+          cmd /c "cd build && llvm-cov gcov a.exe"
+          cmd /c "cd build && gcovr -r . --xml -o coverage.xml"
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v4
         with:
-          files: build/coverage.xml
+          files: ./build/coverage.xml
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
