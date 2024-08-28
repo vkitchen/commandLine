@@ -77,8 +77,8 @@ void runOscar(){
                 answer = stringInputBox("");
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
-                    std::string output = "!!! YOU WIN !!!";            
-                    renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
+                    solved = true;
+                    return;
                 } else if (input == 45) {
                     zoomed = false;
                     continue;
