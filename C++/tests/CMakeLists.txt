@@ -3,7 +3,7 @@
 #
 
 # Add source to this project's executable.
-add_executable (test_executable "test.cpp")
+add_executable (test_executable "test.cpp" "../readArt.cpp")
 # target_link_libraries(test src unity)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
