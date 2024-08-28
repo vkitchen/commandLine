@@ -63,8 +63,6 @@ int main(int argc, char* argv[]) {
     }
     clearWholeScreen();
     runOscar();
-    // Below code is jank, but when hit new game need to intialise from start screen the room
-
     clearWholeScreen();
     std::string output = "Thank you for playing Escape Owheo Alpha :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);

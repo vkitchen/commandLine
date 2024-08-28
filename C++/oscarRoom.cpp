@@ -26,7 +26,6 @@ void runOscar(){
             switch (currentWallIndex)
             {
             case 0:
-                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Zoom in on the computer to see the name of the cipher you will be performing, there are two hidden values you must use to surmise the answer. You should type your answer into the screen (text box)";
@@ -34,7 +33,6 @@ void runOscar(){
                 if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 1:
-                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "mod opperator?";            
@@ -42,7 +40,6 @@ void runOscar(){
                 if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 2:
-                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Take a closer look at the mountain, there could be something usefull on it";            
@@ -50,7 +47,6 @@ void runOscar(){
                 if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;
             case 3:
-                clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 output = "Your cipher text is bjurb, combine the two hidden values to obtain the original shift of your text";            
@@ -77,18 +73,18 @@ void runOscar(){
                 answer = stringInputBox("");
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
-                    std::string output = "!!! YOU WIN !!!";            
-                    renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
-                    Sleep(2000);
                     solved = true;
+                    return;
                 } else if (input == 45) {
                     zoomed = false;
+                    clearWholeScreen();
                     continue;
                 }
                 break;
             case 2:   
                 if (input == 45) {
                     zoomed = false;
+                    clearWholeScreen();
                     continue;
                 }
                 break;

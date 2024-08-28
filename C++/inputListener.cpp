@@ -56,6 +56,7 @@ void roomInputListenerOscar() {
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
     } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
+        clearWholeScreen();
         zoomed = true;
     }
 }
