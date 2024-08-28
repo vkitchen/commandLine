@@ -9,9 +9,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 # Specify source files
 add_executable(main_executable
+    C++/main.cpp
     C++/inputListener.cpp
     C++/inputListener.hpp
-    C++/main.cpp
     C++/optionsBox.cpp
     C++/optionsBox.hpp
     C++/oscarRoom.cpp
@@ -24,8 +24,6 @@ add_executable(main_executable
     C++/startScreen.hpp
     C++/terminalHelpers.cpp
     C++/terminalHelpers.hpp
-    # C++/test.cpp
-    # C++/test.hpp
     C++/textBox.cpp
     C++/textBox.hpp
 )
@@ -34,6 +32,23 @@ add_executable(main_executable
 add_executable(test_executable
     C++/test.cpp
     C++/test.hpp
+    C++/main.cpp
+    C++/inputListener.cpp
+    C++/inputListener.hpp
+    C++/optionsBox.cpp
+    C++/optionsBox.hpp
+    C++/oscarRoom.cpp
+    C++/oscarRoom.hpp
+    C++/readArt.cpp
+    C++/readArt.hpp
+    C++/renderArt.cpp
+    C++/renderArt.hpp
+    C++/startScreen.cpp
+    C++/startScreen.hpp
+    C++/terminalHelpers.cpp
+    C++/terminalHelpers.hpp
+    C++/textBox.cpp
+    C++/textBox.hpp
 )
 
 # Add tests
