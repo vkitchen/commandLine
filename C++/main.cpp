@@ -10,7 +10,6 @@
 #include "textBox.hpp"
 #include "inputListener.hpp"
 #include "startScreen.hpp"
-#include "tests/test.hpp"
 #include "optionsBox.hpp"
 #include "oscarRoom.hpp"
 
