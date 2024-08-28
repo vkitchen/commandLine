@@ -1,50 +1,32 @@
-name: Doxygen GitHub Pages Deploy Action
+name: Generate Documentation
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  deploy:
+  generate-docs:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-        
+
       - name: Install Doxygen
-        run: sudo apt-get update && sudo apt-get install -y doxygen
-        
-      - name: Generate documentation with Doxygen
+        run: sudo apt-get install doxygen -y
+
+      - name: Generate Documentation
         run: |
           cd C++
           doxygen Doxyfile
 
-      - name: Deploy Doxygen documentation to GitHub Pages
+      - name: Deploy Documentation to GitHub Pages
+        if: github.ref == 'refs/heads/main'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./c++/docs/ 
-          publish_branch: gh-pages  # Branch where GitHub Pages is served from
-
-
-# name: Doxygen GitHub Pages Deploy Action
-
-# on:
-#   push:
-#     branches:
-#       - main
-
-# jobs:
-#   deploy:
-#     runs-on: ubuntu-latest
-#     permissions:
-#       contents: write
-#     steps:
-#       - uses: DenverCoder1/doxygen-github-pages-action@v2.0.0
-#         with:
-#           config_file: ./C++/Doxyfile
-#           folder: ./C++/docs
-#           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./C++/docs/html
