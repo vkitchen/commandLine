@@ -29,7 +29,7 @@ int testArt(){
     return 0;
 }
 
-int main(){
+int testMain(){
     
     // tests for image sizes
     int result = testArt();
