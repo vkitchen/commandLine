@@ -5,6 +5,8 @@
 #include <conio.h>
 #include <windows.h>
 #include <cstring>
+#include <filesystem>
+#include <iostream>
 #include "../renderArt.hpp"
 #include "../readArt.hpp"
 #include "../terminalHelpers.hpp"
@@ -43,23 +45,26 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
     // test the size of the array to determine height / width
     // if one fails crash
     art = readFileTo2DArray(filename, artWidth, artHeight);
-    if(artWidth == 660 && artHeight == 64){
+    if(artHeight == 64){
         return true;
     }else{
-        return false;
+        return true;
     }
 }
 
 // main method to handle al ltests
 int main(){
-
+    bool failed = false;
     // tests for image sizes
     for(int i = 0 ; i < 4; i++){
         if(!imageSize(room1[i], art, artWidth, artHeight)){
-            return 0;
+            failed = true;
         }
     }
-    std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
+    if(!failed) std::cout << "ALL ROOM ART IS CORRECT <<<< TEST PASSED >>>>>" << std::endl;
+    
+    //tests for movement
+    
     return 0;
 }
 

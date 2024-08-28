@@ -20,7 +20,8 @@ add_executable (cmakeci
 "terminalHelpers.cpp"
 "terminalHelpers.hpp"
 "textBox.cpp"
-"textBox.hpp")
+"textBox.hpp"
+)
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET cmakeci PROPERTY CXX_STANDARD 20)
