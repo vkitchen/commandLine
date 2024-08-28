@@ -11,7 +11,6 @@ std::string output;
 std::string borderChar;
 std::string answer;
 
-
 void runOscar(){
 
     while (!solved) {
@@ -28,28 +27,28 @@ void runOscar(){
                 clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "Welcome to the first room at owheo, welcome to hell there should be a door";
+                output = "Zoom in on the computer to see the name of the cipher you will be performing, there are two hidden values you must use to surmise the answer. You should type your answer into the screen (text box)";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 1:
                 clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "Hopefully you just turned right, if not im wrong";            
+                output = "mod opperator?";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 2:
                 clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "3";            
+                output = "Take a closer look at the mountain, there could be something usefull on it";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             case 3:
                 clearWholeScreen();
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "4";            
+                output = "Your cipher text is bjurb, combine the two hidden values to obtain the original shift of your text";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 break;
             default:
@@ -63,7 +62,7 @@ void runOscar(){
             {
             case 0:
                 answer = stringInputBox("");
-                if (answer == "Owheo") {
+                if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
                     std::string output = "!!! YOU WIN !!!";            
                     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
@@ -73,7 +72,7 @@ void runOscar(){
                 }
                 break;
             case 2:
-                output = "zoomd";            
+                output = "How lovely does Mt. Cargill look today :)";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
                 if (input == 45) {
                     zoomed = false;
