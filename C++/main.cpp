@@ -59,7 +59,6 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     clearWholeScreen();
-    stringInputBox("");
     runOscar();
     // Below code is jank, but when hit new game need to intialise from start screen the room
 

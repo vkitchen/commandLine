@@ -20,6 +20,8 @@ int rightArrow = 77;
 int upArrow = 72;
 int downArrow = 80;
 int enter = 13;
+int plusSymbol = 61;
+int minusSymbol = 45;
 
 void processInput() {
     if (_kbhit()) {
@@ -53,10 +55,8 @@ void roomInputListenerOscar() {
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    } else if (input == enter && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
         zoomed = true;
-    } else if (input == 'o' && zoomed == true){
-        zoomed = false;
     }
 }
 
@@ -89,7 +89,7 @@ std::string textInputListener(std::string partialWord) {
         (input >= 'A' && input <= 'Z') ||  
         input == ' ') {
         output += input;  // Append valid character to output
-    } else if (input == enter) {  // Check for Enter key (carriage return)
+    } else if (input == enter || input == minusSymbol) {  // Check for Enter key (carriage return)
         return output;  // Return the output when Enter is pressed
     }
 

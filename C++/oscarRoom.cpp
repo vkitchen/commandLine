@@ -66,12 +66,19 @@ void runOscar(){
                 if (answer == "Owheo") {
                     clearWholeScreen();
                     std::string output = "!!! YOU WIN !!!";            
-                    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                    renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);
+                } else if (input == 45) {
+                    zoomed = false;
+                    continue;
                 }
                 break;
             case 2:
                 output = "zoomd";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
+                if (input == 45) {
+                    zoomed = false;
+                    continue;
+                }
                 break;
             default:
                 break;
