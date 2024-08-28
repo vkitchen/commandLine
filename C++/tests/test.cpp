@@ -1,4 +1,3 @@
-#include "test.hpp"
 #include <iostream>
 #include <stdexcept>
 #include <fstream>
@@ -12,10 +11,8 @@
 #include "../textBox.hpp"
 #include "../inputListener.hpp"
 #include "../startScreen.hpp"
-#include "../main.cpp"
 
-
-std::string listenerType;
+// Room set up
 const int numWalls = 4;
 const std::string room1[numWalls] = {"art/room1/W1.txt", "art/room1/W2.txt", "art/room1/W3.txt", "art/room1/W4.txt"};
 const std::string room1ZOOMED[numWalls] = {"art/room1/zoomed/W1Zoom.txt", "", "art/room1/zoomed/W3Zoom.txt", ""};
