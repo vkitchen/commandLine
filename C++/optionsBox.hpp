@@ -7,14 +7,15 @@
 #include <string>
 /*!
  * @file
- * @brief optionsBox.cpp
+ * @brief Header file for optionsBox.cpp
+ * @details Provides other files the ability to create and display interactive boxes on screen
  */
 
 extern int totalConsoleHeight, totalConsoleWidth;
 
 /**
  * @brief Creates and displays box with options to select
- * @details 
+ * @details Evenly disperses the options in a vertical fashion (For Now)
  * @param startX [in] top left X coord of box
  * @param endX [in] bottom right X coord of box
  * @param startY [in] top left Y coord of box
@@ -25,8 +26,9 @@ extern int totalConsoleHeight, totalConsoleWidth;
 int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> options);
 
 /**
- * @brief 
- * 
+ * @brief Creates and displays box that user can input word into
+ * @details only listens for char (a-Z) and " " input. 
+ * Needs to be calle din while loop that is checking global varibel 'input' is not your desired terminating key press
  * @param wordIn 
  * @return std::string 
  */

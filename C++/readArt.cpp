@@ -1,5 +1,10 @@
 #include "readArt.hpp"
 
+/*!
+ * @file
+ * @brief readArt.cpp
+ */
+
 int imgHeight_TEST = 0;
 int imgWidth_TEST = 0;
 

@@ -3,6 +3,11 @@
 #include "renderArt.hpp"
 #include "optionsBox.hpp"
 
+/*!
+ * @file
+ * @brief startScreen.cpp
+ */
+
 void startScreen() {
     int startXBox = totalConsoleWidth * 2 / 5;
     int endXBox = totalConsoleWidth * 3 / 5;

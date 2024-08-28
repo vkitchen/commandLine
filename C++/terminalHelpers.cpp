@@ -1,6 +1,10 @@
 #include <windows.h>
 #include "terminalHelpers.hpp"
 
+/*!
+ * @file
+ * @brief terminalHelpers.cpp
+ */
 
 // Sets global variables in main.cpp to the amount of characters in the terminal wide and how many lines
 void getFullScreenDimensions() {

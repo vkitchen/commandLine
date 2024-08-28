@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stringinputbox_0',['stringInputBox',['../options_box_8hpp.html#a879ca5687570b58d771d7b074efb14d8',1,'optionsBox.cpp']]]
+  ['hidecursor_0',['hideCursor',['../terminal_helpers_8cpp.html#ab3108839b75614c3c5e93409e187732e',1,'hideCursor():&#160;terminalHelpers.cpp'],['../terminal_helpers_8hpp.html#ab3108839b75614c3c5e93409e187732e',1,'hideCursor():&#160;terminalHelpers.cpp']]]
 ];

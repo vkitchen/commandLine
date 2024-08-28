@@ -2,7 +2,7 @@
 \hypertarget{options_box_8hpp}{}\label{options_box_8hpp}\index{C++/optionsBox.hpp@{C++/optionsBox.hpp}}
 
 
-options\+Box.\+cpp  
+Header file for \doxylink{options_box_8cpp}{options\+Box.\+cpp}.  
 
 
 {\ttfamily \#include $<$iostream$>$}\newline
@@ -15,7 +15,7 @@ options\+Box.\+cpp
 int \mbox{\hyperlink{options_box_8hpp_aa12009c7f2600ce712f95880c383e680}{render\+Options\+Box}} (int startX, int endX, int startY, int endY, std\+::vector$<$ std\+::string $>$ options)
 \begin{DoxyCompactList}\small\item\em Creates and displays box with options to select. \end{DoxyCompactList}\item 
 std\+::string \mbox{\hyperlink{options_box_8hpp_a879ca5687570b58d771d7b074efb14d8}{string\+Input\+Box}} (std\+::string word\+In)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Creates and displays box that user can input word into. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
@@ -28,9 +28,9 @@ int {\bfseries total\+Console\+Width}
 
 
 \doxysubsection{Detailed Description}
-options\+Box.\+cpp 
+Header file for \doxylink{options_box_8cpp}{options\+Box.\+cpp}. 
 
-
+Provides other files the ability to create and display interactive boxes on screen 
 
 \doxysubsection{Function Documentation}
 \Hypertarget{options_box_8hpp_aa12009c7f2600ce712f95880c383e680}\index{optionsBox.hpp@{optionsBox.hpp}!renderOptionsBox@{renderOptionsBox}}
@@ -43,7 +43,7 @@ int render\+Options\+Box (\begin{DoxyParamCaption}\item[{int}]{startX}{, }\item[
 
 Creates and displays box with options to select. 
 
-
+Evenly disperses the options in a vertical fashion (For Now) 
 \begin{DoxyParams}{Parameters}
 {\em startX} & \mbox{[}in\mbox{]} top left X coord of box \\
 \hline
@@ -66,6 +66,10 @@ int returned is index of option chosen in inputed array
 std\+::string string\+Input\+Box (\begin{DoxyParamCaption}\item[{std\+::string}]{word\+In}{}\end{DoxyParamCaption})}
 
 
+
+Creates and displays box that user can input word into. 
+
+only listens for char (a-\/Z) and "{} "{} input. Needs to be calle din while loop that is checking global varibel \textquotesingle{}input\textquotesingle{} is not your desired terminating key press 
 \begin{DoxyParams}{Parameters}
 {\em word\+In} & \\
 \hline

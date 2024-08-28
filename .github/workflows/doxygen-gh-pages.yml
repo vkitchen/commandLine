@@ -14,10 +14,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
-<<<<<<< HEAD
           folder: /docs/html
-=======
-          #ygdfsg
->>>>>>> 10f56dfe8bb9432cdc4a92b6e28e7182bf2975cb
           config_file: Doxyfile
           doxygen_version: 1.9.6

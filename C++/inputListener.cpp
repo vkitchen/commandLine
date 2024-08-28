@@ -10,6 +10,11 @@
 #include "terminalHelpers.hpp"
 #include <conio.h>
 
+/*!
+ * @file
+ * @brief inputListener.cpp
+ */
+
 int leftArrow = 75;
 int rightArrow = 77;
 int upArrow = 72;
@@ -42,21 +47,21 @@ void roomInputListenerOscar() {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys
+    } else if ((input == leftArrow || input == rightArrow) && zoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    }else if (input == enter && (currentWallIndex == 0 || currentWallIndex == 2)){
+    } else if (input == enter && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
         clearWholeScreen();
         loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
         renderCenteredArt(art, artWidth, artHeight);
         std::string output = "4";            
         std::string borderChar = "#";
-        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, borderChar);
+        renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output);
         zoomed = true;
-    }else if (input == 'o' && zoomed == true){
+    } else if (input == 'o' && zoomed == true){
         zoomed = false;
     }
 }
@@ -65,8 +70,9 @@ void roomInputListenerOscar() {
 int startMenuListener() {
     int upPressed = 1;
     int downPressed = 2;
-    int enterPressed = 0;
     int nothingPressed = 3;
+    int enterPressed = 0;
+   
 
     if (input == enter) {
         return enterPressed;

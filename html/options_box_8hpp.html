@@ -95,7 +95,7 @@ $(function(){ initResizable(false); });
 </div><!--header-->
 <div class="contents">
 
-<p>optionsBox.cpp  
+<p>Header file for <a class="el" href="options_box_8cpp.html" title="optionsBox.cpp">optionsBox.cpp</a>.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
@@ -110,6 +110,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa12009c7f2600ce712f95880c383e680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and displays box with options to select.  <br /></td></tr>
 <tr class="separator:aa12009c7f2600ce712f95880c383e680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a879ca5687570b58d771d7b074efb14d8" id="r_a879ca5687570b58d771d7b074efb14d8"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a879ca5687570b58d771d7b074efb14d8">stringInputBox</a> (std::string wordIn)</td></tr>
+<tr class="memdesc:a879ca5687570b58d771d7b074efb14d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates and displays box that user can input word into.  <br /></td></tr>
 <tr class="separator:a879ca5687570b58d771d7b074efb14d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -122,7 +123,8 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>totalConsoleWidth</b><
 <tr class="separator:a2fbf4a6b17369615390768e775c89c9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>optionsBox.cpp </p>
+<div class="textblock"><p>Header file for <a class="el" href="options_box_8cpp.html" title="optionsBox.cpp">optionsBox.cpp</a>. </p>
+<p>Provides other files the ability to create and display interactive boxes on screen </p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aa12009c7f2600ce712f95880c383e680" name="aa12009c7f2600ce712f95880c383e680"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa12009c7f2600ce712f95880c383e680">&#9670;&#160;</a></span>renderOptionsBox()</h2>
@@ -159,7 +161,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>totalConsoleWidth</b><
 </div><div class="memdoc">
 
 <p>Creates and displays box with options to select. </p>
-<dl class="params"><dt>Parameters</dt><dd>
+<p>Evenly disperses the options in a vertical fashion (For Now) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">startX</td><td>[in] top left X coord of box </td></tr>
     <tr><td class="paramname">endX</td><td>[in] bottom right X coord of box </td></tr>
@@ -187,7 +189,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>totalConsoleWidth</b><
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="params"><dt>Parameters</dt><dd>
+
+<p>Creates and displays box that user can input word into. </p>
+<p>only listens for char (a-Z) and " " input. Needs to be calle din while loop that is checking global varibel 'input' is not your desired terminating key press </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">wordIn</td><td></td></tr>
   </table>

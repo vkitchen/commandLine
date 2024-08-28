@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['stringinputbox_0',['stringInputBox',['../options_box_8hpp.html#a879ca5687570b58d771d7b074efb14d8',1,'optionsBox.cpp']]]
+  ['delete2darray_0',['delete2DArray',['../read_art_8cpp.html#a6028987d627b6291e6b8ba3732fd1d9f',1,'delete2DArray(char **array, int height):&#160;readArt.cpp'],['../read_art_8hpp.html#a6028987d627b6291e6b8ba3732fd1d9f',1,'delete2DArray(char **array, int height):&#160;readArt.cpp']]]
 ];
