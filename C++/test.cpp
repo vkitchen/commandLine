@@ -16,7 +16,7 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
 }
 
 // main method to handle al ltests
-int testArt(){
+int testMain(){
 
     // tests for image sizes
     for(int i = 0 ; i < 4; i++){
@@ -29,10 +29,4 @@ int testArt(){
     return 0;
 }
 
-int main(){
-    
-    // tests for image sizes
-    int result = testArt();
-    return result;
-}
 
