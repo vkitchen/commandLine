@@ -27,13 +27,13 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S ${{ github.workspace }} -B ${{ env.build-dir }} -DCMAKE_BUILD_TYPE=Debug
+          cmake -S ${{ github.workspace }} -B ${{ steps.directory.outputs.build-dir }} -DCMAKE_BUILD_TYPE=Debug
 
       - name: Build Project
-        run: cmake --build ${{ env.build-dir }} --config Debug
+        run: cmake --build ${{ steps.directory.outputs.build-dir }} --config Debug
 
       - name: Run Tests
-        working-directory: ${{ env.build-dir }}
+        working-directory: ${{ steps.directory.outputs.build-dir }}
         run: ctest --build-config Debug
 
       - name: Install OpenCppCoverage
@@ -45,7 +45,7 @@ jobs:
         shell: cmd
         run: |
           tree /F
-          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ env.build-dir }}
+          OpenCppCoverage --export_type cobertura:coverage.xml --cover_children -- ctest -C Debug --test-dir ${{ steps.directory.outputs.build-dir }}
 
       - name: Upload Coverage Report to Codecov
         uses: codecov/codecov-action@v3
