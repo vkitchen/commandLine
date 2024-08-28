@@ -3,37 +3,37 @@ name: CMake
 on:
   push:
     branches: [ "test-ci", "main" ]
-  pull-request:
+  pull_request:
     branches: [ "main" ]
 
-  env:
-    BUILD_TYPE: Debug
-  
-  jobs:
-    build:
-      runs-on: windows-latest
+env:
+  BUILD_TYPE: Debug
 
-      steps:
-      - uses: actions/checkout@v4
+jobs:
+  build:
+    runs-on: windows-latest
 
-      - name: Install OpenCppCoverage
-        run: |
-          choco install OpenCppCoverage
-          echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
-
-      - name: Configure CMake
-        run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
-
-      - name: Build
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
-
-      - name: Generate Coverage Report
-        shell: cmd
-        run: OpenCppCoverage --modules Debug --export_type cobertura:cmakeci.xml --cover_children -- ctest -C ${{env.BUILD_TYPE}} --test-dir build
-
-      - name: Upload Report to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          fail_ci_if_error: true
-          files: cmakeci.xml
-          token: ${{ secrets.CODECOV_TOKEN }}
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Install OpenCppCoverage
+      run: |
+        choco install OpenCppCoverage
+        echo "C:\Program Files\OpenCppCoverage" >> $env:GITHUB_PATH
+    
+    - name: Configure CMake
+      run: cmake -B ${{github.workspace}}/build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}}
+    
+    - name: Build
+      run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+    
+    - name: Generate Coverage Report
+      shell: cmd
+      run: OpenCppCoverage --modules Debug --export_type cobertura:cmakeci.xml --cover_children -- ctest -C ${{env.BUILD_TYPE}} --test-dir build
+    
+    - name: Upload Report to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        fail_ci_if_error: true
+        files: cmakeci.xml
+        token: ${{ secrets.CODECOV_TOKEN }}
