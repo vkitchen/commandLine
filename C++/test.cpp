@@ -30,7 +30,6 @@ int testArt(){
 }
 
 int main(){
-    result = 0;
     
     // tests for image sizes
     int result = testArt();
