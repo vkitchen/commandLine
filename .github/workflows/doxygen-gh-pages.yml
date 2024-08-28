@@ -7,14 +7,12 @@ on:
   pull_request:
     branches:
       - main
+      
+permissions: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    
-    permissions:
-      actions: write
-      
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
