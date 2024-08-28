@@ -36,13 +36,6 @@ add_executable(test_executable
     C++/test.hpp
 )
 
-
-# Add coverage flags if we're on GCC/Clang
-if (CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fprofile-arcs -ftest-coverage")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fprofile-arcs -ftest-coverage")
-endif()
-
 # Add tests
 enable_testing()
 set(CTEST_OUTPUT_ON_FAILURE TRUE)
