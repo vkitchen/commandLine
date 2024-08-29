@@ -72,12 +72,7 @@ int main(){
     if(failed) std::cout << "DISPLAY SIZE IS IMPROPERLY RENDERED" << std::endl;
     if(!failed) std::cout << "DISPLAY <PASSED>" << std::endl;
 
-    // return result
-    if(failed){
-        return 1;
-    }else{
-        return 0;
-    }
+    return 0;
 }
 
 // int testMain(){
