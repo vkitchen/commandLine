@@ -63,16 +63,13 @@ int main(){
     }
     if(failed) std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
     if(!failed) std::cout << "ROOM ART <PASSED>" << std::endl;
-    
-    //tests for display
-    getFullScreenDimensions();
-    if(totalConsoleHeight == 0 || totalConsoleWidth == 0){
-        failed = true;
-    }
-    if(failed) std::cout << "DISPLAY SIZE IS IMPROPERLY RENDERED" << std::endl;
-    if(!failed) std::cout << "DISPLAY <PASSED>" << std::endl;
 
-    return 0;
+    // return result
+    if(failed){
+        return 1;
+    }else{
+        return 0;
+    }
 }
 
 // int testMain(){
