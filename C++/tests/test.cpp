@@ -15,7 +15,7 @@
 #include "../startScreen.hpp"
 
 // Test set up
-const std::string room[2] = {"/C++/art/room1/W1.txt", "C++/art/room1/W2.txt"};
+const std::string room[2] = {"/C++/art/room1/W1.txt", "/C++/art/room1/W2.txt"};
 
 int artWidth = 0;
 int artHeight = 0;
