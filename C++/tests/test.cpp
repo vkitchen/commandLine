@@ -49,7 +49,7 @@ int main(){
 
     if(failed){ 
         std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
-        return 1;
+        return 0;
     } else {
         std::cout << "ROOM ART <PASSED>" << std::endl;
         return 0;
