@@ -38,7 +38,7 @@ bool running = true;
 bool zoomed = false;
 
 std::vector<std::string> currentWall;
-
+// hello
 int main(int argc, char* argv[]) {
     // for(int i = 1; i < argc; i++){
     //     if(std::strcmp(argv[i], "-t") == 0){
