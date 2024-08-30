@@ -41,16 +41,16 @@ int main(){
     bool failed = false;
     
     // tests for image sizes
-    if(!imageSize(room[0], art, artWidth, artHeight)){
+    if(imageSize(room[0], art, artWidth, artHeight)){
         failed = true;
     }
-    if(imageSize(room[1], art, artWidth, artHeight)){
+    if(!imageSize(room[1], art, artWidth, artHeight)){
         failed = true;
     }
        
     if(failed){ 
         std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
-        return 0;
+        return 1;
     } else {
         std::cout << "ROOM ART <PASSED>" << std::endl;
         return 0;
