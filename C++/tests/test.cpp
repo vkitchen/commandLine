@@ -15,7 +15,7 @@
 #include "../startScreen.hpp"
 
 // Test set up
-const std::string room[2] = {"/C++/art/room1/W1.txt"};
+const std::string room[1] = {"/C++/art/room1/W1.txt"};
 
 int artWidth = 0;
 int artHeight = 0;
@@ -44,10 +44,7 @@ int main(){
     if(!imageSize(room[0], art, artWidth, artHeight)){
         failed = true;
     }
-    if(!imageSize(room[1], art, artWidth, artHeight)){
-        failed = true;
-    }
-       
+
     if(failed){ 
         std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
         return 1;
