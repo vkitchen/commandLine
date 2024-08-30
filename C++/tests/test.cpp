@@ -28,7 +28,7 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
     // test the size of the array to determine height / width
     // if one fails crash
     art = readFileTo2DArray(filename, artWidth, artHeight);
-    if(artHeight == 64){
+    if(artHeight == 64 || artHeight == 0){
         return true;
     }else{
         return false;
