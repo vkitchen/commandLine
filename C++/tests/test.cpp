@@ -15,7 +15,7 @@
 #include "../startScreen.hpp"
 
 // Test set up
-const std::string room[2] = {"../art/tests/RightSize.txt", "../art/tests/WrongSize.txt"};
+const std::string room[2] = {"../art/room1/W1.txt", "../art/tests/W2.txt"};
 
 int artWidth = 0;
 int artHeight = 0;
@@ -41,7 +41,7 @@ int main(){
     bool failed = false;
     
     // tests for image sizes
-    if(imageSize(room[0], art, artWidth, artHeight)){
+    if(!imageSize(room[0], art, artWidth, artHeight)){
         failed = true;
     }
     if(!imageSize(room[1], art, artWidth, artHeight)){
