@@ -15,11 +15,7 @@
 #include "../startScreen.hpp"
 
 // Test set up
-const std::string room[1] = {"/C++/art/room1/W1.txt"};
-
-int artWidth = 0;
-int artHeight = 0;
-char** art = nullptr;
+const std::string room[1] = {"./C++/art/room1/W1.txt"};
 
 // Checks if the images for the rooms being rendered are the correct dimensions
 bool imageSize(const std::string& filename, char** &art, int &artWidth, int &artHeight){
