@@ -30,8 +30,6 @@ bool imageSize(const std::string& filename, char** &art, int &artWidth, int &art
     art = readFileTo2DArray(filename, artWidth, artHeight);
     if(artHeight == 64){
         return true;
-    }else if(artHeight == 0){
-        return false;
     }else{
         return false;
     }
@@ -49,7 +47,7 @@ int main(){
 
     if(failed){ 
         std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
-        return 0;
+        return 1;
     } else {
         std::cout << "ROOM ART <PASSED>" << std::endl;
         return 0;
