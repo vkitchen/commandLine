@@ -14,7 +14,7 @@ void startScreen() {
     int startYBox = (totalConsoleHeight * 1 / 3) + 1;
     int endYBox = totalConsoleHeight - 1;
 
-    std::string title = "art/room4/Escape-Owheo.txt";
+    std::string title = "art/startScreen/Escape-Owheo.txt";
     loadArt(title, art, artWidth, artHeight);
     int startXTitle = (totalConsoleWidth - artWidth/3) / 2;
     int startYTitle = (startYBox - artHeight) / 2;

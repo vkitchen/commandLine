@@ -1,1 +1,1 @@
-g++ main.cpp readArt.cpp oscarRoom.cpp terminalHelpers.cpp textBox.cpp renderArt.cpp inputListener.cpp startScreen.cpp optionsBox.cpp -o a.exe
+g++ main.cpp readArt.cpp oscarRoom.cpp lachlanRoom.cpp anthonyRoom.cpp callumRoom.cpp terminalHelpers.cpp textBox.cpp renderArt.cpp inputListener.cpp startScreen.cpp optionsBox.cpp -o a.exe

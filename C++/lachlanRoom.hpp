@@ -14,6 +14,9 @@
 #include "inputListener.hpp"
 #include "startScreen.hpp"
 
+extern bool room2VIEWED[];
+extern bool room2ZOOMEDVIEWED[];
+
 
 /*!
  * @file 

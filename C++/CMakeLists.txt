@@ -4,7 +4,7 @@
 
 # Add source to this project's executable. 
 # New files (.cpp & .hpp) created need to be added here
-add_executable (cmakeci 
+add_executable (commandLine 
 "main.cpp"
 "inputListener.cpp"
 "inputListener.hpp"
@@ -25,7 +25,7 @@ add_executable (cmakeci
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET cmakeci PROPERTY CXX_STANDARD 20)
+  set_property(TARGET commandLine PROPERTY CXX_STANDARD 20)
 endif()
 
 # New .cpp files should be included here

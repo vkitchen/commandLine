@@ -12,6 +12,10 @@
 #include "startScreen.hpp"
 #include "optionsBox.hpp"
 #include "oscarRoom.hpp"
+#include "lachlanRoom.hpp"
+#include "anthonyRoom.hpp"
+#include "callumRoom.hpp"
+
 
 // Room set up
 const int numWalls = 4;
@@ -23,13 +27,20 @@ bool room1VIEWED[numWalls] = {false, false, false, false};
 bool room1ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Lachlans Room
-const std::string room2[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"}; 
+const std::string room2[numWalls] = {"art/room2/W1.txt", "art/room2/W2.txt", "art/room2/W3.txt", "art/room2/W4.txt"}; 
+bool room2VIEWED[numWalls] = {false, false, false, false};
+bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Anthonys Room
-const std::string room3[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+const std::string room3[numWalls] = {"art/room3/W1.txt", "art/room3/W2.txt", "art/room3/W3.txt", "art/room3/W4.txt"}; 
+bool room3VIEWED[numWalls] = {false, false, false, false};
+bool room3ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
-// Callums Room
-const std::string room4[numWalls] = {"art/f1r1w2.txt", "art/f1r1w3.txt", "art/f1r1w4.txt", "art/skull.txt"};
+// Callum Room
+const std::string room4[numWalls] = {"art/room4/W1.txt", "art/room4/W2.txt", "art/room4/W3.txt", "art/room4/W4.txt"}; 
+bool room4VIEWED[numWalls] = {false, false, false, false};
+bool room4ZOOMEDVIEWED[numWalls] = {false, false, false, false};
+
 
 std::string listenerType = "RoomLeftRight";
 int roomNumber = 1;
@@ -68,6 +79,10 @@ int main(int argc, char* argv[]) {
     }
     clearWholeScreen();
     runOscar();
+    runLachlan();
+    runAnthony();
+    runCallum();
+    
     clearWholeScreen();
     std::string output = "Thank you for playing Escape Owheo Alpha :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output);

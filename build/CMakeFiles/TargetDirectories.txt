@@ -1,0 +1,14 @@
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/Experimental.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/Nightly.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/Continuous.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/NightlyMemoryCheck.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/RUN_TESTS.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/ALL_BUILD.dir
+C:/Users/croos989/Desktop/commandLine/build/CMakeFiles/ZERO_CHECK.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/CMakeFiles/cmakeci.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/CMakeFiles/src.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/CMakeFiles/RUN_TESTS.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/tests/CMakeFiles/test_executable.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/tests/CMakeFiles/RUN_TESTS.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/art/CMakeFiles/RUN_TESTS.dir
+C:/Users/croos989/Desktop/commandLine/build/C++/art/room1/CMakeFiles/RUN_TESTS.dir

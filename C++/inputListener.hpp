@@ -47,10 +47,31 @@ int startMenuListener();
 void processInput();
 
 /**
- * @brief Listens and responds to input inside of Oscar Room
+ * @brief Listens and responds to input inside of Oscars Room
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
 void roomInputListenerOscar();
+
+/**
+ * @brief Listens and responds to input inside of Lachlans Room
+ * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
+ * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
+ */
+void roomInputListenerLachlan();
+
+/**
+ * @brief Listens and responds to input inside of Anthonys Room
+ * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
+ * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
+ */
+void roomInputListenerAnthony();
+
+/**
+ * @brief Listens and responds to input inside of Anthonys Room
+ * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
+ * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
+ */
+void roomInputListenerCallum();
 
 #endif // INPUT_LISTENER__HPP
