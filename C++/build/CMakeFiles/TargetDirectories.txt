@@ -1,4 +1,0 @@
-C:/Users/croos989/Desktop/commandLine/C++/build/CMakeFiles/cmakeci.dir
-C:/Users/croos989/Desktop/commandLine/C++/build/CMakeFiles/src.dir
-C:/Users/croos989/Desktop/commandLine/C++/build/CMakeFiles/ALL_BUILD.dir
-C:/Users/croos989/Desktop/commandLine/C++/build/CMakeFiles/ZERO_CHECK.dir
