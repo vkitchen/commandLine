@@ -1,0 +1,2 @@
+C:\PROGRA~1\CODEBL~1\MinGW\bin\ar.exe qc libsrc.a CMakeFiles/src.dir/inputListener.cpp.obj CMakeFiles/src.dir/optionsBox.cpp.obj CMakeFiles/src.dir/oscarRoom.cpp.obj CMakeFiles/src.dir/readArt.cpp.obj CMakeFiles/src.dir/renderArt.cpp.obj CMakeFiles/src.dir/startScreen.cpp.obj CMakeFiles/src.dir/terminalHelpers.cpp.obj CMakeFiles/src.dir/textBox.cpp.obj
+C:\PROGRA~1\CODEBL~1\MinGW\bin\ranlib.exe libsrc.a

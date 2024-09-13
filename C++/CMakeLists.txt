@@ -4,7 +4,7 @@
 
 # Add source to this project's executable. 
 # New files (.cpp & .hpp) created need to be added here
-add_executable (commandLine 
+add_executable (cmakeci 
 "main.cpp"
 "inputListener.cpp"
 "inputListener.hpp"
@@ -12,6 +12,12 @@ add_executable (commandLine
 "optionsBox.hpp"
 "oscarRoom.cpp"
 "oscarRoom.hpp"
+"callumRoom.cpp"
+"callumRoom.hpp"
+"anthonyRoom.cpp"
+"anthonyRoom.hpp"
+"lachlanRoom.cpp"
+"lachlanRoom.hpp"
 "readArt.cpp"
 "readArt.hpp"
 "renderArt.cpp"
@@ -25,7 +31,7 @@ add_executable (commandLine
 )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET commandLine PROPERTY CXX_STANDARD 20)
+  set_property(TARGET cmakeci PROPERTY CXX_STANDARD 20)
 endif()
 
 # New .cpp files should be included here
@@ -33,6 +39,9 @@ add_library(src STATIC
 inputListener.cpp
 optionsBox.cpp
 oscarRoom.cpp
+anthonyRoom.cpp
+lachlanRoom.cpp
+callumRoom.cpp
 readArt.cpp
 renderArt.cpp
 startScreen.cpp
