@@ -5,3 +5,9 @@
 test commit on student desktop
 
 README
+
+Build steps (Windows)
+1. mkdir build
+2. cmake -B build
+3. cmake --build build
+4. .\build\C++\Debug\cmakeci.exe

@@ -12,6 +12,12 @@ add_executable (cmakeci
 "optionsBox.hpp"
 "oscarRoom.cpp"
 "oscarRoom.hpp"
+"callumRoom.cpp"
+"callumRoom.hpp"
+"anthonyRoom.cpp"
+"anthonyRoom.hpp"
+"lachlanRoom.cpp"
+"lachlanRoom.hpp"
 "readArt.cpp"
 "readArt.hpp"
 "renderArt.cpp"
@@ -33,6 +39,9 @@ add_library(src STATIC
 inputListener.cpp
 optionsBox.cpp
 oscarRoom.cpp
+anthonyRoom.cpp
+lachlanRoom.cpp
+callumRoom.cpp
 readArt.cpp
 renderArt.cpp
 startScreen.cpp
