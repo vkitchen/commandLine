@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: C:/Users/croos989/Desktop/commandLine/C++/art/room1
-# Build directory: C:/Users/croos989/Desktop/commandLine/build/C++/art/room1
+# Source directory: C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/C++/art/room1
+# Build directory: C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/C++/art/room1
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.

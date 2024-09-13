@@ -17,6 +17,9 @@ extern int totalConsoleHeight, totalConsoleWidth;
 extern bool room1VIEWED[];
 extern bool room1ZOOMEDVIEWED[];
 
+extern bool room3VIEWED[];
+extern bool room3ZOOMEDVIEWED[];
+
 /**
  * @brief renders test box on screen with text
  * @details makes text appear in middle of box with scrolling effect

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/croos989/Desktop/commandLine
+# Install script for directory: C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -12,7 +12,7 @@ if(NOT DEFINED CMAKE_INSTALL_CONFIG_NAME)
     string(REGEX REPLACE "^[^A-Za-z0-9_]+" ""
            CMAKE_INSTALL_CONFIG_NAME "${BUILD_TYPE}")
   else()
-    set(CMAKE_INSTALL_CONFIG_NAME "Release")
+    set(CMAKE_INSTALL_CONFIG_NAME "Debug")
   endif()
   message(STATUS "Install configuration: \"${CMAKE_INSTALL_CONFIG_NAME}\"")
 endif()
@@ -32,12 +32,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
   set(CMAKE_CROSSCOMPILING "FALSE")
 endif()
 
+# Set default install directory permissions.
+if(NOT DEFINED CMAKE_OBJDUMP)
+  set(CMAKE_OBJDUMP "C:/Program Files/CodeBlocks/MinGW/bin/objdump.exe")
+endif()
+
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("C:/Users/croos989/Desktop/commandLine/build/C++/cmake_install.cmake")
-  include("C:/Users/croos989/Desktop/commandLine/build/C++/tests/cmake_install.cmake")
-  include("C:/Users/croos989/Desktop/commandLine/build/C++/art/cmake_install.cmake")
-  include("C:/Users/croos989/Desktop/commandLine/build/C++/art/room1/cmake_install.cmake")
+  include("C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/C++/cmake_install.cmake")
+  include("C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/C++/tests/cmake_install.cmake")
+  include("C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/C++/art/cmake_install.cmake")
+  include("C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/C++/art/room1/cmake_install.cmake")
 
 endif()
 
@@ -49,5 +54,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/croos989/Desktop/commandLine/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/denan895/OneDrive - University of Otago/2024/COSC345 (Software Development)/commandLine/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

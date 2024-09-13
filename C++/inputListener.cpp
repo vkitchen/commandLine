@@ -85,6 +85,9 @@ void roomInputListenerAnthony() {
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
+    } else if (input == plusSymbol && (currentWallIndex == 0)) { // zoom only on locked door
+        clearWholeScreen();
+        zoomed = true;
     }
 }
 
