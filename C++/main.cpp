@@ -28,6 +28,7 @@ bool room1ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Lachlans Room
 const std::string room2[numWalls] = {"art/room2/W1.txt", "art/room2/W2.txt", "art/room2/W3.txt", "art/room2/W4.txt"}; 
+const std::string room2ZOOMED[numWalls] = {"art/room1/zoomed/W1Zoom.txt", "", "art/room1/zoomed/W3Zoom.txt", ""};
 bool room2VIEWED[numWalls] = {false, false, false, false};
 bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
@@ -72,14 +73,15 @@ int main(int argc, char* argv[]) {
     hideCursor();
     clearWholeScreen();
 
-
+    runLachlan();
+    
     startScreen(); // Display Start Screen for input
     if (running == false) {
         return 0;
     }
     clearWholeScreen();
     runOscar();
-    runLachlan();
+    
     runAnthony();
     runCallum();
     

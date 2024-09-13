@@ -58,7 +58,7 @@ void roomInputListenerOscar();
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
-void roomInputListenerLachlan();
+void roomInputListenerLachlan(bool* timerRunning);
 
 /**
  * @brief Listens and responds to input inside of Anthonys Room

@@ -62,16 +62,23 @@ void roomInputListenerOscar() {
     }
 }
 
-void roomInputListenerLachlan() {
+void roomInputListenerLachlan(bool* timerRunning) {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys if not zoomed in
+    } else if ((input == leftArrow || input == rightArrow) && zoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2) && zoomed != true){ // should only zoom on wall 0 and 2
+        clearWholeScreen();
+        zoomed = true;
+    } else if ((input == 89 || input == 121) && zoomed == true && currentWallIndex == 0) { // Y or y: Starts timer
+        *timerRunning = true;
+    } else if ((input == 78 || input == 110) && zoomed == true && currentWallIndex == 0) { // N or n: exit view
+
     }
 }
 
