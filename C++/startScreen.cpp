@@ -57,7 +57,8 @@ void startScreen() {
     int startXTitle = (totalConsoleWidth - artWidth/3) / 2;
     int startYTitle = (startYBox - artHeight) / 2;
     renderArt(art, artWidth, artHeight, startXTitle, startYTitle);
-    std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
+    //std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
+    std::vector<std::string> options = {"NEW GAME", "EXIT"};
 
     int selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
 
