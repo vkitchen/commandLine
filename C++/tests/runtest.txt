@@ -1,0 +1,1 @@
+g++ .\tests\test.cpp readArt.cpp terminalHelpers.cpp textBox.cpp renderArt.cpp inputListener.cpp startScreen.cpp optionsBox.cpp -o test.exe
