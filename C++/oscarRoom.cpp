@@ -80,6 +80,11 @@ void runOscar(){
                     zoomed = false;
                     clearWholeScreen();
                     continue;
+                } else {
+                    // This extra else statement makes it so any wrong input will reset the screen
+                    // Could be better but works for now
+                    clearWholeScreen();
+                    continue;
                 }
                 break;
             case 2:   
