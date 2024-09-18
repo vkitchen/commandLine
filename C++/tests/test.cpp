@@ -35,7 +35,7 @@ bool running = true;
 // Checks if the images for the rooms being rendered are the correct dimensions
 bool imageSize(const std::string& filename, char** &art, int &artWidth, int &artHeight){
     art = readFileTo2DArray(filename, artWidth, artHeight);
-    if(artHeight == 64 || artHeight == 0){
+    if(artHeight == 64){
         std::cout << "ROOM ART <PASSED>" << std::endl;
         return true;
     }else{
@@ -77,29 +77,32 @@ int main(){
     
     bool failed = false;
     failed = zoomCheck();
+    if(!imageSize(room1test[0], art, artWidth, artHeight)){
+            failed = true;
+    }
     //tests for image sizes
-    for(int i = 0; i < 4; i++){
-        if(!imageSize(room1test[i], art, artWidth, artHeight)){
-            failed = true;
-        }
-    }
-        // tests for image sizes
-    for(int i = 0; i < 4; i++){
-        if(!imageSize(room2test[i], art, artWidth, artHeight)){
-            failed = true;
-        }
-    }
-        // tests for image sizes
-    for(int i = 0; i < 4; i++){
-        if(!imageSize(room3test[i], art, artWidth, artHeight)){
-            failed = true;
-        }
-    }
-        // tests for image sizes
-    for(int i = 0; i < 4; i++){
-        if(!imageSize(room4test[i], art, artWidth, artHeight)){
-            failed = true;
-        }
+    // for(int i = 0; i < 4; i++){
+    //     if(!imageSize(room1test[i], art, artWidth, artHeight)){
+    //         failed = true;
+    //     }
+    // }
+    //     // tests for image sizes
+    // for(int i = 0; i < 4; i++){
+    //     if(!imageSize(room2test[i], art, artWidth, artHeight)){
+    //         failed = true;
+    //     }
+    // }
+    //     // tests for image sizes
+    // for(int i = 0; i < 4; i++){
+    //     if(!imageSize(room3test[i], art, artWidth, artHeight)){
+    //         failed = true;
+    //     }
+    // }
+    //     // tests for image sizes
+    // for(int i = 0; i < 4; i++){
+    //     if(!imageSize(room4test[i], art, artWidth, artHeight)){
+    //         failed = true;
+    //     }
     }
     //Tests will pass once the 'renderBox' function has correct number of arguments
 

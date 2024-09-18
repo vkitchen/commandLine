@@ -18,3 +18,5 @@ add_subdirectory ("C++")
 add_subdirectory ("C++/tests")
 add_subdirectory ("C++/art")
 add_subdirectory ("C++/art/room1")
+
+configure_file(C++/art/room1/W1.txt ${CMAKE_BINARY_DIR}/art/room1/W1.txt COPYONLY)
