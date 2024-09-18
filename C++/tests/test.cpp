@@ -15,7 +15,10 @@
 #include "../startScreen.hpp"
 
 // Test set up
-const std::string room1[4] = {"art/room1/W1.txt","art/room1/W2.txt","art/room1/W3.txt","art/room1/W4.txt"};
+const std::string room1test[4] = {"art/room1/W1.txt","art/room1/W2.txt","art/room1/W3.txt","art/room1/W4.txt"};
+const std::string room2test[4] = {"art/room2/W1.txt","art/room2/W2.txt","art/room2/W3.txt","art/room2/W4.txt"};
+const std::string room3test[4] = {"art/room3/W1.txt","art/room3/W2.txt","art/room3/W3.txt","art/room3/W4.txt"};
+const std::string room4test[4] = {"art/room4/W1.txt","art/room4/W2.txt","art/room4/W3.txt","art/room4/W4.txt"};
 
 int artWidth = 0;
 int artHeight = 0;
@@ -38,7 +41,25 @@ int main(){
     
     // tests for image sizes
     for(int i = 0; i < 4; i++){
-        if(!imageSize(room1[i], art, artWidth, artHeight)){
+        if(!imageSize(room1test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room2test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room3test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room4test[i], art, artWidth, artHeight)){
             failed = true;
         }
     }
