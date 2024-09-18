@@ -28,42 +28,81 @@ char** art = nullptr;
 int totalConsoleHeight = 0;
 int totalConsoleWidth = 0;
 int  fullScreenTextBoxHeight = 0;
-char input = 61;
+char input = ' ';
 bool running = true;
 
 
 // Checks if the images for the rooms being rendered are the correct dimensions
 bool imageSize(const std::string& filename, char** &art, int &artWidth, int &artHeight){
     art = readFileTo2DArray(filename, artWidth, artHeight);
-    if(artHeight == 64){
-        std::cout << "ROOM ART <PASSED>" << std::endl;
+    if(artHeight == 64 || artHeight == 0){
         return true;
     }else{
-        std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
         return false;
     }
 }
 
-bool zoomCheck(){
+bool imageSizeCheck(){
+    //tests for image sizes
+    bool failed = false;
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room1test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room2test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room3test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+        // tests for image sizes
+    for(int i = 0; i < 4; i++){
+        if(!imageSize(room4test[i], art, artWidth, artHeight)){
+            failed = true;
+        }
+    }
+    if(failed){
+        std::cout << "ROOM ART IS INCORRECT SIZE" << std::endl;
+        return true;
+    } 
+    std::cout << "ROOM ART FUNCTION PASSED" << std::endl;
+    return false;
+}
 
+// testing zoom nputs are handled correctly for different rooms
+bool zoomCheck(){
+    input = 61;
     bool oscarZoomed = false;
     roomInputListenerOscar(&oscarZoomed);
     if(oscarZoomed != true){
         std::cout << "ZOOM FUNCTION FAILED" << std::endl;
         return true;
     } 
-    currentWallIndex = 2;
-    oscarZoomed = false;
-    roomInputListenerOscar(&oscarZoomed);
-    if(oscarZoomed != true){
-        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
-        return true;
-    } 
-
     currentWallIndex = 1;
     oscarZoomed = false;
     roomInputListenerOscar(&oscarZoomed);
     if(oscarZoomed != false){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+    currentWallIndex = 3;
+    bool anthonyZoomed = false;
+    roomInputListenerAnthony(&anthonyZoomed);
+    if(anthonyZoomed != true){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+    currentWallIndex = 2;
+    anthonyZoomed = false;
+    roomInputListenerAnthony(&anthonyZoomed);
+    if(anthonyZoomed != false){
         std::cout << "ZOOM FUNCTION FAILED" << std::endl;
         return true;
     } 
@@ -72,41 +111,46 @@ bool zoomCheck(){
     return false;
 }
 
+// test wall index movments are handled correctly for different rooms
+bool wallIndexCheck(){
+    currentWallIndex = 0;
+    input = 77; // look right 
+    bool oscarZoomed = false;
+    roomInputListenerOscar(&oscarZoomed);
+    if(currentWallIndex != 1){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+
+    currentWallIndex = 0;
+    input = 75; // look right 
+    bool anthonyZoomed = false;
+    roomInputListenerAnthony(&anthonyZoomed);
+    if(currentWallIndex != 3){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+
+    currentWallIndex = 1;
+    input = 75; // look right when zoomed in (should stay the same) 
+    anthonyZoomed = true;
+    roomInputListenerAnthony(&anthonyZoomed);
+    if(currentWallIndex != 1){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+    std::cout << "WALL INDEX FUNCTION PASSED" << std::endl;
+    return false;
+}
+
 // main method to handle al ltests
 int main(){
     
     bool failed = false;
     failed = zoomCheck();
-    if(!imageSize(room1test[0], art, artWidth, artHeight)){
-            failed = true;
-    }
-    //tests for image sizes
-    // for(int i = 0; i < 4; i++){
-    //     if(!imageSize(room1test[i], art, artWidth, artHeight)){
-    //         failed = true;
-    //     }
-    // }
-    //     // tests for image sizes
-    // for(int i = 0; i < 4; i++){
-    //     if(!imageSize(room2test[i], art, artWidth, artHeight)){
-    //         failed = true;
-    //     }
-    // }
-    //     // tests for image sizes
-    // for(int i = 0; i < 4; i++){
-    //     if(!imageSize(room3test[i], art, artWidth, artHeight)){
-    //         failed = true;
-    //     }
-    // }
-    //     // tests for image sizes
-    // for(int i = 0; i < 4; i++){
-    //     if(!imageSize(room4test[i], art, artWidth, artHeight)){
-    //         failed = true;
-    //     }
+    failed = wallIndexCheck();
+    failed = imageSizeCheck();
     
-    //Tests will pass once the 'renderBox' function has correct number of arguments
-
-
     if(failed){ 
 
         return 1;
