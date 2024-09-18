@@ -54,8 +54,6 @@ void runCallum(){
             }
         }
         
-        
-
         input = ' ';
         while(input == ' ') processInput();
         roomInputListenerCallum(&callumZoomed);
