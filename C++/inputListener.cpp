@@ -62,7 +62,7 @@ void roomInputListenerOscar(bool* oscarZoomed) {
     }
 }
 
-void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed) {
+void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed, bool* doorOpen, bool* lachlanSolved) {
         
     if (input == 'q') {
         running = false; // Quit the game
@@ -75,10 +75,12 @@ void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed) {
     } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2) && *lachlanZoomed != true){ // should only zoom on wall 0 and 2
         clearWholeScreen();
         *lachlanZoomed = true;
-    } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0) { // Y or y: Starts timer
+    } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0 && !(*doorOpen)) { // Y or y, while doorClosed: Starts timer
         *timerRunning = true;
+    } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0 && *doorOpen) {
+        *lachlanSolved = true;
     } else if ((input == 78 || input == 110) && *lachlanZoomed == true && currentWallIndex == 0) { // N or n: exit view
-        *lachlanZoomed == false;
+        *lachlanZoomed = false;
     }
 }
 
