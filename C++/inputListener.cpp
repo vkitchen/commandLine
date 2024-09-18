@@ -86,7 +86,7 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys if not zoomed in
+    } else if ((input == leftArrow || input == rightArrow) && !(*anthonyZoomed)) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
