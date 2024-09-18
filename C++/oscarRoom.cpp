@@ -16,8 +16,6 @@ std::string instruction;
 void runOscar(){
 
     while (!solved) {
-        
-
         if(input == 'q'){
             running = false;
             return;
@@ -74,6 +72,7 @@ void runOscar(){
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
                     oscarZoomed = false;
+                    currentWallIndex = 0;
                     solved = true;
                     return;
                 } else if (input == 45) {

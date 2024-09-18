@@ -16,8 +16,6 @@ std::string instructionAnthony;
 // test
 
 void runAnthony(){
-    // need to reset these variables as they have been used by oscars room
-    currentWallIndex = 0;
     while (!solvedAnthony) {
         
         if(input == 'q'){
