@@ -16,8 +16,6 @@ std::string instructionAnthony;
 // test
 
 void runAnthony(){
-    // need to reset these variables as they have been used by oscars room
-    currentWallIndex = 0;
     while (!solvedAnthony) {
         
         if(input == 'q'){
@@ -30,14 +28,14 @@ void runAnthony(){
             case 0:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "Welcome to room 1, you will be attempting to find a mystery word based on the cluues given by other walls, zoom into this image to submit your answer when you think you have it!";
+                outputAnthony = "Welcome to room 1, you will be attempting to find a mystery word based on the clues given by other walls, zoom into the lock on the doors to submit your guess when you think you have the answer";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             case 1:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "B X H";         
+                outputAnthony = "Is someone doing calculations on this whiteboard?";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
@@ -51,7 +49,7 @@ void runAnthony(){
             case 3:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "______ fifty one";
+                outputAnthony = "What a cool poster what's it showing? ";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
@@ -63,9 +61,14 @@ void runAnthony(){
             loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
             if(currentWallIndex == 1){
-                outputAnthony = "How lovely does Mt. Cargill look today :)";    
+                outputAnthony = "Huh, they're working out base X height, I wonder what that could mean?";    
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
                 if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;     
+            }
+            if(currentWallIndex == 3){
+                outputAnthony = "Looks like a UFO lighting up the number 51, I swear I've heard of this place... ";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
+                if(room3ZOOMEDVIEWED[3] == false) room3ZOOMEDVIEWED[3] = true;     
             }
             switch (currentWallIndex)
             {
@@ -77,6 +80,7 @@ void runAnthony(){
                     anthonyZoomed = false;
                     clearWholeScreen();
                     solvedAnthony = true;
+                    currentWallIndex = 0;
                     return;
                 } else if (input == 45) {
                     anthonyZoomed = false;
@@ -90,6 +94,13 @@ void runAnthony(){
                 }
                 break;
             case 1:   
+                if (input == 45) {
+                    anthonyZoomed = false;
+                    clearWholeScreen();
+                    continue;
+                }
+                break;
+            case 3:   
                 if (input == 45) {
                     anthonyZoomed = false;
                     clearWholeScreen();

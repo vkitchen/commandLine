@@ -88,13 +88,13 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys if not zoomed in
+    } else if ((input == leftArrow || input == rightArrow) && !(*anthonyZoomed)) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 1)) { // zoom only on locked door
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 1 || currentWallIndex == 3)) { // zoom only on locked door
         clearWholeScreen();
         *anthonyZoomed = true;
     }
