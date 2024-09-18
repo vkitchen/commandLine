@@ -92,7 +92,7 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    } else if (input == plusSymbol && (currentWallIndex == 0)) { // zoom only on locked door
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 1)) { // zoom only on locked door
         clearWholeScreen();
         *anthonyZoomed = true;
     }

@@ -62,6 +62,11 @@ void runAnthony(){
             clearWholeScreen();
             loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
+            if(currentWallIndex == 1){
+                outputAnthony = "How lovely does Mt. Cargill look today :)";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
+                if(room1ZOOMEDVIEWED[2] == false) room1ZOOMEDVIEWED[2] = true;     
+            }
             switch (currentWallIndex)
             {
             case 0:
@@ -80,6 +85,13 @@ void runAnthony(){
                 } else {
                     // This extra else statement makes it so any wrong input will reset the screen
                     // Could be better but works for now
+                    clearWholeScreen();
+                    continue;
+                }
+                break;
+            case 1:   
+                if (input == 45) {
+                    anthonyZoomed = false;
                     clearWholeScreen();
                     continue;
                 }

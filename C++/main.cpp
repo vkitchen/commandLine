@@ -34,7 +34,7 @@ bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Anthonys Room
 const std::string room3[numWalls] = {"art/room3/W1.txt", "art/room3/W2.txt", "art/room3/W3.txt", "art/room3/W4.txt"};
-const std::string room3ZOOMED[numWalls] = {"art/room3/zoomed/W1Zoom.txt", "", "art/room3/zoomed/W3Zoom.txt", ""};
+const std::string room3ZOOMED[numWalls] = {"art/room3/zoomed/W1Zoom.txt", "art/room3/zoomed/W2Zoom.txt", "", ""};
 bool room3VIEWED[numWalls] = {false, false, false, false};
 bool room3ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
