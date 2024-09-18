@@ -84,14 +84,14 @@ int main(int argc, char* argv[]) {
 
     runAnthony();
     runOscar();
-    runLachlan();
+    //runLachlan();
 
     
     
     //runCallum();
     
     clearWholeScreen();
-    std::string output = "Thank you for playing Escape Owheo Alpha :)";            
+    std::string output = "Thank you for playing Escape Owheo Beta :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
 
     return 0;
