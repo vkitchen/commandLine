@@ -103,7 +103,7 @@ int main(){
     //     if(!imageSize(room4test[i], art, artWidth, artHeight)){
     //         failed = true;
     //     }
-    }
+    
     //Tests will pass once the 'renderBox' function has correct number of arguments
 
 
