@@ -73,6 +73,7 @@ void runOscar(){
                 answer = stringInputBox("");
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();
+                    zoomed = false;
                     solved = true;
                     return;
                 } else if (input == 45) {

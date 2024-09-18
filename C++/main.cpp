@@ -74,16 +74,16 @@ int main(int argc, char* argv[]) {
     hideCursor();
     clearWholeScreen();
 
-    runLachlan();
+    
     
     startScreen(); // Display Start Screen for input
     if (running == false) {
         return 0;
     }
     clearWholeScreen();
-    runOscar();
-    
     runAnthony();
+    runOscar();
+    runLachlan();
     runCallum();
     
     clearWholeScreen();
