@@ -15,6 +15,7 @@
 #include "lachlanRoom.hpp"
 #include "anthonyRoom.hpp"
 #include "callumRoom.hpp"
+#include <mmsystem.h>
 
 // comment to make pipeline run
 // Room set up
@@ -66,7 +67,7 @@ int main(int argc, char* argv[]) {
     //     }
     // }
 
-
+    PlaySound(TEXT("sound.wav"), NULL, SND_FILENAME | SND_ASYNC);
 // Terminal setups
     enableUTF8Console();
     setFullScreen();
