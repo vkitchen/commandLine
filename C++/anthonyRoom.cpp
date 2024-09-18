@@ -61,9 +61,14 @@ void runAnthony(){
             loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
             if(currentWallIndex == 1){
-                outputAnthony = "How lovely does Mt. Cargill look today :)";    
+                outputAnthony = "ooo a whiteboard";    
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
                 if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;     
+            }
+            if(currentWallIndex == 3){
+                outputAnthony = "thats a cool poster";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
+                if(room3ZOOMEDVIEWED[3] == false) room3ZOOMEDVIEWED[3] = true;     
             }
             switch (currentWallIndex)
             {
@@ -89,6 +94,13 @@ void runAnthony(){
                 }
                 break;
             case 1:   
+                if (input == 45) {
+                    anthonyZoomed = false;
+                    clearWholeScreen();
+                    continue;
+                }
+                break;
+            case 3:   
                 if (input == 45) {
                     anthonyZoomed = false;
                     clearWholeScreen();
