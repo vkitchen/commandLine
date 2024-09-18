@@ -46,11 +46,11 @@ void roomLeftRightListener() {
     }
 }
 
-void roomInputListenerOscar() {
+void roomInputListenerOscar(bool* oscarZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if ((input == leftArrow || input == rightArrow) && zoomed == false) { // Left or Right arrow keys if not zoomed in
+    } else if ((input == leftArrow || input == rightArrow) && *oscarZoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
@@ -58,31 +58,31 @@ void roomInputListenerOscar() {
         }
     } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
         clearWholeScreen();
-        zoomed = true;
+        *oscarZoomed = true;
     }
 }
 
-void roomInputListenerLachlan(bool* timerRunning) {
+void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
-    } else if ((input == leftArrow || input == rightArrow) && zoomed == false) { // Left or Right arrow keys if not zoomed in
+    } else if ((input == leftArrow || input == rightArrow) && *lachlanZoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2) && zoomed != true){ // should only zoom on wall 0 and 2
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2) && *lachlanZoomed != true){ // should only zoom on wall 0 and 2
         clearWholeScreen();
-        zoomed = true;
-    } else if ((input == 89 || input == 121) && zoomed == true && currentWallIndex == 0) { // Y or y: Starts timer
+        *lachlanZoomed = true;
+    } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0) { // Y or y: Starts timer
         *timerRunning = true;
-    } else if ((input == 78 || input == 110) && zoomed == true && currentWallIndex == 0) { // N or n: exit view
-
+    } else if ((input == 78 || input == 110) && *lachlanZoomed == true && currentWallIndex == 0) { // N or n: exit view
+        *lachlanZoomed == false;
     }
 }
 
-void roomInputListenerAnthony() {
+void roomInputListenerAnthony(bool* anthonyZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
@@ -94,7 +94,7 @@ void roomInputListenerAnthony() {
         }
     } else if (input == plusSymbol && (currentWallIndex == 0)) { // zoom only on locked door
         clearWholeScreen();
-        zoomed = true;
+        *anthonyZoomed = true;
     }
 }
 

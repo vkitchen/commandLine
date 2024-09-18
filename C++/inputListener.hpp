@@ -51,21 +51,21 @@ void processInput();
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
-void roomInputListenerOscar();
+void roomInputListenerOscar(bool* oscarZoomed);
 
 /**
  * @brief Listens and responds to input inside of Lachlans Room
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
-void roomInputListenerLachlan(bool* timerRunning);
+void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed);
 
 /**
  * @brief Listens and responds to input inside of Anthonys Room
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
-void roomInputListenerAnthony();
+void roomInputListenerAnthony(bool* anthonyZoomed);
 
 /**
  * @brief Listens and responds to input inside of callum Room

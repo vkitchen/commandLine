@@ -48,7 +48,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, const std::string& text) {
+void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
@@ -68,7 +68,7 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
     int startXText = (boxWidth - text.length()) / 2 + startX;
     int startYText = (boxHeight - 1) / 2 + startY;
     coord = {static_cast<SHORT>(startXText), static_cast<SHORT>(startYText)};
-    if(!zoomed && room1VIEWED[currentWallIndex] == true || zoomed && room1ZOOMEDVIEWED[currentWallIndex] == true){
+    if(!zoomedIn && wallSeen == true || zoomedIn && zoomedWallSeen == true){
         
         SetConsoleCursorPosition(console, coord);
         std::cout << text;
