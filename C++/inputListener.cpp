@@ -100,7 +100,7 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
     }
 }
 
-void roomInputListenerCallum() {
+void roomInputListenerCallum(bool* callumZoomed) {
         
     if (input == 'q') {
         running = false; // Quit the game
