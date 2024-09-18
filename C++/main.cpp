@@ -78,6 +78,9 @@ int main(int argc, char* argv[]) {
     
     startScreen(); // Display Start Screen for input
     if (running == false) {
+        clearWholeScreen();
+        std::string output = "Thank you for playing Escape Owheo Beta :)";            
+        renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
         return 0;
     }
     clearWholeScreen();
