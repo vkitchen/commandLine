@@ -63,7 +63,7 @@ void runAnthony(){
             if(currentWallIndex == 1){
                 outputAnthony = "How lovely does Mt. Cargill look today :)";    
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex]);
-                if(room1ZOOMEDVIEWED[2] == false) room1ZOOMEDVIEWED[2] = true;     
+                if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;     
             }
             switch (currentWallIndex)
             {
@@ -75,6 +75,7 @@ void runAnthony(){
                     anthonyZoomed = false;
                     clearWholeScreen();
                     solvedAnthony = true;
+                    currentWallIndex = 0;
                     return;
                 } else if (input == 45) {
                     anthonyZoomed = false;
