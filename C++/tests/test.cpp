@@ -182,6 +182,13 @@ bool startMenu(){
 }
 
 // test wall index movments are handled correctly for different rooms
+bool screenClear(){
+    clearPartialScreen(0,0);
+    enableUTF8Console();
+    return false;
+}
+
+// test wall index movments are handled correctly for different rooms
 bool textInput(){
     input = 'e'; //  right 
     std::string test_output = textInputListener("finish m");
@@ -203,6 +210,7 @@ int main(){
     failed = imageSizeCheck();
     failed = startMenu();
     failed = textInput();
+    failed = screenClear();
     
     if(failed){ 
 
