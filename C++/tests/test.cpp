@@ -76,6 +76,13 @@ bool imageSizeCheck(){
     return false;
 }
 
+// test wall index movments are handled correctly for different rooms
+bool screenClear(){
+    clearPartialScreen(0,0);
+    enableUTF8Console();
+    return false;
+}
+
 // testing zoom nputs are handled correctly for different rooms
 bool zoomCheck(){
     input = 61;
@@ -178,13 +185,6 @@ bool startMenu(){
         return true;
     } 
     std::cout << "START MENU FUNCTION PASSED" << std::endl;
-    return false;
-}
-
-// test wall index movments are handled correctly for different rooms
-bool screenClear(){
-    clearPartialScreen(0,0);
-    enableUTF8Console();
     return false;
 }
 

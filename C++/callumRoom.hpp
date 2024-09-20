@@ -20,19 +20,19 @@ extern bool room4ZOOMEDVIEWED[];
 
 /*!
  * @file 
- * @brief Header file for lachlanRoom.cpp
+ * @brief Header file for CallumRoom.cpp
  * @details This header file declares the functions and includes the necessary
- * headers for the Lachlan Room module of the application. It handles
- * the functionality related to the Lachlan Room.
+ * headers for the Callum Room module of the application. It handles
+ * the functionality related to the Callum Room.
  */
 
 /**
- * @brief Runs the Lachlan Room functionality.
- * @details This function initializes and manages the Lachlan Room, which is a
+ * @brief Runs the Callum Room functionality.
+ * @details This function initializes and manages the Callum Room, which is a
  * specific part of the application. It is responsible for rendering
  * the room's interface, handling user inputs, and managing the
  * room's state.
  */
 void runCallum();
 
-#endif // LACHLAN_ROOM_HPP
+#endif // CALLUM_ROOM_HPP

@@ -58,16 +58,9 @@ bool running = true;
 bool zoomed = false;
 
 std::vector<std::string> currentWall;
-// hello
-int main(int argc, char* argv[]) {
-    // for(int i = 1; i < argc; i++){
-    //     if(std::strcmp(argv[i], "-t") == 0){
-    //         testMain();
-    //         return 0;
-    //     }
-    // }
 
-    //PlaySound(TEXT("sound.wav"), NULL, SND_FILENAME | SND_ASYNC);
+int main(int argc, char* argv[]) {
+
 // Terminal setups
     enableUTF8Console();
     setFullScreen();
@@ -88,12 +81,8 @@ int main(int argc, char* argv[]) {
 
     runAnthony();
     runOscar();
-    //runLachlan();
-
-    
-    
+    //runLachlan(); 
     //runCallum();
-    
     clearWholeScreen();
     std::string output = "Thank you for playing Escape Owheo Beta :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
