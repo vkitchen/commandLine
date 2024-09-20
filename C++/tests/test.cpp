@@ -139,6 +139,15 @@ bool wallIndexCheck(){
         std::cout << "ZOOM FUNCTION FAILED" << std::endl;
         return true;
     } 
+
+    currentWallIndex = 1;
+    input = 75; // look right when zoomed in (should stay the same) 
+    bool callumZoomed = true;
+    roomInputListenerCallum(&callumZoomed);
+    if(currentWallIndex != 1){
+        std::cout << "ZOOM FUNCTION FAILED" << std::endl;
+        return true;
+    } 
     std::cout << "WALL INDEX FUNCTION PASSED" << std::endl;
     return false;
 }
