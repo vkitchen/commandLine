@@ -143,6 +143,35 @@ bool wallIndexCheck(){
     return false;
 }
 
+// test wall index movments are handled correctly for different rooms
+bool startMenu(){
+    input = 77; //  right 
+    int res = startMenuListener();
+    // user navigates right which isnt possible and therefore should return nothing
+    if(res == 2 || res == 1){
+        std::cout << "START MENU FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+
+    input = 75; //  left 
+    res = startMenuListener();
+    // user navigates left which isnt possible
+    if(res != 3){
+        std::cout << "START MENU FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+
+    input = 80; //  down
+    res = startMenuListener();
+    // user navigates left which isnt possible
+    if(res != 2){
+        std::cout << "START MENU FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+    std::cout << "START MENU FUNCTION PASSED" << std::endl;
+    return false;
+}
+
 // main method to handle al ltests
 int main(){
     
@@ -150,6 +179,7 @@ int main(){
     failed = zoomCheck();
     failed = wallIndexCheck();
     failed = imageSizeCheck();
+    failed = startMenu();
     
     if(failed){ 
 

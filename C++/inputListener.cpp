@@ -33,18 +33,19 @@ void processInput() {
     }
 }
 
-void roomLeftRightListener() {
+// NO LONGER NEED RE: CODE COV
+// void roomLeftRightListener() {
         
-    if (input == 'q') {
-        running = false; // Quit the game
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys
-        if (input == leftArrow) { // Left arrow key
-            currentWallIndex = (currentWallIndex - 1 + 4) % 4;
-        } else if (input == rightArrow) { // Right arrow key
-            currentWallIndex = (currentWallIndex + 1) % 4;
-        }
-    }
-}
+//     if (input == 'q') {
+//         running = false; // Quit the game
+//     } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys
+//         if (input == leftArrow) { // Left arrow key
+//             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
+//         } else if (input == rightArrow) { // Right arrow key
+//             currentWallIndex = (currentWallIndex + 1) % 4;
+//         }
+//     }
+// }
 
 void roomInputListenerOscar(bool* oscarZoomed) {
         
