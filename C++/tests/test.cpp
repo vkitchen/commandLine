@@ -172,6 +172,19 @@ bool startMenu(){
     return false;
 }
 
+// test wall index movments are handled correctly for different rooms
+bool textInput(){
+    input = 'e'; //  right 
+    std::string test_output = textInputListener("finish m");
+    // user navigates right which isnt possible and therefore should return nothing
+    if(test_output != "finish me"){
+        std::cout << "USER TEXT INPUT FUNCTION FAILED" << std::endl;
+        return true;
+    } 
+    std::cout << "USER TEXT INPUT FUNCTION PASSED" << std::endl;
+    return false;
+}
+
 // main method to handle al ltests
 int main(){
     
@@ -180,6 +193,7 @@ int main(){
     failed = wallIndexCheck();
     failed = imageSizeCheck();
     failed = startMenu();
+    failed = textInput();
     
     if(failed){ 
 
