@@ -76,7 +76,7 @@ void runIntro(){
                     clearWholeScreen();
                     solvedIntro = true;
                     currentWallIndex = 0;
-                    return;
+                    break;;
                 } else if (input == 45) {
                     introZoomed = false;
                     clearWholeScreen();
@@ -101,7 +101,7 @@ void runIntro(){
         }
 
         input = ' ';
-        while(input == ' ') processInput();
+        if(input == ' ' && !solvedIntro) processInput();
         roomInputListenerIntro(&introZoomed);
 
         // Testing purposes
@@ -110,4 +110,5 @@ void runIntro(){
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    runAnthony(); // goes to next room after being solved
 } 

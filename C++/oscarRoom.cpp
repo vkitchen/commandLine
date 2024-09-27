@@ -6,7 +6,7 @@
  * @brief oscarRoom.cpp
  */
 
-bool solved = false;
+bool oscarSolved = false;
 bool oscarZoomed = false;
 std::string output;
 std::string answer;
@@ -15,7 +15,7 @@ std::string instruction;
 
 void runOscar(){
 
-    while (!solved) {
+    while (!oscarSolved) {
         if(input == 'q'){
             running = false;
             return;
@@ -73,8 +73,8 @@ void runOscar(){
                     clearWholeScreen();
                     oscarZoomed = false;
                     currentWallIndex = 0;
-                    solved = true;
-                    return;
+                    oscarSolved = true;
+                    break;
                 } else if (input == 45) {
                     oscarZoomed = false;
                     clearWholeScreen();
@@ -100,7 +100,7 @@ void runOscar(){
         
 
         input = ' ';
-        while(input == ' ') processInput();
+        while(input == ' ' && !oscarSolved) processInput();
 
         roomInputListenerOscar(&oscarZoomed);
         // Clear the input
@@ -109,4 +109,5 @@ void runOscar(){
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    runLachlan(); // goes to next room after being solved
 } 

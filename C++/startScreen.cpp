@@ -11,15 +11,12 @@
  * @brief startScreen.cpp
  */
 
-int selectedIndex;
 
 void startScreen() {
     int startXBox = totalConsoleWidth * 2 / 5;
     int endXBox = totalConsoleWidth * 3 / 5;
     int startYBox = (totalConsoleHeight * 1 / 3) + 1;
     int endYBox = totalConsoleHeight - 1;
-
-    selectedIndex = -1;
 
     const double probability = 0.1; // 10% chance
     const int arraysize = 26860;
@@ -63,12 +60,13 @@ void startScreen() {
     //std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
     std::vector<std::string> options = {"NEW GAME", "LOAG GAME", "EXIT"};
 
-    selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
+    int selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
 
     switch (selectedIndex) {
         case 0: 
             // New Game selected, run the intro
-            // runIntro();
+            clearWholeScreen();
+            runIntro();
             break;
 
         case 1: {
@@ -85,9 +83,12 @@ void startScreen() {
 
             loadGame(saveFileName);
             switch (roomNumber) {
-                case 0:
-
+                case 0: {
+                    std::string noSaves = "XXXXXXXXXXXXXXXXX";
+                    Sleep(1000);
+                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
                     break;
+                }
                 case 1:
                     runAnthony();
                     break;
@@ -117,7 +118,12 @@ void startScreen() {
         case 2:
             // Exit selected
             running = false;
-            
-            
+            break;       
+
+        default:
+            std::string noSaves = "Broke";
+            Sleep(1000);
+            renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+            break;
     }
 }

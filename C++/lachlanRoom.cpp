@@ -196,4 +196,5 @@ void runLachlan()
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    //runCallum(); // goes to next room after being solved
 }

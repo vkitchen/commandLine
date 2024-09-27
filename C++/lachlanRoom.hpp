@@ -8,6 +8,7 @@
 #include <windows.h>
 #include <cstring>
 #include "renderArt.hpp"
+#include "saveOrLoadGame.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"
 #include "textBox.hpp"

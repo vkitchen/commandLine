@@ -90,12 +90,12 @@ int main(int argc, char* argv[]) {
         renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
         return 0;
     }
-    clearWholeScreen();
-    runIntro();
-    runAnthony();
-    runOscar();
-    //runLachlan(); 
-    //runCallum();
+    // clearWholeScreen();
+    // runIntro();
+    // runAnthony();
+    // runOscar();
+    // runLachlan(); 
+    // runCallum();
     clearWholeScreen();
     std::string output = "Thank you for playing Escape Owheo Beta :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);

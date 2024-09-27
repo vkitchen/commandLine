@@ -81,7 +81,7 @@ void runAnthony(){
                     clearWholeScreen();
                     solvedAnthony = true;
                     currentWallIndex = 0;
-                    return;
+                    break;
                 } else if (input == 45) {
                     anthonyZoomed = false;
                     clearWholeScreen();
@@ -113,7 +113,7 @@ void runAnthony(){
         }
 
         input = ' ';
-        while(input == ' ') processInput();
+        while(input == ' ' && !solvedAnthony) processInput();
         roomInputListenerAnthony(&anthonyZoomed);
         // Clear the input
         
@@ -123,4 +123,5 @@ void runAnthony(){
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    runOscar(); // goes to next room after being solved
 } 

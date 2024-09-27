@@ -172,7 +172,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 
     }
 
-    
+    input = ' ';
     options = {};
 
     return selectedIndex;

@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include "introRoom.hpp"
 #include "oscarRoom.hpp"
 #include "lachlanRoom.hpp"
 #include "anthonyRoom.hpp"
