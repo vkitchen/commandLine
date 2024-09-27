@@ -47,6 +47,23 @@ void processInput() {
 //     }
 // }
 
+void roomInputListenerIntro(bool* introZoomed) {
+        
+    if (input == 'q') {
+        running = false; // Quit the game
+    } else if ((input == leftArrow || input == rightArrow) && *introZoomed == false) { // Left or Right arrow keys if not zoomed in
+        if (input == leftArrow) { // Left arrow key
+            currentWallIndex = (currentWallIndex - 1 + 4) % 4;
+        } else if (input == rightArrow) { // Right arrow key
+            currentWallIndex = (currentWallIndex + 1) % 4;
+        }
+    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2)){ // should only zoom on wall 0 and 2
+        clearWholeScreen();
+        *introZoomed = true;
+    }
+}
+
+
 void roomInputListenerOscar(bool* oscarZoomed) {
         
     if (input == 'q') {

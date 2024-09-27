@@ -11,6 +11,7 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET test_executable PROPERTY CXX_STANDARD 20)
 endif()
 
-add_test(test_executable test_executable)
+add_test(NAME test_executable COMMAND test_executable)
+set_tests_properties(test_executable PROPERTIES WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # TODO: Add tests and install targets if needed.

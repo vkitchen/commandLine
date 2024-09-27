@@ -15,11 +15,24 @@
 #include "lachlanRoom.hpp"
 #include "anthonyRoom.hpp"
 #include "callumRoom.hpp"
+#include "introRoom.hpp"
 //#include <mmsystem.h>
 
 // comment to make pipeline run
 // Room set up
 const int numWalls = 4;
+
+//Intro room
+/*
+-------------------------------------------------------------------------------------
+ALL OF THIS ART STILL NEEDS TO BE REPLACED
+IN THE INTRO ROOM ONLY
+-------------------------------------------------------------------------------------
+*/
+const std::string room0[numWalls] = {"art/intro/W1.txt", "art/intro/W2.txt", "art/intro/W4.txt", "art/intro/W3.txt"};  
+const std::string room0ZOOMED[numWalls] = {"art/intro/zoomed/W1Zoom.txt", "", "art/intro/zoomed/keypadZoom.txt", ""};
+bool room0VIEWED[numWalls] = {false, false, false, false};
+bool room0ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 //Oscars room
 const std::string room1[numWalls] = {"art/room1/W1.txt", "art/room1/W2.txt", "art/room1/W3.txt", "art/room1/W4.txt"};  
@@ -78,7 +91,7 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     clearWholeScreen();
-
+    runIntro();
     runAnthony();
     runOscar();
     //runLachlan(); 

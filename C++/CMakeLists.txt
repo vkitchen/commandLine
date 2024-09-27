@@ -49,4 +49,7 @@ terminalHelpers.cpp
 textBox.cpp)
 target_include_directories(src PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
+file(COPY ${CMAKE_SOURCE_DIR}/C++/art DESTINATION ${CMAKE_BINARY_DIR})
+# configure_file(${CMAKE_CURRENT_SOURCE_DIR}/art ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
+
 # TODO: Add tests and install targets if needed.
