@@ -44,7 +44,7 @@ const std::string room4[numWalls] = {"art/room4/W1.txt", "art/room4/W2.txt", "ar
 bool room4VIEWED[numWalls] = {false, false, false, false};
 bool room4ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
-
+std::string saveFileName;
 std::string listenerType = "RoomLeftRight";
 int roomNumber = 1;
 int currentWallIndex = 0;
@@ -55,7 +55,7 @@ int totalConsoleWidth = 0;
 int  fullScreenTextBoxHeight = 0;
 char input = ' ';
 bool running = true;
-bool zoomed = false;
+bool globalZoomed = false;
 
 std::vector<std::string> currentWall;
 

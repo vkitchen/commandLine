@@ -17,7 +17,7 @@
 extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, roomNumber;
 extern char input;
 extern std::vector<std::string> options;
-extern bool zoomed;
+extern bool globalZoomed;
 
 /**
  * @brief Listens for char input from keyboard

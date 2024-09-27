@@ -3,6 +3,7 @@
 #include "renderArt.hpp"
 #include "optionsBox.hpp"
 #include "terminalHelpers.hpp"
+#include "saveOrLoadGame.hpp"
 #include <windows.h>
 
 /*!
@@ -10,13 +11,15 @@
  * @brief startScreen.cpp
  */
 
+int selectedIndex;
+
 void startScreen() {
     int startXBox = totalConsoleWidth * 2 / 5;
     int endXBox = totalConsoleWidth * 3 / 5;
     int startYBox = (totalConsoleHeight * 1 / 3) + 1;
     int endYBox = totalConsoleHeight - 1;
 
-
+    selectedIndex = -1;
 
     const double probability = 0.1; // 10% chance
     const int arraysize = 26860;
@@ -58,20 +61,48 @@ void startScreen() {
     int startYTitle = (startYBox - artHeight) / 2;
     renderArt(art, artWidth, artHeight, startXTitle, startYTitle);
     //std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
-    std::vector<std::string> options = {"NEW GAME", "EXIT"};
+    std::vector<std::string> options = {"NEW GAME", "LOAG GAME", "EXIT"};
 
-    int selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
+    selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
 
     switch (selectedIndex) {
         case 0: 
-            // New Game selected, break to return to main.cpp and enter main game loop
-            input = ' ';
+            // New Game selected, run the intro
+            // runIntro();
             break;
 
-        // case 1:
-        //     std::cout << "LOAD GAME" << std::endl;
-        //     // Load Game Selected. TODO
-        //     break;
+        case 1: {
+            std::vector<std::string> saves = getSaveFilesList();
+            if (saves.empty()) {
+                std::string noSaves = "No Save Game Data Found";
+                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+                Sleep(1000);
+                clearWholeScreen();
+                startScreen();
+            }
+            int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
+            saveFileName = saves[selectedSave];
+
+            loadGame(saveFileName);
+            switch (roomNumber) {
+                case 0:
+
+                    break;
+                case 1:
+                    runAnthony();
+                    break;
+                case 2:
+                    runOscar();
+                    break;
+                case 3:
+                    runLachlan();
+                    break;
+                case 4:
+                    //runCallum();
+                    break;
+            }
+        }
+            break;
 
         // case 2:
         //     std::cout << "SR STATS" << std::endl;
@@ -83,7 +114,7 @@ void startScreen() {
         //     // Settings Selected.  TODO
         //     break;
 
-        case 1:
+        case 2:
             // Exit selected
             running = false;
             
