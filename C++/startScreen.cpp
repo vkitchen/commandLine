@@ -68,24 +68,25 @@ void startScreen() {
             input = ' ';
             break;
 
+        // case 1:
+        //     std::cout << "LOAD GAME" << std::endl;
+        //     // Load Game Selected. TODO
+        //     break;
+
+        // case 2:
+        //     std::cout << "SR STATS" << std::endl;
+        //     // SR STATS Selected.  TODO
+        //     break;
+
+    	// case 3:
+        //     std::cout << "" << std::endl;
+        //     // Settings Selected.  TODO
+        //     break;
+
         case 1:
-            std::cout << "LOAD GAME" << std::endl;
-            // Load Game Selected. TODO
-            break;
-
-        case 2:
-            std::cout << "SR STATS" << std::endl;
-            // SR STATS Selected.  TODO
-            break;
-
-    	case 3:
-            std::cout << "" << std::endl;
-            // Settings Selected.  TODO
-            break;
-
-        case 4:
             // Exit selected
             running = false;
+            
             
     }
 }

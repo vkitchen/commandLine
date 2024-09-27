@@ -26,7 +26,7 @@ void runOscar(){
             case 0:
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "Zoom in on the computer to see the name of the cipher you will be performing, there are two hidden values you must use to surmise the answer. You should type your answer into the screen (text box)";
+                output = "Welcome to room 2! Zoom in on the computer to see the name of the cipher you will be performing, there are two hidden values you must use to surmise the answer. You should type your answer into the screen (text box)";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex]);
                 if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;

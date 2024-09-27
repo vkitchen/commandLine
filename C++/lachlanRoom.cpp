@@ -12,6 +12,15 @@
 bool solvedLachlan = false;
 bool timerRunning = false;
 bool lachlanZoomed = false;
+bool doorOpen = false;
+
+const std::vector<std::string> bodyParts = {"HEAD", "SHOULDER", "KNEE", "TOE"};
+std::string tempAnswer;
+std::vector<std::string> bodyPartsCopy;
+
+
+
+std::string roomAnswer = "HEADSHOULDERKNEETOE";
 
 const int totalTimerSeconds = 120; // 2 minute timer
 std::chrono::steady_clock::time_point timeAtStartTime;
@@ -38,12 +47,17 @@ int checkRemainingTime(std::chrono::steady_clock::time_point startTime, int tota
 }
 
 void printRemainingTime(int remainingTime) {
+    std::string timeString;
     int minutes = remainingTime / 60;
     int seconds = remainingTime % 60;
 
-    std::string timeString = std::to_string(minutes) + ":" + std::to_string(seconds);
+    if (seconds < 10) {
+        timeString = std::to_string(minutes) + ":0" + std::to_string(seconds);
+    } else {
+        timeString = std::to_string(minutes) + ":" + std::to_string(seconds);
+    }
 
-    renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
+    renderBox((totalConsoleWidth/5)*4, totalConsoleWidth, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
 }
 
 void runLachlan()
@@ -72,7 +86,7 @@ void runLachlan()
             case 1:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "LACHLANDS ROOM WOOOOOO";
+                outputLachlan = "\u266A \u266B  Head, shoulders, knees, and toes  \u266B \u266A";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -80,7 +94,7 @@ void runLachlan()
             case 2:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "LACHLANDS ROOM WOOOOOO";
+                outputLachlan = "Crazy that a turtle made this";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -99,27 +113,29 @@ void runLachlan()
         } else if (lachlanZoomed == true) {
             loadArt(room2ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
-
+            if(room2ZOOMEDVIEWED[currentWallIndex] == false) room2ZOOMEDVIEWED[currentWallIndex] = true;
             switch (currentWallIndex) 
             {
             case 0:
-                if (!timerRunning) {
+                if (!timerRunning && !doorOpen) {
                     outputLachlan = "Flip the timer? (Y/N)";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
-                    roomInputListenerLachlan(&timerRunning, &lachlanZoomed);
-                    if(room1ZOOMEDVIEWED[0] == false) room1ZOOMEDVIEWED[0] = true;
+                    roomInputListenerLachlan(&timerRunning, &lachlanZoomed, &doorOpen, &solvedLachlan);
                     if (timerRunning) {
                         timeAtStartTime = startTimer();
                     }
-                } else if (timerRunning) {
+                } else if (timerRunning && !doorOpen) {
                     outputLachlan = "Man's looking suss";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                     //clearWholeScreen();
                     //int hourglassIndex = 4 + (((checkRemainingTime(timeAtStartTime,totalTimerSeconds))*(8-4)) / (totalTimerSeconds));
                     //loadArt(room2ZOOMED[hourglassIndex], art, artWidth, artHeight);
                     //renderCenteredArt(art, artWidth, artHeight);
-                    // TODO: print timer and update timer in main loop of Lachlan room
-                } 
+                } else if (doorOpen) {
+                    outputLachlan = "Escape Owheo? (Y/N)";
+                    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
+                    roomInputListenerLachlan(&timerRunning, &lachlanZoomed, &doorOpen, &solvedLachlan);
+                }
                 if (input == 45) {
                     lachlanZoomed = false;
                     clearWholeScreen();
@@ -127,7 +143,32 @@ void runLachlan()
                 }
                 break;
             case 2:   
+                if (!timerRunning) {
+                    outputLachlan = "Art goes crazy";
+                    renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
+                }
+                else if (timerRunning && !doorOpen) {
+                    if (bodyPartsCopy.size() == 0) {
+                        tempAnswer = "";
+                        bodyPartsCopy = bodyParts;
+                    }
+                    outputLachlan = "Buttons have appeared over some body parts. What order do you press them?";
+                    renderBox(0, (totalConsoleWidth/5)*4, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
+                    int selectedBodyPart = renderOptionsBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, bodyPartsCopy);
+                    tempAnswer = tempAnswer + bodyPartsCopy[selectedBodyPart];
+                    bodyPartsCopy.erase(bodyPartsCopy.begin() + selectedBodyPart);
 
+                    if (tempAnswer == roomAnswer) {
+                        doorOpen = true;
+                        timerRunning = false;
+                        clearWholeScreen();
+                    }
+                }
+                if (input == 45) {
+                    lachlanZoomed = false;
+                    clearWholeScreen();
+                    continue;
+                }
                 break;
             default:
                 break;
@@ -139,7 +180,7 @@ void runLachlan()
         if (input == ' ') {
             processInput();
         }
-        roomInputListenerLachlan(&timerRunning, &lachlanZoomed);
+        roomInputListenerLachlan(&timerRunning, &lachlanZoomed, &doorOpen, &solvedLachlan);
 
         if (timerRunning) {
             int timeToPrint = checkRemainingTime(timeAtStartTime, totalTimerSeconds);

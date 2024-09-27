@@ -15,6 +15,7 @@
 #include "lachlanRoom.hpp"
 #include "anthonyRoom.hpp"
 #include "callumRoom.hpp"
+//#include <mmsystem.h>
 
 // comment to make pipeline run
 // Room set up
@@ -57,15 +58,8 @@ bool running = true;
 bool zoomed = false;
 
 std::vector<std::string> currentWall;
-// hello
-int main(int argc, char* argv[]) {
-    // for(int i = 1; i < argc; i++){
-    //     if(std::strcmp(argv[i], "-t") == 0){
-    //         testMain();
-    //         return 0;
-    //     }
-    // }
 
+int main(int argc, char* argv[]) {
 
 // Terminal setups
     enableUTF8Console();
@@ -78,20 +72,19 @@ int main(int argc, char* argv[]) {
     
     startScreen(); // Display Start Screen for input
     if (running == false) {
+        clearWholeScreen();
+        std::string output = "Thank you for playing Escape Owheo Beta :)";            
+        renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
         return 0;
     }
     clearWholeScreen();
 
     runAnthony();
     runOscar();
-    runLachlan();
-
-    
-    
+    //runLachlan(); 
     //runCallum();
-    
     clearWholeScreen();
-    std::string output = "Thank you for playing Escape Owheo Alpha :)";            
+    std::string output = "Thank you for playing Escape Owheo Beta :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
 
     return 0;
