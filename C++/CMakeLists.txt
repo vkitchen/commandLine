@@ -10,6 +10,10 @@ add_executable (cmakeci
 "inputListener.hpp"
 "optionsBox.cpp"
 "optionsBox.hpp"
+"introRoom.cpp"
+"introRoom.hpp"
+"pauseMenu.cpp"
+"pauseMenu.hpp"
 "oscarRoom.cpp"
 "oscarRoom.hpp"
 "callumRoom.cpp"
@@ -24,6 +28,8 @@ add_executable (cmakeci
 "renderArt.hpp"
 "startScreen.cpp"
 "startScreen.hpp"
+"saveOrLoadGame.cpp"
+"saveOrLoadGame.hpp"
 "terminalHelpers.cpp"
 "terminalHelpers.hpp"
 "textBox.cpp"
@@ -38,6 +44,7 @@ endif()
 add_library(src STATIC 
 inputListener.cpp
 optionsBox.cpp
+intorRoom.cpp
 oscarRoom.cpp
 anthonyRoom.cpp
 lachlanRoom.cpp
@@ -45,6 +52,8 @@ callumRoom.cpp
 readArt.cpp
 renderArt.cpp
 startScreen.cpp
+saveOrLoadGame.cpp
+pauseMenu.cpp
 terminalHelpers.cpp
 textBox.cpp)
 target_include_directories(src PUBLIC ${CMAKE_CURRENT_LIST_DIR})

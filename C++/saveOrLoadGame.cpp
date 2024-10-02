@@ -1,8 +1,20 @@
 #include "saveOrLoadGame.hpp"
 
+std::string getCurrentTimeAsString() {
+    // get Unix time
+    std::time_t currentTime = std::time(nullptr);
+
+    std::tm* localTime = std::localtime(&currentTime);
+
+    char buffer[100];
+
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localTime);
+
+    return std::string(buffer);
+}
+
 void saveGame(bool currentRoomZoomed) {
-    std::time_t now = std::time(nullptr);
-    saveFileName = "saveStates/save_" + std::to_string(now) + ".txt";
+    saveFileName = "saveStates/save_" + getCurrentTimeAsString() + ".txt";
 
     std::ofstream outFile(saveFileName);
     if (!outFile) {
@@ -12,7 +24,7 @@ void saveGame(bool currentRoomZoomed) {
 
     outFile << "roomNumber=" << roomNumber << std::endl;
     outFile << "currentWallIndex=" << currentWallIndex << std::endl;
-    outFile << "currentRoomZoomed=" << currentRoomZoomed << std::endl;
+    outFile << "currentRoomZoomed=" << (currentRoomZoomed ? 1 : 0) << std::endl;
 
     outFile.close();
 }

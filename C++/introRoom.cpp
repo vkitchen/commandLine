@@ -16,6 +16,7 @@ std::string instructionIntro;
 // test
 
 void runIntro(){
+    introZoomed = globalZoomed;
     while (!solvedIntro) {
         
         if(input == 'q'){

@@ -62,15 +62,12 @@ void printRemainingTime(int remainingTime) {
 
 void runLachlan()
 {
-    currentWallIndex = 0;
+    roomNumber = 3;
+    lachlanZoomed = globalZoomed;
     while (!solvedLachlan)
     {
         //clearWholeScreen();
-        if (input == 'q')
-        {
-            running = false;
-            return;
-        }
+
         if (lachlanZoomed == false)
         {
             switch (currentWallIndex)
@@ -192,6 +189,9 @@ void runLachlan()
         }
         if (input == 's') {
             solvedLachlan = true;
+        }
+        if (running == false) {
+            return;
         }
         Sleep(20); // Delay to control game speed
     }

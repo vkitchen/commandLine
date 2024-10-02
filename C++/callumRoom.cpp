@@ -12,8 +12,9 @@ std::string outputCallum;
 
 
 void runCallum(){
- currentWallIndex = 0;
- while (!solvedCallum) {
+    roomNumber = 4;
+    callumZoomed = globalZoomed;
+    while (!solvedCallum) {
         
 
         if(input == 'q'){
@@ -58,7 +59,10 @@ void runCallum(){
         while(input == ' ') processInput();
         roomInputListenerCallum(&callumZoomed);
                 // Clear the input
-
+        
+        if (running == false) {
+            return;
+        }
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP

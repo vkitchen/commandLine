@@ -7,6 +7,7 @@
 #include "renderArt.hpp"
 #include "textBox.hpp"
 #include "optionsBox.hpp"
+#include "pauseMenu.hpp"
 #include "terminalHelpers.hpp"
 #include <conio.h>
 
@@ -23,6 +24,7 @@ int enter = 13;
 int plusSymbol = 61;
 int minusSymbol = 45;
 int backspace = 8;
+int esc = 27;
 
 void processInput() {
     if (_kbhit()) {
@@ -49,8 +51,8 @@ void processInput() {
 
 void roomInputListenerIntro(bool* introZoomed) {
         
-    if (input == 'q') {
-        running = false; // Quit the game
+    if (input == esc) {
+        pauseMenu(introZoomed); // display pause menu
     } else if ((input == leftArrow || input == rightArrow) && *introZoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
@@ -66,8 +68,8 @@ void roomInputListenerIntro(bool* introZoomed) {
 
 void roomInputListenerOscar(bool* oscarZoomed) {
         
-    if (input == 'q') {
-        running = false; // Quit the game
+    if (input == esc) {
+        pauseMenu(oscarZoomed); // display pause menu
     } else if ((input == leftArrow || input == rightArrow) && *oscarZoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
@@ -82,8 +84,8 @@ void roomInputListenerOscar(bool* oscarZoomed) {
 
 void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed, bool* doorOpen, bool* lachlanSolved) {
         
-    if (input == 'q') {
-        running = false; // Quit the game
+    if (input == esc) {
+        pauseMenu(lachlanZoomed); // display pause menu
     } else if ((input == leftArrow || input == rightArrow) && *lachlanZoomed == false) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
@@ -104,8 +106,8 @@ void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed, bool* doo
 
 void roomInputListenerAnthony(bool* anthonyZoomed) {
         
-    if (input == 'q') {
-        running = false; // Quit the game
+    if (input == esc) {
+        pauseMenu(anthonyZoomed); // display pause menu
     } else if ((input == leftArrow || input == rightArrow) && !(*anthonyZoomed)) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;
@@ -120,8 +122,8 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
 
 void roomInputListenerCallum(bool* callumZoomed) {
         
-    if (input == 'q') {
-        running = false; // Quit the game
+    if (input == esc) {
+        pauseMenu(callumZoomed); // display pause menu
     } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys if not zoomed in
         if (input == leftArrow) { // Left arrow key
             currentWallIndex = (currentWallIndex - 1 + 4) % 4;

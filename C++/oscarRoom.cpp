@@ -14,7 +14,8 @@ std::string instruction;
 
 
 void runOscar(){
-
+    roomNumber = 2;
+    oscarZoomed = globalZoomed;
     while (!oscarSolved) {
         if(input == 'q'){
             running = false;
@@ -105,7 +106,9 @@ void runOscar(){
         roomInputListenerOscar(&oscarZoomed);
         // Clear the input
         
-
+        if (running == false) {
+            return;
+        }
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP

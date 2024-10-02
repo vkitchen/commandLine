@@ -16,6 +16,8 @@ std::string instructionAnthony;
 // test
 
 void runAnthony(){
+    roomNumber = 1;
+    anthonyZoomed = globalZoomed;
     while (!solvedAnthony) {
         
         if(input == 'q'){
@@ -119,7 +121,9 @@ void runAnthony(){
         
         // Testing purposes
         // if(input =='s') solvedAnthony = true;
-        
+        if (running == false) {
+            return;
+        }
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP

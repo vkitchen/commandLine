@@ -59,7 +59,7 @@ bool room4ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 std::string saveFileName;
 std::string listenerType = "RoomLeftRight";
-int roomNumber = 1;
+int roomNumber = 0;
 int currentWallIndex = 0;
 char** art = nullptr;
 int artWidth = 0, artHeight = 0;

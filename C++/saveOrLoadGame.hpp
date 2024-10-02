@@ -33,7 +33,7 @@ extern std::string saveFileName;
  * @brief 
  * 
  */
-void saveGame();
+void saveGame(bool currentRoomZoomed);
 
 /**
  * @brief 

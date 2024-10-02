@@ -14,6 +14,29 @@
  * @brief textBox.cpp
  */
 
+// Function to convert string into vector with \n being the delimiter between indexs
+std::vector<std::string> stringToVector(const std::string& inputedString) {
+    std::vector<std::string> result;
+    std::string temp;
+
+    for (char ch : inputedString) {
+        if (ch == '\n') {
+            // add substring to results vector
+            result.push_back(temp);
+            temp.clear();
+        } else {
+            temp += ch; // append characyer to temp string
+        }
+    }
+
+    //add final subsring if it exists
+    if (!temp.empty()) {
+        result.push_back(temp);
+    }
+
+    return result;
+}
+
 // Function that populates box with content fed into it
 std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const std::string& content) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
@@ -64,27 +87,31 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
         std::cout << boxContent[i] << std::endl;
     }
 
-    // Non-blocking text rendering
-    int startXText = (boxWidth - text.length()) / 2 + startX;
-    int startYText = (boxHeight - 1) / 2 + startY;
-    coord = {static_cast<SHORT>(startXText), static_cast<SHORT>(startYText)};
-    if(!zoomedIn && wallSeen == true || zoomedIn && zoomedWallSeen == true){
-        
-        SetConsoleCursorPosition(console, coord);
-        std::cout << text;
-        std::cout.flush();
-    }else{
-        for (char c : text) {
-            // Check for input before printing the next character
-            if (_kbhit()) {
-                return;
-            }
+    std::vector<std::string> textList = stringToVector(text);
 
-            coord = {static_cast<SHORT>(startXText++), static_cast<SHORT>(startYText)};
+    for (int index = 0; index < textList.size(); index++) {
+        // Non-blocking text rendering
+        int startXText = (boxWidth - textList[index].length()) / 2 + startX;
+        int startYText = (boxHeight / (textList.size()+1)) * (index + 1) + startY;
+        coord = {static_cast<SHORT>(startXText), static_cast<SHORT>(startYText)};
+        if(!zoomedIn && wallSeen == true || zoomedIn && zoomedWallSeen == true){
+            
             SetConsoleCursorPosition(console, coord);
-            std::cout << c;
+            std::cout << textList[index];
             std::cout.flush();
-            Sleep(5); // Adjust delay as needed
+        }else{
+            for (char c : textList[index]) {
+                // Check for input before printing the next character
+                if (_kbhit()) {
+                    return;
+                }
+
+                coord = {static_cast<SHORT>(startXText++), static_cast<SHORT>(startYText)};
+                SetConsoleCursorPosition(console, coord);
+                std::cout << c;
+                std::cout.flush();
+                Sleep(5); // Adjust delay as needed
+            }
         }
     }
 }
