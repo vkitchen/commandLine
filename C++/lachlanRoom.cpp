@@ -20,9 +20,9 @@ std::vector<std::string> bodyPartsCopy;
 
 
 
-std::string roomAnswer = "HEADSHOULDERKNEETOE";
+std::string roomAnswer = "TOEKNEEHEADSHOULDER";
 
-const int totalTimerSeconds = 120; // 2 minute timer
+const int totalTimerSeconds = 90; // 2 minute timer
 std::chrono::steady_clock::time_point timeAtStartTime;
 
 std::string outputLachlan;
@@ -75,7 +75,7 @@ void runLachlan()
             case 0:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "LACHLANDS ROOM WOOOOOO";
+                outputLachlan = "A door with a weird lock on it";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -83,7 +83,7 @@ void runLachlan()
             case 1:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "\u266A \u266B  Head, shoulders, knees, and toes  \u266B \u266A";
+                outputLachlan = "There is quiet music coming from those speakers...";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -99,7 +99,7 @@ void runLachlan()
             case 3:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "LACHLANDS ROOM WOOOOOO";
+                outputLachlan = "Somebody is bad at anatomy";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -124,10 +124,10 @@ void runLachlan()
                 } else if (timerRunning && !doorOpen) {
                     outputLachlan = "Man's looking suss";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
-                    //clearWholeScreen();
-                    //int hourglassIndex = 4 + (((checkRemainingTime(timeAtStartTime,totalTimerSeconds))*(8-4)) / (totalTimerSeconds));
-                    //loadArt(room2ZOOMED[hourglassIndex], art, artWidth, artHeight);
-                    //renderCenteredArt(art, artWidth, artHeight);
+                    clearWholeScreen();
+                    int hourglassIndex = 4 + (((checkRemainingTime(timeAtStartTime,totalTimerSeconds))*(8-4)) / (totalTimerSeconds));
+                    loadArt(room2ZOOMED[hourglassIndex], art, artWidth, artHeight);
+                    renderCenteredArt(art, artWidth, artHeight);
                 } else if (doorOpen) {
                     outputLachlan = "Escape Owheo? (Y/N)";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
@@ -138,6 +138,10 @@ void runLachlan()
                     clearWholeScreen();
                     continue;
                 }
+                break;
+            case 1:
+                outputLachlan = "\u266A \u266B  Head, shoulders, knees, and toes  \u266B \u266A";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
                 break;
             case 2:   
                 if (!timerRunning) {
