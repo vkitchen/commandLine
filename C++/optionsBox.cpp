@@ -6,6 +6,7 @@
 #include <string>
 #include "optionsBox.hpp"
 #include "inputListener.hpp"
+#include "timer.hpp"
 
 /*!
  * @file
@@ -47,7 +48,7 @@ int getVisualLength(const std::string& input) {
 
 
 // Function that populates box with content fed into it
-std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vector<std::string> displayedOptions) {
+std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vector<std::string> displayedOptions, int startY) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
 
     int numOfOptions = displayedOptions.size(); // 
@@ -72,14 +73,14 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vec
             contentLength = maxContentWidth; // Truncate content if it's too wide
         }
 
-        int startX = (boxWidth - contentLength) / 2;
+        int startXText = (boxWidth - contentLength) / 2;
 
-        int startY = (boxHeight / (numOfOptions+1)) * (i + 1);
+        int startYText = (boxHeight / (numOfOptions+1)) * (i + 1);
         
 
         for (int j = 0; j < boxHeight; ++j) {
-            if (j == startY) {
-                boxContent[j].replace(startX, contentLength, displayedOptions[i]);
+            if (j == startYText) {
+                boxContent[j].replace(startXText, contentLength, displayedOptions[i]);
             }
             boxContent[j][0] = '|';
             boxContent[j][boxWidth - 1] = '|';
@@ -101,7 +102,7 @@ void renderBoxOptions(int startX, int endX, int startY, int endY, std::vector<st
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
-    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, displayedOptions);
+    std::vector<std::string> boxContent = populateBoxMiddle(boxWidth, boxHeight, displayedOptions, startY);
 
     COORD coord; 
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -154,7 +155,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 
         processInput();
         
-        upDown = startMenuListener();
+        upDown = upDownEnterListener();
 
         if (upDown == 1) { // up arrow was pressed
             selectedIndex = (selectedIndex - 1 + numOfOptions) % numOfOptions;
@@ -164,7 +165,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
             displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
         } else if (upDown == 0) { //enter was pressed
             break;
-        }
+        } 
 
         input = ' ';
 
@@ -178,7 +179,64 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
     return selectedIndex;
 }
 
+int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed) {
+    
+    options = optionsIn;
+    int numOfOptions = options.size();
+    
+    std::string selectedOption = "";
+    int selectedIndex = 0;
 
+    // make selected versions of options
+    std::vector<std::string> selectOptions(numOfOptions);
+    for (int i = 0; i < numOfOptions; ++i) {
+        selectOptions[i] = "< " + options[i] + " >";
+    }
+
+    // make intial display with option 0 initally selected
+    std::vector<std::string> displayedOptions;
+    displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
+
+    int upDown = 3;
+
+    while (true) {
+
+        if (*timerRunning) {
+            int timeToPrint = checkRemainingTime(timeAtStartTime, totalTimerSeconds);
+            if (timeToPrint > 0) {
+                printRemainingTime(timeToPrint, currentRoomZoomed);
+            } else {
+                *timerRunning = false;
+            }
+        }
+
+        renderBoxOptions(startX, endX, startY, endY, displayedOptions);
+
+        processInput();
+        
+        upDown = upDownEnterListener();
+
+        if (upDown == 1) { // up arrow was pressed
+            selectedIndex = (selectedIndex - 1 + numOfOptions) % numOfOptions;
+            displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
+        } else if (upDown == 2) { // Down Arrow was pressed
+            selectedIndex = (selectedIndex + 1) % numOfOptions;
+            displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
+        } else if (upDown == 0) { //enter was pressed
+            break;
+        } 
+
+        input = ' ';
+
+        Sleep(20);
+
+    }
+
+    input = ' ';
+    options = {};
+
+    return selectedIndex;
+}
 
 std::string stringInputBox(std::string wordIn) {
     std::vector<std::string> word(1);

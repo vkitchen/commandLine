@@ -92,9 +92,11 @@ void roomInputListenerLachlan(bool* timerRunning, bool* lachlanZoomed, bool* doo
         } else if (input == rightArrow) { // Right arrow key
             currentWallIndex = (currentWallIndex + 1) % 4;
         }
-    } else if (input == plusSymbol && (currentWallIndex == 0 || currentWallIndex == 2) && *lachlanZoomed != true){ // should only zoom on wall 0 and 2
+    } else if (input == plusSymbol && *lachlanZoomed != true){ // should only zoom on wall 0 and 2
         clearWholeScreen();
         *lachlanZoomed = true;
+    } else if (input == minusSymbol && *lachlanZoomed == true) {
+        *lachlanZoomed = false;
     } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0 && !(*doorOpen)) { // Y or y, while doorClosed: Starts timer
         *timerRunning = true;
     } else if ((input == 89 || input == 121) && *lachlanZoomed == true && currentWallIndex == 0 && *doorOpen) {
@@ -135,7 +137,7 @@ void roomInputListenerCallum(bool* callumZoomed) {
 
 
 
-int startMenuListener() {
+int upDownEnterListener() {
     int upPressed = 1;
     int downPressed = 2;
     int nothingPressed = 3;

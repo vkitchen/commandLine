@@ -112,6 +112,6 @@ void runOscar(){
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
-    //runLachlan(); // goes to next room after being solved
+    runLachlan(); // goes to next room after being solved
     return;
 } 

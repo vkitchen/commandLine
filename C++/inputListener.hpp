@@ -38,7 +38,7 @@ void roomLeftRightListener();
  * @brief Listens for up, down, and enter keys when in the start menu
  * @return int that signifies whether up (1), down (2), enter (0), or nothing (3) was pressed
  */
-int startMenuListener();
+int upDownEnterListener();
 
 /**
  * @brief Setter for global variable 'input'

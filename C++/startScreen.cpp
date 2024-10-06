@@ -67,6 +67,7 @@ void startScreen() {
             // New Game selected, run the intro
             clearWholeScreen();
             runIntro();
+            
             break;
 
         case 1: {

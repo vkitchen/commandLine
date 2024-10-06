@@ -42,7 +42,7 @@ bool room1ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Lachlans Room
 const std::string room2[numWalls] = {"art/room2/W1.txt", "art/room2/W2.txt", "art/room2/W3.txt", "art/room2/W4.txt"}; 
-const std::string room2ZOOMED[numWalls*2] = {"art/room2/Zoomed/W1Z5.txt", "art/room2/Zoomed/W2Zoom.txt", "art/room1/zoomed/W3Zoom.txt", "art/room2/Zoomed/W4Zoom.txt", "art/room2/Zoomed/W1Z1.txt", "art/room2/Zoomed/W1Z2.txt", "art/room2/Zoomed/W1Z3.txt", "art/room2/Zoomed/W1Z4.txt"};
+const std::string room2ZOOMED[8] = {"art/room2/Zoomed/W1Z5.txt", "art/room2/Zoomed/W2Zoom.txt", "art/room2/Zoomed/W3Zoom.txt", "art/room2/Zoomed/W4Zoom.txt", "art/room2/Zoomed/W1Z4.txt", "art/room2/Zoomed/W1Z3.txt", "art/room2/Zoomed/W1Z2.txt", "art/room2/Zoomed/W1Z1.txt"};
 bool room2VIEWED[numWalls] = {false, false, false, false};
 bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
@@ -80,22 +80,16 @@ int main(int argc, char* argv[]) {
     getFullScreenDimensions();
     hideCursor();
     clearWholeScreen();
-
-    
     
     startScreen(); // Display Start Screen for input
+    
     if (running == false) {
         clearWholeScreen();
         std::string output = "Thank you for playing Escape Owheo Beta :)";            
         renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
         return 0;
     }
-    // clearWholeScreen();
-    // runIntro();
-    // runAnthony();
-    // runOscar();
-    // runLachlan(); 
-    // runCallum();
+
     clearWholeScreen();
     std::string output = "Thank you for playing Escape Owheo Beta :)";            
     renderBox(0, totalConsoleWidth, 0, totalConsoleHeight, output, false, false, false);
