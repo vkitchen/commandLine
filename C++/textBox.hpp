@@ -30,6 +30,6 @@ extern bool room3ZOOMEDVIEWED[];
  * @param endY [in] bottom right Y coord of box
  * @param text [in] text to be displayed on screen
  */
-void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen);
+void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen, std::string helperInstruction);
 
 #endif // TEXT_BOX_HPP

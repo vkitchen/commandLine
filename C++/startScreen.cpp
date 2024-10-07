@@ -74,7 +74,7 @@ void startScreen() {
             std::vector<std::string> saves = getSaveFilesList();
             if (saves.empty()) {
                 std::string noSaves = "No Save Game Data Found";
-                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
                 Sleep(1000);
                 clearWholeScreen();
                 startScreen();
@@ -88,7 +88,7 @@ void startScreen() {
                 case 0: {
                     std::string noSaves = "XXXXXXXXXXXXXXXXX";
                     Sleep(1000);
-                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
                     break;
                 }
                 case 1:
@@ -125,7 +125,7 @@ void startScreen() {
         default:
             std::string noSaves = "Broke";
             Sleep(1000);
-            renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+            renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
             break;
     }
 }

@@ -28,26 +28,28 @@ void runCallum(){
                 loadArt(room4[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputCallum = "CALLUM ROOM WOOOOOO";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex]);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], "");
                 if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
                 break;
             case 1:
                 loadArt(room4[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputCallum = "CALLUM ROOM WOOOOOO";         
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex]);            if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], "");            
+                if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
                 break;
             case 2:
                 loadArt(room4[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputCallum = "CALLUM ROOM WOOOOOO";            
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex]);            if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], "");            
+                if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
                 break;
             case 3:
                 loadArt(room4[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputCallum = "CALLUM ROOM WOOOOOO";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex]);
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], "");
                 if(room4VIEWED[currentWallIndex] == false) room4VIEWED[currentWallIndex] = true;
                 break;
             default:

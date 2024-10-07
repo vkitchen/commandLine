@@ -66,12 +66,28 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
     return boxContent;
 }
 
+//Function to add in instruction in bottom left hand corner of a rendered box
+void renderHelperInstruction(std::string helperInstruction, int boxWidth, int boxHeight) {
+    SHORT X = static_cast<SHORT>(boxWidth - helperInstruction.length() - 3);
+    SHORT Y = static_cast<SHORT>(boxHeight - 3);
+
+    if (X < 0) X = 0;
+    if (Y < 0) Y = 0;
+
+    COORD coord = {static_cast<SHORT>(X), static_cast<SHORT>(Y)};
+    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleCursorPosition(console, coord);
+
+    std::cout << helperInstruction;
+    std::cout.flush();
+}
+
 // Function to render a text box with given text centered in the middle
 // startX = top left x-coord
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen) {
+void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen, std::string helperInstruction) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
@@ -114,4 +130,8 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
             }
         }
     }
+
+    renderHelperInstruction(helperInstruction, endX, endY);
+
+
 }

@@ -1,6 +1,6 @@
 #include "timer.hpp"
 
-std::chrono::steady_clock::time_point timeAtStartTime;
+std::chrono::steady_clock::time_point timeAtStartTime; 
 
 void startTimer() {
     timeAtStartTime = std::chrono::steady_clock::now();
@@ -31,5 +31,5 @@ void printRemainingTime(int remainingTime, bool currentRoomZoomed) {
         timeString = std::to_string(minutes) + ":" + std::to_string(seconds);
     }
 
-    renderBox((totalConsoleWidth/5)*4, totalConsoleWidth, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, currentRoomZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex]);
+    renderBox((totalConsoleWidth/5)*4, totalConsoleWidth, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, currentRoomZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], "");
 }

@@ -32,6 +32,8 @@ add_executable (cmakeci
 "saveOrLoadGame.hpp"
 "terminalHelpers.cpp"
 "terminalHelpers.hpp"
+"timer.cpp"
+"timer.hpp"
 "textBox.cpp"
 "textBox.hpp"
 )
@@ -53,6 +55,7 @@ readArt.cpp
 renderArt.cpp
 startScreen.cpp
 saveOrLoadGame.cpp
+timer.cpp
 pauseMenu.cpp
 terminalHelpers.cpp
 textBox.cpp)

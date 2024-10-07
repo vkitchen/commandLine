@@ -23,7 +23,7 @@ void pauseMenu(bool currentRoomZoomed) {
             std::vector<std::string> saves = getSaveFilesList();
             if (saves.empty()) {
                 std::string noSaves = "No Save Game Data Found";
-                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
                 Sleep(1000);
                 clearWholeScreen();
                 break;
@@ -37,7 +37,7 @@ void pauseMenu(bool currentRoomZoomed) {
                 case 0: {
                     std::string noSaves = "XXXXXXXXXXXXXXXXX";
                     Sleep(1000);
-                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
                     break;
                 }
                 case 1:
@@ -64,7 +64,8 @@ void pauseMenu(bool currentRoomZoomed) {
             "Up and Down Arrow Keys = move between options in menus\n" 
             "Enter = input values or select options in menus\n" 
             "Esc = pause the game/Exit the pause menu";
-            renderBox(totalConsoleWidth * 1 / 5, totalConsoleWidth * 4 / 5, (totalConsoleHeight * 1 / 3) + 1, (totalConsoleHeight * 2 / 3) + 1 , instructions, TRUE, TRUE, TRUE);
+            std::string helperInstruction = "PRESS ESC TO LEAVE MENU";
+            renderBox(totalConsoleWidth * 1 / 5, totalConsoleWidth * 4 / 5, (totalConsoleHeight * 1 / 3) + 1, (totalConsoleHeight * 2 / 3) + 1 , instructions, TRUE, TRUE, TRUE, helperInstruction);
             while (input != 27) {processInput();}
             clearWholeScreen();
             break;
@@ -79,7 +80,7 @@ void pauseMenu(bool currentRoomZoomed) {
         default:
             std::string noSaves = "Broke";
             Sleep(1000);
-            renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE);
+            renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
             break;
     }
 }
