@@ -31,5 +31,5 @@ void printRemainingTime(int remainingTime, bool currentRoomZoomed) {
         timeString = std::to_string(minutes) + ":" + std::to_string(seconds);
     }
 
-    renderBox((totalConsoleWidth/5)*4, totalConsoleWidth, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, currentRoomZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], "");
+    renderBox((totalConsoleWidth/7)*6, totalConsoleWidth, (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, timeString, currentRoomZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], "");
 }

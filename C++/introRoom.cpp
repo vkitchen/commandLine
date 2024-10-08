@@ -11,7 +11,7 @@ bool introZoomed = false;
 std::string outputIntro;
 std::string borderCharIntro;
 std::string answerIntro;
-std::string instructionIntro;
+std::string instructionIntro, helperInstructionIntro;
 
 // test
 
@@ -19,18 +19,15 @@ void runIntro(){
     introZoomed = globalZoomed;
     while (!solvedIntro) {
         
-        if(input == 'q'){
-            running = false;
-            return;
-        }
         if(introZoomed == false) {
+            helperInstructionIntro = "PRESS + TO ZOOM IN";
             switch (currentWallIndex)
             {
             case 0:
                 loadArt(room0[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputIntro = "Welcome to Escape Owheo! You can zoom in with the + key and zoom back out with the - key to get some more detail";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], "");
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], helperInstructionIntro);
                 if(room0VIEWED[currentWallIndex] == false) room0VIEWED[currentWallIndex] = true;
                 break;
             case 1:
@@ -45,7 +42,7 @@ void runIntro(){
                 renderCenteredArt(art, artWidth, artHeight);
                 outputIntro = "If you have looked at all the walls zoom in and enter 'START' to load the first floor. Good Luck!\n"
                 "You can always check these controls by pressing 'ESC'";            
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], "");
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], helperInstructionIntro);
                 if(room0VIEWED[currentWallIndex] == false) room0VIEWED[currentWallIndex] = true;
                 break;
             case 3:
@@ -59,13 +56,14 @@ void runIntro(){
                 break;
             }
         }else if(introZoomed == true){
+            helperInstructionIntro = "PRESS + TO ZOOM OUT";
             loadArt(room0ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
             switch (currentWallIndex)
             {
             case 2:
                 instructionIntro = "input your answer:";
-                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionIntro, introZoomed, TRUE, TRUE, "");
+                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionIntro, introZoomed, TRUE, TRUE, helperInstructionIntro);
                 answerIntro = stringInputBox("");
                 if (answerIntro == "start" || answerIntro == "Start" || answerIntro == "START") {
                     introZoomed = false;
@@ -86,7 +84,7 @@ void runIntro(){
                 break;
             case 0:
                 outputIntro = "well done, if you want to look at other walls use the left and right arrow keys. Zoom back out and give it a try ...";    
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], "PRESS - TO ZOOM OUT");
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputIntro, introZoomed, room0VIEWED[currentWallIndex], room0ZOOMEDVIEWED[currentWallIndex], helperInstructionIntro);
                 if(room0ZOOMEDVIEWED[currentWallIndex] == false) room0ZOOMEDVIEWED[currentWallIndex] = true;        
                 if (input == 45) {
                     introZoomed = false;

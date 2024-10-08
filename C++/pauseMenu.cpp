@@ -3,8 +3,8 @@
 void pauseMenu(bool currentRoomZoomed) {
     int startXBox = totalConsoleWidth * 2 / 5;
     int endXBox = totalConsoleWidth * 3 / 5;
-    int startYBox = (totalConsoleHeight * 1 / 3) + 1;
-    int endYBox = totalConsoleHeight - 1;
+    int startYBox = (totalConsoleHeight * 1 / 6) + 1;
+    int endYBox = (totalConsoleHeight * 4 / 6) - 1;
     int startXTitle = (totalConsoleWidth - artWidth/3) / 2;
     int startYTitle = (startYBox - artHeight) / 2;
 
@@ -60,7 +60,8 @@ void pauseMenu(bool currentRoomZoomed) {
             clearWholeScreen();
             renderCenteredArt(art, artWidth, artHeight);
             std::string instructions =  
-            "Left and Right Arrow Keys = change view of walls in room\n"  
+            "Left and Right Arrow Keys = change view of walls in room\n"
+            "+ and - = zoom in and out of walls\n"  
             "Up and Down Arrow Keys = move between options in menus\n" 
             "Enter = input values or select options in menus\n" 
             "Esc = pause the game/Exit the pause menu";
@@ -70,13 +71,23 @@ void pauseMenu(bool currentRoomZoomed) {
             clearWholeScreen();
             break;
         }
-        case 3:
+        case 3: {
             // Exit selected
             // TO DO: implement saving
-            saveGame(currentRoomZoomed);
-            running = false;
-            break;       
-
+            int successOrNo = saveGame(currentRoomZoomed);
+            
+            switch(successOrNo) {
+                case 0:
+                    running = false;
+                    return;
+                case 1:
+                    running = false;
+                    return;
+                case 2:
+                    clearWholeScreen();
+                    break;
+            }     
+        }
         default:
             std::string noSaves = "Broke";
             Sleep(1000);

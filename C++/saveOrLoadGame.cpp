@@ -1,4 +1,10 @@
 #include "saveOrLoadGame.hpp"
+#include <direct.h>
+
+int startXBoxSave = totalConsoleWidth * 2 / 5;
+int endXBoxSave = totalConsoleWidth * 3 / 5;
+int startYBoxSave = (totalConsoleHeight * 2 / 6) + 1;
+int endYBoxSave = (totalConsoleHeight * 4 / 6) - 1;
 
 std::string getCurrentTimeAsString() {
     // get Unix time
@@ -10,16 +16,48 @@ std::string getCurrentTimeAsString() {
 
     std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localTime);
 
+    std::cout << std::string(buffer) << std::endl;
+
     return std::string(buffer);
 }
 
-void saveGame(bool currentRoomZoomed) {
-    saveFileName = "saveStates/save_" + getCurrentTimeAsString() + ".txt";
+bool CreateDirectoryIfNeeded(const std::string& dir) {
+    if (_mkdir(dir.c_str()) == -1) {
+        if (errno != EEXIST) {
+            std::cerr << "Failed to create directory: " << dir << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+// returns 0 on succesful save and exit
+// returns 1 on failed save and exit
+// returns 2 on failed save and no exit
+int saveGame(bool currentRoomZoomed) {
+    int choice;
+    std::string directory = "saveStates";
+    if (!CreateDirectoryIfNeeded(directory)) {
+        std::cerr << "Directory creation failed" << std::endl;
+        choice = 1;
+    }
+
+    saveFileName = directory + "/save_" + getCurrentTimeAsString() + ".txt";
 
     std::ofstream outFile(saveFileName);
     if (!outFile) {
-        std::cerr << "Failed to create save file." << std::endl;
-        return;
+        std::string promptForNoSave = "Game failed to save. Please select option:";
+        renderBox(startXBoxSave, endXBoxSave, startYBoxSave, ((totalConsoleHeight * 2 / 6) + 1), promptForNoSave, TRUE, TRUE, TRUE, "");
+        std::vector<std::string> yesOrNo = {"EXIT GAME WITHOUT SAVING", "RETURN TO GAME"};
+        choice = renderOptionsBox(startXBoxSave, endXBoxSave, ((totalConsoleHeight * 2 / 6) + 1), endYBoxSave, yesOrNo);
+
+        switch (choice) {
+            case 0:
+                return 1;
+                break;
+            case 1:
+                return 2;
+                break;
+        }       
     }
 
     outFile << "roomNumber=" << roomNumber << std::endl;
@@ -27,6 +65,8 @@ void saveGame(bool currentRoomZoomed) {
     outFile << "currentRoomZoomed=" << (currentRoomZoomed ? 1 : 0) << std::endl;
 
     outFile.close();
+
+    return 0; 
 }
 
 void loadGame(const std::string& saveFileName) {

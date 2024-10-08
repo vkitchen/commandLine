@@ -67,7 +67,7 @@ void startScreen() {
             // New Game selected, run the intro
             clearWholeScreen();
             runIntro();
-            
+            //runLachlan();
             break;
 
         case 1: {

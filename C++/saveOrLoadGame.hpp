@@ -6,6 +6,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include "optionsBox.hpp"
 #include "introRoom.hpp"
 #include "oscarRoom.hpp"
 #include "lachlanRoom.hpp"
@@ -33,7 +34,7 @@ extern std::string saveFileName;
  * @brief 
  * 
  */
-void saveGame(bool currentRoomZoomed);
+int saveGame(bool currentRoomZoomed);
 
 /**
  * @brief 
