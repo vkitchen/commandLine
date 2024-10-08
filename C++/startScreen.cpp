@@ -22,7 +22,7 @@ void startScreen() {
     const int arraysize = 26860;
     std::vector<std::vector<char>> array(85, std::vector<char>(316));
 
-    std::string title = "art/startScreen/Escape-Owheo.txt";
+    std::string title = "build/art/startScreen/Escape-Owheo.txt";
 
     // Create a 2D vector of chars
     std::srand(static_cast<unsigned>(1));
