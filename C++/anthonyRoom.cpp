@@ -35,8 +35,13 @@ void runAnthony(){
             case 1:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
+<<<<<<< HEAD
                 outputAnthony = "Is someone doing calculations on this whiteboard?";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
+=======
+                outputAnthony = "Looks like someone is doing calculations on this whiteboard. Maybe I should have a closer look?";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+>>>>>>> 817637924d8f8ef0b721b9e63c9b41986fe65f89
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             case 2:
@@ -49,8 +54,13 @@ void runAnthony(){
             case 3:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
+<<<<<<< HEAD
                 outputAnthony = "What a cool poster what's it showing? ";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
+=======
+                outputAnthony = "What a cool poster. Looks like something I've seen before, I should get closer.";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+>>>>>>> 817637924d8f8ef0b721b9e63c9b41986fe65f89
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             default:
@@ -62,19 +72,19 @@ void runAnthony(){
             loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);
             if(currentWallIndex == 1){
-                outputAnthony = "Huh, they're working out base X height, I wonder what that could mean?";    
+                outputAnthony = "Huh, someone's using the base X height formula. I wonder, what do you get when you multiply the base and the height of that shape???";    
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;     
             }
             if(currentWallIndex == 3){
-                outputAnthony = "Looks like a UFO lighting up the number 51, I swear I've heard of this place... ";    
+                outputAnthony = "Looks like a UFO lighting up the number 51, I swear this place hides aliens there... ";    
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 if(room3ZOOMEDVIEWED[3] == false) room3ZOOMEDVIEWED[3] = true;     
             }
             switch (currentWallIndex)
             {
             case 0:
-                instructionAnthony = "input your answer:";
+                instructionAnthony = "Input your answer:";
                 renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 answerAnthony = stringInputBox("");
                 if (answerAnthony == "Area" || answerAnthony == "area") {

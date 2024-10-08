@@ -1,4 +1,7 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
+# CMakeList.txt : CMake project for cmake, include source and define
+# project specific logic here.
+#
+# CMakeList.txt : Top-level CMake project file, do global configuration
 # and include sub-projects here.
 #
 cmake_minimum_required (VERSION 3.8)
@@ -9,12 +12,10 @@ if (POLICY CMP0141)
   set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
 endif()
 
-project ("commandLine")
+
+
+project (commandLine)
 
 include(CTest)
 
-# Include sub-projects.
 add_subdirectory ("C++")
-add_subdirectory ("C++/tests")
-add_subdirectory ("C++/art")
-add_subdirectory ("C++/art/room1")
