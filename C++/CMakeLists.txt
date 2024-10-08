@@ -46,7 +46,7 @@ endif()
 add_library(src STATIC 
 inputListener.cpp
 optionsBox.cpp
-intorRoom.cpp
+introRoom.cpp
 oscarRoom.cpp
 anthonyRoom.cpp
 lachlanRoom.cpp
