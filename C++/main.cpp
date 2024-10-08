@@ -29,31 +29,31 @@ ALL OF THIS ART STILL NEEDS TO BE REPLACED
 IN THE INTRO ROOM ONLY
 -------------------------------------------------------------------------------------
 */
-const std::string room0[numWalls] = {"art/intro/W1.txt", "art/intro/W2.txt", "art/intro/W4.txt", "art/intro/W3.txt"};  
-const std::string room0ZOOMED[numWalls] = {"art/intro/zoomed/W1Zoom.txt", "", "art/intro/zoomed/keypadZoom.txt", ""};
+const std::string room0[numWalls] = {"build/art/intro/W1.txt", "build/art/intro/W2.txt", "build/art/intro/W4.txt", "build/art/intro/W3.txt"};  
+const std::string room0ZOOMED[numWalls] = {"build/art/intro/zoomed/W1Zoom.txt", "", "build/art/intro/zoomed/keypadZoom.txt", ""};
 bool room0VIEWED[numWalls] = {false, false, false, false};
 bool room0ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 //Oscars room
-const std::string room1[numWalls] = {"art/room1/W1.txt", "art/room1/W2.txt", "art/room1/W3.txt", "art/room1/W4.txt"};  
-const std::string room1ZOOMED[numWalls] = {"art/room1/zoomed/W1Zoom.txt", "", "art/room1/zoomed/W3Zoom.txt", ""};
+const std::string room1[numWalls] = {"build/art/room1/W1.txt", "build/art/room1/W2.txt", "build/art/room1/W3.txt", "build/art/room1/W4.txt"};  
+const std::string room1ZOOMED[numWalls] = {"build/art/room1/zoomed/W1Zoom.txt", "", "build/art/room1/zoomed/W3Zoom.txt", ""};
 bool room1VIEWED[numWalls] = {false, false, false, false};
 bool room1ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Lachlans Room
-const std::string room2[numWalls] = {"art/room2/W1.txt", "art/room2/W2.txt", "art/room2/W3.txt", "art/room2/W4.txt"}; 
-const std::string room2ZOOMED[8] = {"art/room2/Zoomed/W1Z5.txt", "art/room2/Zoomed/W2Zoom.txt", "art/room2/Zoomed/W3Zoom.txt", "art/room2/Zoomed/W4Zoom.txt", "art/room2/Zoomed/W1Z4.txt", "art/room2/Zoomed/W1Z3.txt", "art/room2/Zoomed/W1Z2.txt", "art/room2/Zoomed/W1Z1.txt"};
+const std::string room2[numWalls] = {"build/art/room2/W1.txt", "build/art/room2/W2.txt", "build/art/room2/W3.txt", "build/art/room2/W4.txt"}; 
+const std::string room2ZOOMED[8] = {"build/art/room2/Zoomed/W1Z5.txt", "build/art/room2/Zoomed/W2Zoom.txt", "build/art/room2/Zoomed/W3Zoom.txt", "build/art/room2/Zoomed/W4Zoom.txt", "art/room2/Zoomed/W1Z4.txt", "art/room2/Zoomed/W1Z3.txt", "art/room2/Zoomed/W1Z2.txt", "art/room2/Zoomed/W1Z1.txt"};
 bool room2VIEWED[numWalls] = {false, false, false, false};
 bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Anthonys Room
-const std::string room3[numWalls] = {"art/room3/W1.txt", "art/room3/W2.txt", "art/room3/W3.txt", "art/room3/W4.txt"};
-const std::string room3ZOOMED[numWalls] = {"art/room3/zoomed/W1Zoom.txt", "art/room3/zoomed/W2Zoom.txt", "", "art/room3/zoomed/W4Zoom.txt"};
+const std::string room3[numWalls] = {"build/art/room3/W1.txt", "build/art/room3/W2.txt", "build/art/room3/W3.txt", "build/art/room3/W4.txt"};
+const std::string room3ZOOMED[numWalls] = {"build/art/room3/zoomed/W1Zoom.txt", "build/art/room3/zoomed/W2Zoom.txt", "", "build/art/room3/zoomed/W4Zoom.txt"};
 bool room3VIEWED[numWalls] = {false, false, false, false};
 bool room3ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Callum Room
-const std::string room4[numWalls] = {"art/room4/W1.txt", "art/room4/W2.txt", "art/room4/W3.txt", "art/room4/W4.txt"}; 
+const std::string room4[numWalls] = {"build/art/room4/W1.txt", "build/art/room4/W2.txt", "build/art/room4/W3.txt", "build/art/room4/W4.txt"}; 
 bool room4VIEWED[numWalls] = {false, false, false, false};
 bool room4ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
