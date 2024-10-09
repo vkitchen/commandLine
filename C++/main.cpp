@@ -42,7 +42,7 @@ bool room1ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Lachlans Room
 const std::string room2[numWalls] = {"build/art/room2/W1.txt", "build/art/room2/W2.txt", "build/art/room2/W3.txt", "build/art/room2/W4.txt"}; 
-const std::string room2ZOOMED[8] = {"build/art/room2/Zoomed/W1Z5.txt", "build/art/room2/Zoomed/W2Zoom.txt", "build/art/room2/Zoomed/W3Zoom.txt", "build/art/room2/Zoomed/W4Zoom.txt", "art/room2/Zoomed/W1Z4.txt", "art/room2/Zoomed/W1Z3.txt", "art/room2/Zoomed/W1Z2.txt", "art/room2/Zoomed/W1Z1.txt"};
+const std::string room2ZOOMED[8] = {"build/art/room2/Zoomed/W1Z5.txt", "build/art/room2/Zoomed/W2Zoom.txt", "build/art/room2/Zoomed/W3Zoom.txt", "build/art/room2/Zoomed/W4Zoom.txt", "build/art/room2/Zoomed/W1Z4.txt", "build/art/room2/Zoomed/W1Z3.txt", "build/art/room2/Zoomed/W1Z2.txt", "build/art/room2/Zoomed/W1Z1.txt"};
 bool room2VIEWED[numWalls] = {false, false, false, false};
 bool room2ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 

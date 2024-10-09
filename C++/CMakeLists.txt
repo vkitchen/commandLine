@@ -76,6 +76,10 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET TestOwheo PROPERTY CXX_STANDARD 20)
 endif()
 
+
+add_test(NAME TestOwheo COMMAND TestOwheo)
+# set_tests_properties(TestOwheo PROPERTIES WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
+
 # New .cpp files should be included here
 add_library(src STATIC 
 inputListener.cpp
@@ -97,6 +101,5 @@ textBox.cpp)
 target_include_directories(src PUBLIC ${CMAKE_CURRENT_LIST_DIR})
 
 file(COPY ${CMAKE_SOURCE_DIR}/C++/art DESTINATION ${CMAKE_BINARY_DIR})
-# configure_file(${CMAKE_CURRENT_SOURCE_DIR}/art ${CMAKE_CURRENT_BINARY_DIR} COPYONLY)
 
 # TODO: Add tests and install targets if needed.
