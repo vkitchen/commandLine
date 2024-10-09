@@ -12,18 +12,16 @@ std::string outputAnthony;
 std::string borderCharAnthony;
 std::string answerAnthony;
 std::string instructionAnthony;
+std::string helperInstructionAnthony;
 
 // test
 
 void runAnthony(){
     roomNumber = 1;
+    helperInstructionAnthony = "PRESS + TO ZOOM IN";
     anthonyZoomed = globalZoomed;
     while (!solvedAnthony) {
         
-        if(input == 'q'){
-            running = false;
-            return;
-        }
         if(anthonyZoomed == false) {
             switch (currentWallIndex)
             {
@@ -31,14 +29,14 @@ void runAnthony(){
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
                 outputAnthony = "Welcome to room 1, you will be attempting to find a mystery word based on the clues given by other walls, zoom into the lock on the doors to submit your guess when you think you have the answer";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             case 1:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "Looks like someone is doing calculations on this whiteboard. Maybe I should have a closer look?";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+                outputAnthony = "Is someone doing calculations on this whiteboard?";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             case 2:
@@ -51,14 +49,15 @@ void runAnthony(){
             case 3:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "What a cool poster. Looks like something I've seen before, I should get closer.";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+                outputAnthony = "What a cool poster what's it showing? ";
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             default:
                 break;
             }
         } else if (anthonyZoomed == true) {
+            helperInstructionAnthony = "PRESS - TO ZOOM OUT";
             clearWholeScreen();
             loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
             renderCenteredArt(art, artWidth, artHeight);

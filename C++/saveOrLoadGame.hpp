@@ -5,7 +5,11 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <ctime>
+#include <direct.h>
+#include <cerrno>
+#include "optionsBox.hpp"
 #include "introRoom.hpp"
 #include "oscarRoom.hpp"
 #include "lachlanRoom.hpp"
@@ -33,7 +37,7 @@ extern std::string saveFileName;
  * @brief 
  * 
  */
-void saveGame(bool currentRoomZoomed);
+int saveGame(bool currentRoomZoomed);
 
 /**
  * @brief 

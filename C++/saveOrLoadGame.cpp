@@ -1,26 +1,71 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include "saveOrLoadGame.hpp"
 
+int startXBoxSave = totalConsoleWidth * 2 / 5;
+int endXBoxSave = totalConsoleWidth * 3 / 5;
+int startYBoxSave = (totalConsoleHeight * 2 / 6) + 1;
+int endYBoxSave = (totalConsoleHeight * 4 / 6) - 1;
+
 std::string getCurrentTimeAsString() {
     // get Unix time
     std::time_t currentTime = std::time(nullptr);
 
-    std::tm* localTime = std::localtime(&currentTime);
+    std::tm localTime;
+    localtime_s(&localTime, &currentTime);
 
     char buffer[100];
 
-    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d %H:%M:%S", localTime);
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H:%M:%S", &localTime);
+
+    std::cout << std::string(buffer) << std::endl;
 
     return std::string(buffer);
 }
 
-void saveGame(bool currentRoomZoomed) {
-    saveFileName = "saveStates/save_" + getCurrentTimeAsString() + ".txt";
+bool createDirectoryIfNeeded(const std::string& dir) {
+    //Attempt to make directory
+    if (_mkdir(dir.c_str()) == -1) {
 
+        if (errno != EEXIST) {
+            // tell me why you failed you turd
+            char errBuff[256];
+            std::cerr << "Failed to create directory: " << dir << std::endl;
+            std::cerr << "Error: " << strerror_s(errBuff, sizeof(errBuff), errno) << std::endl;
+            return false;
+        }
+    }
+    return true;
+}
+// returns 0 on succesful save and exit
+// returns 1 on failed save and exit
+// returns 2 on failed save and no exit
+int saveGame(bool currentRoomZoomed) {
+    int choice;
+    std::string directory = "/saveStates";
+    if (!createDirectoryIfNeeded(directory)) {
+        std::cerr << "Directory creation failed" << std::endl;
+        choice = 1;
+    }
+
+    // saveFileName = directory + "/save_" + getCurrentTimeAsString() + ".txt";
+    saveFileName = "/save_test2.txt";
+    std::cout << "1) This be SaveFileName: " << saveFileName << std::endl;
     std::ofstream outFile(saveFileName);
-    if (!outFile) {
-        std::cerr << "Failed to create save file." << std::endl;
-        return;
+    std::cout << "2) This be SaveFileName: " << saveFileName << std::endl;
+    if (!outFile.is_open()) {
+        std::string promptForNoSave = "Game failed to save. Please select option:";
+        renderBox(startXBoxSave, endXBoxSave, startYBoxSave, ((totalConsoleHeight * 2 / 6) + 1), promptForNoSave, TRUE, TRUE, TRUE, "");
+        std::vector<std::string> yesOrNo = {"EXIT GAME WITHOUT SAVING", "RETURN TO GAME"};
+        choice = renderOptionsBox(startXBoxSave, endXBoxSave, ((totalConsoleHeight * 2 / 6) + 1), endYBoxSave, yesOrNo);
+
+        switch (choice) {
+            case 0:
+                return 1;
+                break;
+            case 1:
+                return 2;
+                break;
+        }       
     }
 
     outFile << "roomNumber=" << roomNumber << std::endl;
@@ -28,10 +73,12 @@ void saveGame(bool currentRoomZoomed) {
     outFile << "currentRoomZoomed=" << (currentRoomZoomed ? 1 : 0) << std::endl;
 
     outFile.close();
+
+    return 0;
 }
 
 void loadGame(const std::string& saveFileName) {
-    std::ifstream inFile("saveStates/" + saveFileName);
+    std::ifstream inFile("/saveStates/" + saveFileName);
     if (!inFile) {
         std::cerr << "Failed to open save file: " + saveFileName << std::endl;
         return;
