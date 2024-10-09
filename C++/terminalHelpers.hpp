@@ -54,5 +54,9 @@ void setFullScreen();
  */
 void enableUTF8Console();
 
-
+/**
+ * @brief prints matrix style falling numbere
+ * @details Honestly just looks sick and is used instead of a loading bar
+ */
+void loadingGraphics();
 #endif // TERMINAL_HELPERS_HPP

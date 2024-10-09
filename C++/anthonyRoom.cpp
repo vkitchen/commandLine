@@ -35,13 +35,8 @@ void runAnthony(){
             case 1:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-<<<<<<< HEAD
                 outputAnthony = "Is someone doing calculations on this whiteboard?";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
-=======
-                outputAnthony = "Looks like someone is doing calculations on this whiteboard. Maybe I should have a closer look?";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
->>>>>>> 817637924d8f8ef0b721b9e63c9b41986fe65f89
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             case 2:
@@ -54,13 +49,8 @@ void runAnthony(){
             case 3:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-<<<<<<< HEAD
                 outputAnthony = "What a cool poster what's it showing? ";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
-=======
-                outputAnthony = "What a cool poster. Looks like something I've seen before, I should get closer.";
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
->>>>>>> 817637924d8f8ef0b721b9e63c9b41986fe65f89
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
             default:

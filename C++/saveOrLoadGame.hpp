@@ -5,7 +5,10 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include <cstring>
 #include <ctime>
+#include <direct.h>
+#include <cerrno>
 #include "optionsBox.hpp"
 #include "introRoom.hpp"
 #include "oscarRoom.hpp"

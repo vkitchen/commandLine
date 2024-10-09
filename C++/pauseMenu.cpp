@@ -33,11 +33,10 @@ void pauseMenu(bool currentRoomZoomed) {
 
             loadGame(saveFileName);
             clearWholeScreen();
+            loadingGraphics();
             switch (roomNumber) {
                 case 0: {
-                    std::string noSaves = "XXXXXXXXXXXXXXXXX";
-                    Sleep(1000);
-                    renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
+                    runIntro();
                     break;
                 }
                 case 1:
