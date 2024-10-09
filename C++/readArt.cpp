@@ -25,7 +25,7 @@ char** readFileTo2DArray(const std::string& filename, int &width, int &height) {
     while (getline(file, line)) {
         lines.push_back(line);
         if (line.length() > width) {
-            width = line.length();
+            width = static_cast<int>(line.length());
         }
         height++;
     }

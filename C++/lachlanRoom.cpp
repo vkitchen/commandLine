@@ -110,7 +110,7 @@ void runLachlan()
                 }
                 break;
             case 1:
-                outputLachlan = "\u266A \u266B  Head, shoulders, knees, and toes  \u266B \u266A";
+                outputLachlan = "♫  ♫ Head, shoulders, knees, and toes ♫  ♫";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 break;
             case 2:   

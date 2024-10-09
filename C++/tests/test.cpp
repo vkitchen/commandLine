@@ -47,9 +47,10 @@ bool room3VIEWED[numWalls] = {false, false, false, false};
 bool room3ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Callum Room
-const std::string room4[numWalls] = {"build/art/room4/W1.txt", "build/art/room4/W2.txt", "build/art/room4/W3.txt", "build/art/room4/W4.txt"}; 
-bool room4VIEWED[numWalls] = {false, false, false, false};
-bool room4ZOOMEDVIEWED[numWalls] = {false, false, false, false};
+const std::string room4[7] = {"build/art/room4/i1.txt", "build/art/room4/i2.txt", "build/art/room4/i3.txt", "build/art/room4/i4.txt", "build/art/room4/i5.txt", "build/art/room4/i6.txt", "build/art/room4/i7.txt"};
+const std::string room4ZOOMED[8] = {"build/art/room4/zoomed/i3Zoom.txt", "build/art/room4/zoomed/BookZoom1.txt", "build/art/room4/zoomed/BookZoom2.txt", "build/art/room4/zoomed/BookZoom3.txt", "build/art/room4/zoomed/BookZoom4.txt", "build/art/room4/zoomed/BookZoom5.txt", "build/art/room4/zoomed/i6Zoom.txt", "build/art/room4/zoomed/i7Zoom.txt"};	
+bool room4VIEWED[7] = {false, false, false, false, false, false, false};
+bool room4ZOOMEDVIEWED[8] = {false, false, false, false, false, false, false, false};
 
 std::string saveFileName;
 std::string listenerType = "RoomLeftRight";
@@ -234,7 +235,7 @@ bool hideCursorCheck() {
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
     if (GetConsoleCursorInfo(console, &cursorInfo)) {
-        if (cursorInfo.bVisible == true) {
+        if (cursorInfo.bVisible == TRUE) {
             std::cout << "HIDE CURSOR FUNCTION FAILED" << std::endl;
             return true;
         }

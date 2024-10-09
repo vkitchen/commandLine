@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "saveOrLoadGame.hpp"
 
 int startXBoxSave = totalConsoleWidth * 2 / 5;

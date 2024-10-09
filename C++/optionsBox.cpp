@@ -51,7 +51,8 @@ int getVisualLength(const std::string& input) {
 std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vector<std::string> displayedOptions, int startY) {
     std::vector<std::string> boxContent(boxHeight, std::string(boxWidth, ' '));
 
-    int numOfOptions = displayedOptions.size(); // 
+    size_t numOfOptions_data = displayedOptions.size(); // 
+    int numOfOptions = static_cast<int>(numOfOptions_data);
 
     int verticalPadding = 1; // One line padding from the top and bottom
     int horizontalPadding = 1; // One character padding from the left and right
@@ -59,9 +60,9 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vec
     for (int i = 0; i < numOfOptions; ++i) {
         int contentLength = 0;
         if (displayedOptions[i].find("►") != std::string::npos) {
-            contentLength = displayedOptions[i].size();
+            contentLength = static_cast<int>(displayedOptions[i].size());
         } else {
-            contentLength = getVisualLength(displayedOptions[i]);
+            contentLength = static_cast<int>(getVisualLength(displayedOptions[i]));
         }
 
         //std::cout << contentLength << std::endl;
@@ -132,7 +133,7 @@ std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selecte
 int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn) {
 
     options = optionsIn;
-    int numOfOptions = options.size();
+    int numOfOptions = static_cast<int>(options.size());
     
     std::string selectedOption = "";
     int selectedIndex = 0;
@@ -185,7 +186,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed) {
     
     options = optionsIn;
-    int numOfOptions = options.size();
+    int numOfOptions = static_cast<int>(options.size());
     
     std::string selectedOption = "";
     int selectedIndex = 0;

@@ -44,7 +44,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
     int verticalPadding = 1; // One line padding from the top and bottom
     int horizontalPadding = 1; // One character padding from the left and right
 
-    int contentLength = content.length();
+    int contentLength = static_cast<int>(content.length());
     int maxContentWidth = boxWidth - 2 * horizontalPadding;
     int maxContentHeight = boxHeight - 2 * verticalPadding;
 
@@ -107,8 +107,8 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
 
     for (int index = 0; index < textList.size(); index++) {
         // Non-blocking text rendering
-        int startXText = (boxWidth - textList[index].length()) / 2 + startX;
-        int startYText = (boxHeight / (textList.size()+1)) * (index + 1) + startY;
+        int startXText = static_cast<int>((boxWidth - textList[index].length()) / 2 + startX);
+        int startYText = static_cast<int>((boxHeight / (textList.size()+1)) * (index + 1) + startY);
         coord = {static_cast<SHORT>(startXText), static_cast<SHORT>(startYText)};
         if(!zoomedIn && wallSeen == true || zoomedIn && zoomedWallSeen == true){
             
