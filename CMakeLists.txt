@@ -14,8 +14,9 @@ endif()
 
 
 
-project (commandLine)
+project ("commandLine")
 
 include(CTest)
 
 add_subdirectory ("C++")
+add_subdirectory ("C++/tests")

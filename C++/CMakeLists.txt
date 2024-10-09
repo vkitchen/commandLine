@@ -72,6 +72,9 @@ if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET EscapeOwheo PROPERTY CXX_STANDARD 20)
 endif()
 
+if (CMAKE_VERSION VERSION_GREATER 3.12)
+  set_property(TARGET TestOwheo PROPERTY CXX_STANDARD 20)
+endif()
 
 # New .cpp files should be included here
 add_library(src STATIC 
