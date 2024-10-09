@@ -18,7 +18,7 @@ std::string instructionIntro, helperInstructionIntro;
 void runIntro(){
     introZoomed = globalZoomed;
     while (!solvedIntro) {
-        
+        if (!running) return;
         if(introZoomed == false) {
             helperInstructionIntro = "PRESS + TO ZOOM IN";
             switch (currentWallIndex)
@@ -63,7 +63,7 @@ void runIntro(){
             {
             case 2:
                 instructionIntro = "input your answer:";
-                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionIntro, introZoomed, TRUE, TRUE, helperInstructionIntro);
+                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionIntro, introZoomed, TRUE, TRUE, "");
                 answerIntro = stringInputBox("");
                 if (answerIntro == "start" || answerIntro == "Start" || answerIntro == "START") {
                     introZoomed = false;
@@ -106,6 +106,7 @@ void runIntro(){
         
         Sleep(20); // Delay to control game speed
     }
+    if (!running) return;
     // GAME LOOP
     runAnthony(); // goes to next room after being solved
 } 

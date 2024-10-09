@@ -21,7 +21,7 @@ void runAnthony(){
     helperInstructionAnthony = "PRESS + TO ZOOM IN";
     anthonyZoomed = globalZoomed;
     while (!solvedAnthony) {
-        
+        if (!running) return;
         if(anthonyZoomed == false) {
             switch (currentWallIndex)
             {
@@ -114,17 +114,12 @@ void runAnthony(){
         }
 
         input = ' ';
-        while(input == ' ' && !solvedAnthony) processInput();
+        if(input == ' ' && !solvedAnthony) processInput();
         roomInputListenerAnthony(&anthonyZoomed);
-        // Clear the input
-        
-        // Testing purposes
-        // if(input =='s') solvedAnthony = true;
-        if (running == false) {
-            return;
-        }
+
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    if (!running) return;
     runOscar(); // goes to next room after being solved
 } 

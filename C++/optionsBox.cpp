@@ -165,7 +165,10 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
             displayedOptions = populateDisplayedOptions(numOfOptions, selectedIndex, selectOptions);
         } else if (upDown == 0) { //enter was pressed
             break;
-        } 
+        } else if (upDown == 50) {
+            selectedIndex = 50;
+            break;
+        }
 
         input = ' ';
 

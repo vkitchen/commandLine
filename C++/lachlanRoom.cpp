@@ -34,7 +34,7 @@ void runLachlan()
     lachlanZoomed = globalZoomed;
     while (!solvedLachlan)
     {
-        //clearWholeScreen();
+        if (!running) return;
 
         if (lachlanZoomed == false)
         {
@@ -180,5 +180,6 @@ void runLachlan()
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    if (!running) return;
     //runCallum(); // goes to next room after being solved
 }

@@ -28,12 +28,18 @@ void pauseMenu(bool currentRoomZoomed) {
                 clearWholeScreen();
                 break;
             }
+
             int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
+            if (selectedSave == 50) {
+                break;
+            }
+            
             saveFileName = saves[selectedSave];
 
             loadGame(saveFileName);
             clearWholeScreen();
             loadingGraphics();
+            clearWholeScreen();
             switch (roomNumber) {
                 case 0: {
                     runIntro();
@@ -74,21 +80,23 @@ void pauseMenu(bool currentRoomZoomed) {
             // Exit selected
             // TO DO: implement saving
             int successOrNo = saveGame(currentRoomZoomed);
-            
+            clearWholeScreen();
             switch(successOrNo) {
                 case 0:
-                    running = false;
+                    startScreen();
                     return;
                 case 1:
-                    running = false;
+                    startScreen();
                     return;
                 case 2:
-                    clearWholeScreen();
                     break;
             }     
         }
+        case 50:
+            pauseMenu(currentRoomZoomed);
+            break;
         default:
-            std::string noSaves = "Broke";
+            std::string noSaves = "Broke Pause";
             Sleep(1000);
             renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
             break;

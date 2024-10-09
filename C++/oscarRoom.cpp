@@ -18,7 +18,7 @@ void runOscar(){
     roomNumber = 2;
     oscarZoomed = globalZoomed;
     while (!oscarSolved) {
-
+        if (!running) return;
         if(oscarZoomed == false){
             helperInstructionOscar = "PRESS + TO ZOOM IN";
             switch (currentWallIndex)
@@ -112,6 +112,7 @@ void runOscar(){
         Sleep(20); // Delay to control game speed
     }
     // GAME LOOP
+    if (!running) return;
     runLachlan(); // goes to next room after being solved
     return;
 } 

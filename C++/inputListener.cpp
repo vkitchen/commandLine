@@ -143,7 +143,9 @@ int upDownEnterListener() {
     int nothingPressed = 3;
     int enterPressed = 0;
    
-
+    if (input == esc || input == minusSymbol) {
+        return 50;
+    }
     if (input == enter) {
         return enterPressed;
     } else if (input == upArrow || input == downArrow) { // Up or Down arrow keys

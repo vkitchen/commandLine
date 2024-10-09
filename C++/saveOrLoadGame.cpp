@@ -14,7 +14,7 @@ std::string getCurrentTimeAsString() {
 
     char buffer[100];
 
-    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H:%M:%S", &localTime);
+    std::strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H-%M-%S", &localTime);
 
     std::cout << std::string(buffer) << std::endl;
 
@@ -40,17 +40,15 @@ bool createDirectoryIfNeeded(const std::string& dir) {
 // returns 2 on failed save and no exit
 int saveGame(bool currentRoomZoomed) {
     int choice;
-    std::string directory = "/saveStates";
+    std::string directory = "saveStates";
     if (!createDirectoryIfNeeded(directory)) {
         std::cerr << "Directory creation failed" << std::endl;
         choice = 1;
     }
 
     // saveFileName = directory + "/save_" + getCurrentTimeAsString() + ".txt";
-    saveFileName = "/save_test2.txt";
-    std::cout << "1) This be SaveFileName: " << saveFileName << std::endl;
+    saveFileName = directory + "/save_" + getCurrentTimeAsString() + ".txt";
     std::ofstream outFile(saveFileName);
-    std::cout << "2) This be SaveFileName: " << saveFileName << std::endl;
     if (!outFile.is_open()) {
         std::string promptForNoSave = "Game failed to save. Please select option:";
         renderBox(startXBoxSave, endXBoxSave, startYBoxSave, ((totalConsoleHeight * 2 / 6) + 1), promptForNoSave, TRUE, TRUE, TRUE, "");

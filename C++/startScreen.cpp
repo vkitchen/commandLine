@@ -48,7 +48,12 @@ void startScreen() {
                 clearWholeScreen();
                 startScreen();
             }
+            
             int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
+            if (selectedSave == 50) {
+                break;
+            }
+            
             saveFileName = saves[selectedSave];
 
             loadGame(saveFileName);
@@ -56,7 +61,7 @@ void startScreen() {
             clearWholeScreen();
             loadingGraphics();
             clearWholeScreen();
-            
+
             switch (roomNumber) {
                 case 0:
                     runIntro();
@@ -91,9 +96,11 @@ void startScreen() {
             // Exit selected
             running = false;
             break;       
-
+        case 50:
+            startScreen();
+            break;
         default:
-            std::string noSaves = "Broke";
+            std::string noSaves = "Broke Start";
             Sleep(1000);
             renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
             break;
