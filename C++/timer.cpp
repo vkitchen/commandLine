@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "timer.hpp"
 
 std::chrono::steady_clock::time_point timeAtStartTime; 
@@ -9,8 +10,8 @@ void startTimer() {
 int checkRemainingTime(std::chrono::steady_clock::time_point startTime, int totalSeconds) {
     std::chrono::steady_clock::time_point currentTime = std::chrono::steady_clock::now();
 
-    int elapsedTime = std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count();
-
+    size_t elapsedTime_data = std::chrono::duration_cast<std::chrono::seconds>(currentTime - startTime).count();
+    int elapsedTime = static_cast<int>(elapsedTime_data);
     int remainingTime = totalSeconds - elapsedTime;
 
     if (remainingTime < 0) { 

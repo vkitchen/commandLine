@@ -234,7 +234,7 @@ bool hideCursorCheck() {
     HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cursorInfo;
     if (GetConsoleCursorInfo(console, &cursorInfo)) {
-        if (cursorInfo.bVisible == true) {
+        if (cursorInfo.bVisible == TRUE) {
             std::cout << "HIDE CURSOR FUNCTION FAILED" << std::endl;
             return true;
         }

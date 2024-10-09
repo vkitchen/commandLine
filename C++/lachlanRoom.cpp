@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "lachlanRoom.hpp"
 #include "optionsBox.hpp"
 #include "timer.hpp"
@@ -110,7 +111,7 @@ void runLachlan()
                 }
                 break;
             case 1:
-                outputLachlan = "\u266A \u266B  Head, shoulders, knees, and toes  \u266B \u266A";
+                outputLachlan = "♫  ♫ Head, shoulders, knees, and toes ♫  ♫";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstruction);
                 break;
             case 2:   
