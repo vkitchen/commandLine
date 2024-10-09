@@ -14,7 +14,7 @@ endif()
 
 
 
-project (commandLine)
+project ("commandLine")
 
 include(CTest)
 
