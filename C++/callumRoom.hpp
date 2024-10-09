@@ -14,8 +14,10 @@
 #include "inputListener.hpp"
 #include "startScreen.hpp"
 
-extern bool room4VIEWED[];
-extern bool room4ZOOMEDVIEWED[];
+extern const std::string room4[7];
+extern const std::string room4ZOOMED[8];  // Note: Changed to 8 to match the actual size in main.cpp
+extern bool room4VIEWED[7];
+extern bool room4ZOOMEDVIEWED[7];
 
 
 /*!
