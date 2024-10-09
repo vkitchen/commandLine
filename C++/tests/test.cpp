@@ -229,6 +229,20 @@ bool textInput(){
     return false;
 }
 
+bool hideCursorCheck() {
+    hideCursor();
+    HANDLE console = GetStdHandle(STD_OUTPUT_HANDLE);
+    CONSOLE_CURSOR_INFO cursorInfo;
+    if (GetConsoleCursorInfo(console, &cursorInfo)) {
+        if (cursorInfo.bVisible == true) {
+            std::cout << "HIDE CURSOR FUNCTION FAILED" << std::endl;
+            return true;
+        }
+    }
+    std::cout << "HIDE CURSOR FUNCTION PASSED" << std::endl;
+    return false;
+}
+
 // main method to handle al ltests
 int main(){
     
@@ -238,6 +252,7 @@ int main(){
     failed = imageSizeCheck();
     failed = startMenu();
     failed = textInput();
+    failed = hideCursorCheck();
     
     if(failed){ 
 
