@@ -35,7 +35,7 @@ void runLachlan()
     while (!solvedLachlan)
     {
         if (!running) return;
-
+        
         if (lachlanZoomed == false)
         {
             helperInstructionLachlan = "PRESS + TO ZOOM IN";
