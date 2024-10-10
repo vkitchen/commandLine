@@ -187,5 +187,5 @@ void runLachlan()
     }
     // GAME LOOP
     if (!running) return;
-    //runCallum(); // goes to next room after being solved
+    runCallum(); // goes to next room after being solved
 }

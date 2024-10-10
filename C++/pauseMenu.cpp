@@ -55,7 +55,7 @@ void pauseMenu(bool currentRoomZoomed) {
                     runLachlan();
                     break;
                 case 4:
-                    //runCallum();
+                    runCallum();
                     break;
             }
         }

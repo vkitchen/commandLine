@@ -38,8 +38,8 @@ void startScreen() {
             currentWallIndex = 0;
             globalZoomed = 0;
             roomNumber = 0;
-            //runIntro();
-            runCallum();
+            runIntro();
+            //runCallum();
             break;
 
         case 1: {
@@ -79,21 +79,11 @@ void startScreen() {
                     runLachlan();
                     break;
                 case 4:
-                    //runCallum();
+                    runCallum();
                     break;
             }
         }
             break;
-
-        // case 2:
-        //     std::cout << "SR STATS" << std::endl;
-        //     // SR STATS Selected.  TODO
-        //     break;
-
-    	// case 3:
-        //     std::cout << "" << std::endl;
-        //     // Settings Selected.  TODO
-        //     break;
 
         case 2:
             // Exit selected
