@@ -48,7 +48,7 @@ bool room3ZOOMEDVIEWED[numWalls] = {false, false, false, false};
 
 // Callum Room
 const std::string room4[7] = {"build/art/room4/i1.txt", "build/art/room4/i2.txt", "build/art/room4/i3.txt", "build/art/room4/i4.txt", "build/art/room4/i5.txt", "build/art/room4/i6.txt", "build/art/room4/i7.txt"};
-const std::string room4ZOOMED[8] = {NULL, NULL, "build/art/room4/zoomed/i3Zoom.txt", NULL, NULL, "build/art/room4/zoomed/i6Zoom.txt", "build/art/room4/zoomed/i7Zoom.txt"};	
+const std::string room4ZOOMED[8] = {"", "", "build/art/room4/zoomed/i3Zoom.txt", "", "", "build/art/room4/zoomed/i6Zoom.txt", "build/art/room4/zoomed/i7Zoom.txt"};	
 const std::string room4BookArray[5] = {"build/art/room4/zoomed/BookZoom1.txt", "build/art/room4/zoomed/BookZoom2.txt", "build/art/room4/zoomed/BookZoom3.txt", "build/art/room4/zoomed/BookZoom4.txt", "build/art/room4/zoomed/BookZoom5.txt"};
 bool room4VIEWED[7] = {false, false, false, false, false, false, false};
 bool room4ZOOMEDVIEWED[8] = {false, false, false, false, false, false, false, false};
@@ -247,7 +247,7 @@ bool hideCursorCheck() {
 
 // main method to handle al ltests
 int main(){
-    
+    std::cout << "HELLO WORLD" << std::endl;
     bool failed = false;
     failed = zoomCheck();
     failed = wallIndexCheck();

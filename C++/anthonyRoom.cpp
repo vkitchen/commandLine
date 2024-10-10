@@ -28,7 +28,7 @@ void runAnthony(){
             case 0:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "Welcome to room 1, you will be attempting to find a mystery word based on the clues given by other walls, zoom into the lock on the doors to submit your guess when you think you have the answer";
+                outputAnthony = "Welcome to room 1, you will be attempting to find a single mystery word, each wall hides a clue to what that word is, when you think youve solved the puzzle zoom in on this door and enter your answer.";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;
@@ -58,22 +58,11 @@ void runAnthony(){
             }
         } else if (anthonyZoomed == true) {
             helperInstructionAnthony = "PRESS - TO ZOOM OUT";
-            clearWholeScreen();
-            loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
-            renderCenteredArt(art, artWidth, artHeight);
-            if(currentWallIndex == 1){
-                outputAnthony = "Huh, someone's using the base X height formula. I wonder, what do you get when you multiply the base and the height of that shape???";    
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
-                if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;     
-            }
-            if(currentWallIndex == 3){
-                outputAnthony = "Looks like a UFO lighting up the number 51, I swear this place hides aliens there... ";    
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
-                if(room3ZOOMEDVIEWED[3] == false) room3ZOOMEDVIEWED[3] = true;     
-            }
             switch (currentWallIndex)
             {
             case 0:
+                loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
+                renderCenteredArt(art, artWidth, artHeight);
                 instructionAnthony = "Input your answer:";
                 renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 answerAnthony = stringInputBox("");
@@ -95,6 +84,11 @@ void runAnthony(){
                 }
                 break;
             case 1:   
+                loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
+                renderCenteredArt(art, artWidth, artHeight);
+                outputAnthony = "Huh, someone's using the base X height formula. I wonder, what do you get when you multiply the base and the height of that shape???";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+                if(room3ZOOMEDVIEWED[1] == false) room3ZOOMEDVIEWED[1] = true;   
                 if (input == 45) {
                     anthonyZoomed = false;
                     clearWholeScreen();
@@ -102,6 +96,11 @@ void runAnthony(){
                 }
                 break;
             case 3:   
+                loadArt(room3ZOOMED[currentWallIndex], art, artWidth, artHeight);
+                renderCenteredArt(art, artWidth, artHeight);
+                outputAnthony = "Looks like a UFO lighting up the number 51, I swear this place hides aliens there... ";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
+                if(room3ZOOMEDVIEWED[3] == false) room3ZOOMEDVIEWED[3] = true;   
                 if (input == 45) {
                     anthonyZoomed = false;
                     clearWholeScreen();
@@ -114,7 +113,8 @@ void runAnthony(){
         }
 
         input = ' ';
-        if(input == ' ' && !solvedAnthony) processInput();
+        while(input == ' ' && !solvedAnthony) processInput();
+
         roomInputListenerAnthony(&anthonyZoomed);
 
         Sleep(20); // Delay to control game speed
