@@ -1,13 +1,2 @@
-coverage:
-  status:
-    project:
-      default:
-        target: auto
-        threshold: 5%
-        base: auto
 
-  # Ignore everything except the c++/tests directory
-  ignore:
-    - "**/*"
-    - "!c++/tests/**/*"
 
