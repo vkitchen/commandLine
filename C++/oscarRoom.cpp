@@ -56,17 +56,11 @@ void runOscar(){
             }
         } else if (oscarZoomed == true) {
             helperInstructionOscar = "PRESS - TO ZOOM OUT";
-            clearWholeScreen();
-            loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
-            renderCenteredArt(art, artWidth, artHeight);
-            if(currentWallIndex == 2){
-                output = "How lovely does Mt. Cargill look today :)";    
-                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], helperInstructionOscar);
-                if(room1ZOOMEDVIEWED[2] == false) room1ZOOMEDVIEWED[2] = true;     
-            }
             switch (currentWallIndex) 
             {
             case 0:
+                loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
+                renderCenteredArt(art, artWidth, artHeight);
                 instruction = "input your cipher answer:";
                 renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instruction, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], "");
                 answer = stringInputBox("");
@@ -88,6 +82,11 @@ void runOscar(){
                 }
                 break;
             case 2:   
+                loadArt(room1ZOOMED[currentWallIndex], art, artWidth, artHeight);
+                renderCenteredArt(art, artWidth, artHeight);
+                output = "How lovely does Mt. Cargill look today :)";    
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], helperInstructionOscar);
+                if(room1ZOOMEDVIEWED[2] == false) room1ZOOMEDVIEWED[2] = true;   
                 if (input == 45) {
                     oscarZoomed = false;
                     clearWholeScreen();
