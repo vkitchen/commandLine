@@ -23,7 +23,7 @@ std::string outputLachlan, helperInstructionLachlan;
 
 std::string roomAnswer = "TOEKNEEHEADSHOULDER";
 
-const int totalTimerSeconds = 90; // 2 minute timer
+const int totalTimerSeconds = 300; // 5 minute timer
 
 
 
@@ -99,7 +99,7 @@ void runLachlan()
                     loadArt(room2ZOOMED[hourglassIndex], art, artWidth, artHeight);
                     renderCenteredArt(art, artWidth, artHeight);
                 } else if (doorOpen) {
-                    outputLachlan = "Escape Owheo? (Y/N)";
+                    outputLachlan = "Carry On? (Y/N)";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], "Press Enter");
                     roomInputListenerLachlan(&timerRunning, &lachlanZoomed, &doorOpen, &solvedLachlan);
                 }
