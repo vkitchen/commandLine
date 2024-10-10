@@ -68,7 +68,7 @@ void runAnthony(){
                 renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 answerAnthony = stringInputBox("");
                 for (char c : answerAnthony) {
-                    lowerCaseStrAnt += std::tolower(c); // Convert each character to lowercase
+                    lowerCaseStrAnt += static_cast<char>(std::tolower(static_cast<unsigned char>(c))); // Convert each character to lowercase
                 }
 
                 if (lowerCaseStrAnt == "area") {

@@ -1,0 +1,3 @@
+roomNumber=0
+currentWallIndex=2
+currentRoomZoomed=1
