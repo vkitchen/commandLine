@@ -1,0 +1,19 @@
+coverage:
+  precision: 2
+  round: down
+  range: "70...100"
+
+codecov:
+  ignore:
+    - C++/optionsBox.cpp
+    - C++/pauseMenu.cpp
+    - C++/startScreen.cpp
+    - C++/lachlanRoom.cpp
+    - C++/textBox.cpp
+    - C++/timer.cpp
+    - C++/renderArt.cpp
+    - C++/anthonyRoom.cpp
+    - C++/oscarRoom.cpp
+    - C++/callumRoom.cpp
+    - C++/saveOrLoadGame.cpp
+    - C++/introRoom.cpp
