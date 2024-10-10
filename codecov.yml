@@ -4,12 +4,12 @@ coverage:
   range: "70...100"
 
 ignore:
-  - C++/anthonyRoom.cpp
-  - C++/callumRoom.cpp
-  - C++/introRoom.cpp
-  - C++/lachlanRoom.cpp
-  - C++/optionsBox.cpp
-  - C++/oscarRoom.cpp
-  - C++/pauseMenu.cpp
-  - C++/saveOrLoadGame.cpp
-  - C++/timer.cpp
+  - **/anthonyRoom.cpp
+  - **/callumRoom.cpp
+  - **/introRoom.cpp
+  - **/lachlanRoom.cpp
+  - **/optionsBox.cpp
+  - **/oscarRoom.cpp
+  - **/pauseMenu.cpp
+  - **/saveOrLoadGame.cpp
+  - **/timer.cpp
