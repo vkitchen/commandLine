@@ -180,7 +180,7 @@ bool wallIndexCheck(){
     currentWallIndex = 1;
     input = 75; // look right when zoomed in (should stay the same) 
     bool callumZoomed = true;
-    void roomInputListenerCallum(bool* callumZoome, int* currentWallIndex, int* currentBookIndex, std::string* userAnswer);
+    roomInputListenerOscar(&oscarZoomed);
     if(currentWallIndex != 1){
         std::cout << "ZOOM FUNCTION FAILED" << std::endl;
         return true;
