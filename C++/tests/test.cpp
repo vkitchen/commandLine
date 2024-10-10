@@ -179,7 +179,7 @@ bool wallIndexCheck(){
 
     currentWallIndex = 1;
     input = 75; // look right when zoomed in (should stay the same) 
-    bool callumZoomed = true;
+    oscarZoomed = true;
     roomInputListenerOscar(&oscarZoomed);
     if(currentWallIndex != 1){
         std::cout << "ZOOM FUNCTION FAILED" << std::endl;

@@ -8,22 +8,26 @@ bool solvedCallum = false;
 bool callumZoomed = false;
 int currentBookIndex = 0;
 
-
 std::string outputCallum, helperInstructionCallum;
 std::string userAnswer = "";
 std::string doorCode = "2314";
 
-void renderCallumRoom() {
+void renderCallumRoom()
+{
     loadArt(room4[currentWallIndex], art, artWidth, artHeight);
     renderCenteredArt(art, artWidth, artHeight);
     if (room4VIEWED[currentWallIndex] == false)
         room4VIEWED[currentWallIndex] = true;
 }
 
-void renderCallumZoomed() {
-    if (currentWallIndex == 4) {
+void renderCallumZoomed()
+{
+    if (currentWallIndex == 4)
+    {
         loadArt(room4BookArray[currentBookIndex], art, artWidth, artHeight);
-    } else {
+    }
+    else
+    {
         loadArt(room4ZOOMED[currentWallIndex], art, artWidth, artHeight);
     }
     renderCenteredArt(art, artWidth, artHeight);
@@ -31,56 +35,81 @@ void renderCallumZoomed() {
         room4ZOOMEDVIEWED[currentWallIndex] = true;
 }
 
-bool canZoom(int wallIndex) {
+bool canZoom(int wallIndex)
+{
     return wallIndex == 2 || wallIndex == 4 || wallIndex == 5 || wallIndex == 6;
 }
 
-void runCallum() {
+void runCallum()
+{
     roomNumber = 4;
-    callumZoomed = globalZoomed;
-    
-    while (!solvedCallum) {
-        if (!running) return;
+    globalZoomed = callumZoomed;
 
-        if (!callumZoomed) {
+    while (!solvedCallum)
+    {
+        if (!callumZoomed)
+        {
             helperInstructionCallum = canZoom(currentWallIndex) ? "PRESS + TO ZOOM IN" : "";
             renderCallumRoom();
             outputCallum = "Owheo's hallway! what secrets does it hold?";
             renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], helperInstructionCallum);
-        } else {
+        }
+        else
+        {
             helperInstructionCallum = "PRESS - TO ZOOM OUT";
             renderCallumZoomed();
-            
-            switch (currentWallIndex) {
-                case 2:
-                    outputCallum = "Huh, what a weird riddle. Maybe this helps with something else.";
-                    break;
-                case 4:
-                    outputCallum = "Whats in this book? (Use the arrow keys to look through the pages)";
-                    break;
-                case 5:
-                    outputCallum = "Some weird symbols on the wall. What do they mean?";
-                    break;
-                case 6:
+
+            switch (currentWallIndex)
+            {
+            case 2:
+                outputCallum = "Huh, what a weird riddle. Maybe this helps with something else.";
+                break;
+            case 4:
+                outputCallum = "Whats in this book? (Use the arrow keys to look through the pages)";
+                break;
+            case 5:
+                outputCallum = "Some weird symbols on the wall. What do they mean?";
+                break;
+            case 6:
+                outputCallum = "Enter the 4 digit code:";
+                if (input != 45) // Only process input if not zooming out
+                {
+                    renderBox(0, (totalConsoleWidth / 5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, outputCallum, callumZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], "");
                     userAnswer = stringInputBox("");
-                    if (userAnswer == doorCode) {
+                    if (userAnswer == doorCode)
+                    {
                         solvedCallum = true;
+                        clearWholeScreen();
+                        
+                        break;
                     }
-                    outputCallum = "You've zoomed into the final wall. What secrets does it hold?";
-                    break;
+                    else
+                    {
+                        clearWholeScreen();
+                        continue;
+                    }
+                }
+                break;
             }
-            
-            renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], helperInstructionCallum);
+
+            if(!solvedCallum){
+                renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], helperInstructionCallum);
+            }
         }
 
         input = ' ';
-        processInput();
+        while (input == ' ' && !solvedCallum)
+            processInput();
+
         roomInputListenerCallum(&callumZoomed, &currentWallIndex, &currentBookIndex, &userAnswer);
 
-        if (!running) return;
+        if (!running)
+            return;
         Sleep(20);
+
     }
 
     // Next room logic here
     runOscar();
+    
 }

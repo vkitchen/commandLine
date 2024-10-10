@@ -136,13 +136,16 @@ void roomInputListenerCallum(bool* callumZoomed, int* currentWallIndex, int* cur
         *callumZoomed = true;
     } else if (input == minusSymbol && *callumZoomed) {
         *callumZoomed = false;
+        *userAnswer = ""; // Reset the user answer when zooming out
+        clearWholeScreen();
     } else if (*callumZoomed && *currentWallIndex == 4) {
         if (input == leftArrow) {
             *currentBookIndex = (*currentBookIndex - 1 + 5) % 5;
         } else if (input == rightArrow) {
             *currentBookIndex = (*currentBookIndex + 1) % 5;
         }
-    } 
+    }
+
 }
 
 
