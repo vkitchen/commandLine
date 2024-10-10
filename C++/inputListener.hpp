@@ -79,6 +79,6 @@ void roomInputListenerAnthony(bool* anthonyZoomed);
  * @details Listens for left and right arrows for navigation between walls. Listens for enter on zoomable walls.
  * Listens for 'o' when zoomed in, and stops listening for left and right input when zoomed in
  */
-void roomInputListenerCallum(bool* callumZoomed);
+void roomInputListenerCallum(bool* callumZoome, int* currentWallIndex, int* currentBookIndex, std::string* userAnswer);
 
 #endif // INPUT_LISTENER__HPP

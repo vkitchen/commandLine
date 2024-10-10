@@ -35,4 +35,10 @@ extern bool room4ZOOMEDVIEWED[];
  */
 void runCallum();
 
+void renderCallumRoom();
+
+void renderCallumZoomed();
+
+bool canZoom(int wallIndex);
+
 #endif // CALLUM_ROOM_HPP

@@ -122,17 +122,27 @@ void roomInputListenerAnthony(bool* anthonyZoomed) {
     }
 }
 
-void roomInputListenerCallum(bool* callumZoomed) {
-        
+void roomInputListenerCallum(bool* callumZoomed, int* currentWallIndex, int* currentBookIndex, std::string* userAnswer) {
     if (input == esc) {
-        pauseMenu(callumZoomed); // display pause menu
-    } else if (input == leftArrow || input == rightArrow) { // Left or Right arrow keys if not zoomed in
-        if (input == leftArrow) { // Left arrow key
-            currentWallIndex = (currentWallIndex - 1 + 4) % 4;
-        } else if (input == rightArrow) { // Right arrow key
-            currentWallIndex = (currentWallIndex + 1) % 4;
+        pauseMenu(callumZoomed);
+    } else if ((input == leftArrow || input == rightArrow) && !(*callumZoomed)) {
+        if (input == leftArrow) {
+            *currentWallIndex = (*currentWallIndex - 1 + 7) % 7;
+        } else if (input == rightArrow) {
+            *currentWallIndex = (*currentWallIndex + 1) % 7;
         }
-    }
+    } else if (input == plusSymbol && !(*callumZoomed) && (*currentWallIndex == 2 || *currentWallIndex == 4 || *currentWallIndex == 5 || *currentWallIndex == 6)) {
+        clearWholeScreen();
+        *callumZoomed = true;
+    } else if (input == minusSymbol && *callumZoomed) {
+        *callumZoomed = false;
+    } else if (*callumZoomed && *currentWallIndex == 4) {
+        if (input == leftArrow) {
+            *currentBookIndex = (*currentBookIndex - 1 + 5) % 5;
+        } else if (input == rightArrow) {
+            *currentBookIndex = (*currentBookIndex + 1) % 5;
+        }
+    } 
 }
 
 

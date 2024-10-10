@@ -25,8 +25,8 @@ extern const std::string room2[];
 extern const std::string room3[];
 extern const std::string room3ZOOMED[];
 extern const std::string room4[];
-extern const std::string room4[];
-extern const std::string room4ZOOMED[];  // Note: Changed to 8 to match the actual size in main.cpp
+extern const std::string room4ZOOMED[];  
+extern const std::string room4BookArray[];
 extern char** art;
 extern int artWidth, artHeight;
 extern bool testMode;
