@@ -49,7 +49,7 @@ set_property(TARGET TestOwheo PROPERTY CXX_STANDARD 20)
 
 
 
-#add_test(NAME TestOwheo COMMAND TestOwheo)
+add_test(NAME TestOwheo COMMAND TestOwheo)
 # set_tests_properties(TestOwheo PROPERTIES WORKING_DIRECTORY ${CMAKE_BINARY_DIR})
 
 # New .cpp files should be included here
