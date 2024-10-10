@@ -6,8 +6,8 @@ coverage:
         threshold: 5%
         base: auto
 
-  # Ignore everything except the tests directory
+  # Ignore everything except the c++/tests directory
   ignore:
     - "**/*"
-    - "!tests/**/*"
+    - "!c++/tests/**/*"
 
