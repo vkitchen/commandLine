@@ -176,9 +176,12 @@ std::string textInputListener(std::string partialWord) {
     std::string output = partialWord;
 
     // Check for letters (uppercase and lowercase) and space bar
-    if ((input >= 'a' && input <= 'z') || 
+    if (((input >= 'a' && input <= 'z') || 
         (input >= 'A' && input <= 'Z') ||  
-        (input >= '0' && input <= '9') ) {
+        (input >= '0' && input <= '9')) 
+        && 
+        ((input != leftArrow) || 
+        (input != rightArrow))) {
         output += input;  // Append valid character to output
     } else if (input == backspace && output.length() > 0){
         output.pop_back();

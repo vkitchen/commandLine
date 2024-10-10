@@ -76,9 +76,10 @@ int saveGame(bool currentRoomZoomed) {
 }
 
 void loadGame(const std::string& saveFileName) {
-    std::ifstream inFile("/saveStates/" + saveFileName);
+    std::ifstream inFile("saveStates/" + saveFileName);
     if (!inFile) {
         std::cerr << "Failed to open save file: " + saveFileName << std::endl;
+        Sleep(1000);
         return;
     }
 
@@ -91,13 +92,19 @@ void loadGame(const std::string& saveFileName) {
 
         std::string key = line.substr(0, pos);
         std::string value = line.substr(pos + 1);
-
+        clearWholeScreen();
         if (key == "roomNumber") {
             roomNumber = std::stoi(value);
+            std::cout << roomNumber << std::endl;
+            Sleep(1000);
         } else if (key == "currentWallIndex") {
             currentWallIndex = std::stoi(value);
+            std::cout << roomNumber << std::endl;
+            Sleep(1000);
         } else if (key == "currentRoomZoomed") {
             globalZoomed = std::stoi(value);
+            std::cout << roomNumber << std::endl;
+            Sleep(1000);
         }
     }
 

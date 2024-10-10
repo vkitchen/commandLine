@@ -44,7 +44,7 @@ void runLachlan()
             case 0:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "A door with a weird lock on it";
+                outputLachlan = "A door with a weird lock on it.";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -60,7 +60,7 @@ void runLachlan()
             case 2:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "Crazy that a turtle made this";
+                outputLachlan = "Crazy that a turtle made this.";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -68,7 +68,7 @@ void runLachlan()
             case 3:
                 loadArt(room2[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputLachlan = "Somebody is bad at anatomy";
+                outputLachlan = "Somebody is bad at anatomy.";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 if (room2VIEWED[currentWallIndex] == false)
                     room2VIEWED[currentWallIndex] = true;
@@ -92,7 +92,7 @@ void runLachlan()
                 } else if (timerRunning && (checkRemainingTime(timeAtStartTime,totalTimerSeconds) == 0)) {
                     startTimer();  
                 } else if (timerRunning && !doorOpen) {
-                    outputLachlan = "Man's looking suss";
+                    outputLachlan = "I'd hurry if I we're you, times ticking ...";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                     int hourglassIndex = 4 + (((checkRemainingTime(timeAtStartTime,totalTimerSeconds))*(7-4)) / (totalTimerSeconds));
                     
@@ -115,11 +115,11 @@ void runLachlan()
                 break;
             case 2:   
                 if (!timerRunning) {
-                    outputLachlan = "Art goes crazy";
+                    outputLachlan = "Art goes crazy.";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 }
                 if (doorOpen) {
-                    outputLachlan = "I think I heard a click from the door";
+                    outputLachlan = "I think I heard a click from the door.";
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 }
                 else if (timerRunning && !doorOpen) {
@@ -187,5 +187,5 @@ void runLachlan()
     }
     // GAME LOOP
     if (!running) return;
-    //runCallum(); // goes to next room after being solved
+    runCallum(); // goes to next room after being solved
 }
