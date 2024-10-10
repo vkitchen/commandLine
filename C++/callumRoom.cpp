@@ -2,7 +2,6 @@
 #include "optionsBox.hpp"
 #include "inputListener.hpp"
 #include <sstream>
-#include "oscarRoom.hpp"
 
 bool solvedCallum = false;
 bool callumZoomed = false;
@@ -79,8 +78,9 @@ void runCallum()
                     if (userAnswer == doorCode)
                     {
                         solvedCallum = true;
+                        callumZoomed = false;
+                        currentWallIndex = 0;
                         clearWholeScreen();
-                        
                         break;
                     }
                     else

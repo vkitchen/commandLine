@@ -10,6 +10,7 @@
 #include "renderArt.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"
+#include "saveOrLoadGame.hpp"
 #include "textBox.hpp"
 #include "inputListener.hpp"
 #include "startScreen.hpp"

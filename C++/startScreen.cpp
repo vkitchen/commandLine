@@ -38,14 +38,9 @@ void startScreen() {
             currentWallIndex = 0;
             globalZoomed = 0;
             roomNumber = 0;
-<<<<<<< HEAD
             //runIntro();
             runCallum();
             //runOscar();
-=======
-            runIntro();
-            //runCallum();
->>>>>>> 9d3498fd1d2dc2c94b6a16c9fdee5c6acbced6e7
             break;
 
         case 1: {
