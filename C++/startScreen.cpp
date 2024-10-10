@@ -17,8 +17,7 @@ void startScreen() {
     int endXBox = totalConsoleWidth * 3 / 5;
     int startYBox = (totalConsoleHeight * 1 / 3) + 1;
     int endYBox = totalConsoleHeight - 1;
-
-    loadingGraphics();
+    
 
     std::string title = "build/art/startScreen/Escape-Owheo.txt";
 
@@ -28,7 +27,7 @@ void startScreen() {
     renderArt(art, artWidth, artHeight, startXTitle, startYTitle);
     //std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
     std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "EXIT"};
-
+    input  = ' ';
     int selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
 
     switch (selectedIndex) {
@@ -38,8 +37,8 @@ void startScreen() {
             currentWallIndex = 0;
             globalZoomed = 0;
             roomNumber = 0;
-            //runIntro();
-            runCallum();
+            runIntro();
+            //runCallum();
             //runOscar();
             break;
 
@@ -55,6 +54,7 @@ void startScreen() {
             
             int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
             if (selectedSave == 50) {
+                startScreen();
                 break;
             }
             
@@ -63,7 +63,7 @@ void startScreen() {
             loadGame(saveFileName);
 
             clearWholeScreen();
-            loadingGraphics();
+            //loadingGraphics();
             clearWholeScreen();
 
             switch (roomNumber) {
@@ -87,12 +87,10 @@ void startScreen() {
             break;
 
         case 2:
-            // Exit selected
-            running = false;
+            if(running != false){
+                running = false;
+            };
             break;       
-        case 50:
-            startScreen();
-            break;
         default:
             std::string noSaves = "Broke Start";
             Sleep(1000);

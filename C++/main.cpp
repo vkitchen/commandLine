@@ -82,9 +82,9 @@ int main(int argc, char* argv[]) {
     getFullScreenDimensions();
     hideCursor();
     clearWholeScreen();
-    
+    loadingGraphics();
+    clearWholeScreen();
     startScreen(); // Display Start Screen for input
-
     clearWholeScreen();
 
     return 0;

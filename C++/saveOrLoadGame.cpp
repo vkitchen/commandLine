@@ -67,7 +67,7 @@ int saveGame(bool currentRoomZoomed) {
 
     outFile << "roomNumber=" << roomNumber << std::endl;
     outFile << "currentWallIndex=" << currentWallIndex << std::endl;
-    outFile << "currentRoomZoomed=" << (currentRoomZoomed ? 1 : 0) << std::endl;
+    outFile << "currentRoomZoomed=" << (globalZoomed ? 0 : 1) << std::endl;
 
     outFile.close();
 
@@ -121,6 +121,7 @@ std::vector<std::string> getSaveFilesList() {
     HANDLE hFind = FindFirstFile(TEXT("saveStates\\*.txt"), &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) {
+        //std::cerr << "Failed to open directory or no .txt files found." << std::endl;
         return fileList;
     }
 

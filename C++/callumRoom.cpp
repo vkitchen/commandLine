@@ -109,7 +109,7 @@ void runCallum()
 
     }
 
-    // Next room logic here
-    runOscar();
+    loadingGraphics();
+    running = false;
     
 }
