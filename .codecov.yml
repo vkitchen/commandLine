@@ -1,2 +1,19 @@
 
-
+coverage:
+  ignore:
+    - "C++/main.cpp"         # Ignore main executable source file
+    - "C++/inputListener.cpp"
+    - "C++/optionsBox.cpp"
+    - "C++/introRoom.cpp"
+    - "C++/pauseMenu.cpp"
+    - "C++/oscarRoom.cpp"
+    - "C++/callumRoom.cpp"
+    - "C++/anthonyRoom.cpp"
+    - "C++/lachlanRoom.cpp"
+    - "C++/readArt.cpp"
+    - "C++/renderArt.cpp"
+    - "C++/startScreen.cpp"
+    - "C++/saveOrLoadGame.cpp"
+    - "C++/terminalHelpers.cpp"
+    - "C++/timer.cpp"
+    - "C++/textBox.cpp"
