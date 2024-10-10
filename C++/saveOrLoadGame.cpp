@@ -67,7 +67,6 @@ int saveGame(bool currentRoomZoomed) {
 
     outFile << "roomNumber=" << roomNumber << std::endl;
     outFile << "currentWallIndex=" << currentWallIndex << std::endl;
-    outFile << "currentRoomZoomed=" << (globalZoomed ? 0 : 1) << std::endl;
 
     outFile.close();
 
@@ -96,8 +95,6 @@ void loadGame(const std::string& saveFileName) {
             roomNumber = std::stoi(value);
         } else if (key == "currentWallIndex") {
             currentWallIndex = std::stoi(value);
-        } else if (key == "currentRoomZoomed") {
-            globalZoomed = std::stoi(value);
         }
     }
 
