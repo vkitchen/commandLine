@@ -7,6 +7,7 @@
 #include "optionsBox.hpp"
 #include "inputListener.hpp"
 #include "timer.hpp"
+#include "textBox.hpp"
 
 /*!
  * @file
@@ -245,9 +246,12 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 std::string stringInputBox(std::string wordIn) {
     std::vector<std::string> word(1);
     word[0] = wordIn;
+    std::string zoomOutPrompt = "PRESS - TO ZOOM OUT";
     while (true) {
+        
         // Render the text box with current input
         renderBoxOptions(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, word);// Assuming default console sizes for example
+        renderHelperInstruction(zoomOutPrompt, totalConsoleWidth, totalConsoleHeight);
         Sleep(20);
 
         if (input == '^') {

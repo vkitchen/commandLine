@@ -1,3 +1,9 @@
+/*!
+ * @file
+ * @brief Header file for textBox.cpp
+ * @details Provides other files the ability to create and display boxes containing non-interactive text 
+*/
+
 #ifndef TEXT_BOX_HPP
 #define TEXT_BOX_HPP
 
@@ -5,12 +11,6 @@
 #include <fstream>
 #include <vector>
 #include <string>
-
-/*!
- * @file
- * @brief Header file for textBox.cpp
- * @details Provides other files the ability to create and display boxes containing non-interactive text 
- */
 
 
 extern int totalConsoleHeight, totalConsoleWidth;
@@ -31,5 +31,14 @@ extern bool room3ZOOMEDVIEWED[];
  * @param text [in] text to be displayed on screen
  */
 void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen, std::string helperInstruction);
+
+/**
+ * @brief renders test box on screen with text
+ * @details makes text appear in middle of box with scrolling effect
+ * @param helperInstruction [in] text to be displayed in bottom right of box
+ * @param boxWidth [in] width of displayed box (amount of characters)
+ * @param boxHeight [in] height of displayed box (amount of lines)
+ */
+void renderHelperInstruction(std::string helperInstruction, int boxWidth, int boxHeight);
 
 #endif // TEXT_BOX_HPP

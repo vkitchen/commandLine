@@ -35,8 +35,11 @@ void startScreen() {
         case 0: 
             // New Game selected, run the intro
             clearWholeScreen();
-            runIntro();
-            //runLachlan();
+            currentWallIndex = 0;
+            globalZoomed = 0;
+            roomNumber = 0;
+            //runIntro();
+            runCallum();
             break;
 
         case 1: {

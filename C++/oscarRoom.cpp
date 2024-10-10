@@ -68,7 +68,7 @@ void runOscar(){
             {
             case 0:
                 instruction = "input your cipher answer:";
-                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instruction, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], helperInstructionOscar);
+                renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instruction, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], "");
                 answer = stringInputBox("");
                 if (answer == "Owheo" || answer == "owheo") {
                     clearWholeScreen();

@@ -44,7 +44,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
 /**
  * @brief Creates and displays box that user can input word into
  * @details only listens for char (a-Z) and " " input. 
- * Needs to be calle din while loop that is checking global varibel 'input' is not your desired terminating key press
+ * Needs to be called in while loop that is checking global varible 'input' is not your desired terminating key press
  * @param wordIn 
  * @return std::string 
  */

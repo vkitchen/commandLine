@@ -123,6 +123,11 @@ void runLachlan()
                     renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputLachlan, lachlanZoomed, room2VIEWED[currentWallIndex], room2ZOOMEDVIEWED[currentWallIndex], helperInstructionLachlan);
                 }
                 else if (timerRunning && !doorOpen) {
+                    int timeLeft = checkRemainingTime(timeAtStartTime, totalTimerSeconds);
+                    if (timeLeft == 0) {
+                        clearWholeScreen();   
+                        break;
+                    }
                     if (bodyPartsCopy.size() == 1 || bodyPartsCopy.size() == 0) {
                         tempAnswer = "";
                         bodyPartsCopy = bodyParts;
@@ -163,6 +168,7 @@ void runLachlan()
             if (timeToPrint > 0) {
                 printRemainingTime(timeToPrint, lachlanZoomed);
             } else {
+                clearPartialScreen((fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight);
                 timerRunning = false;
             }
         }

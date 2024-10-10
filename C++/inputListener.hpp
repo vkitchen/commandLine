@@ -1,20 +1,24 @@
-#ifndef INPUT_LISTENER__HPP
-#define INPUT_LISTENER__HPP
+/*!
+ * @file
+ * @brief Header file for inputListener.cpp
+ * @details Provides other files the ability to listen for input from user. Depending on what 
+ * function is used, the input listened to, and the effect that the input has will
+ */
+
+#ifndef INPUT_LISTENER_HPP
+#define INPUT_LISTENER_HPP
 
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 
-/*!
- * @file
- * @brief Header file for inputListener.cpp
- * @details Provides other files the ability to listen for input from user. Depending on what 
- * funciton is used, the input listened to, and the effect that the input has will
- */
 
-
-extern int currentWallIndex, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, roomNumber;
+extern int currentWallIndex;
+extern int totalConsoleWidth;
+extern int fullScreenTextBoxHeight;
+extern int totalConsoleHeight;
+extern int roomNumber;
 extern char input;
 extern std::vector<std::string> options;
 extern bool globalZoomed;
@@ -81,4 +85,4 @@ void roomInputListenerAnthony(bool* anthonyZoomed);
  */
 void roomInputListenerCallum(bool* callumZoome, int* currentWallIndex, int* currentBookIndex, std::string* userAnswer);
 
-#endif // INPUT_LISTENER__HPP
+#endif // INPUT_LISTENER_HPP

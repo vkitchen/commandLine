@@ -11,7 +11,7 @@ int currentBookIndex = 0;
 
 std::string outputCallum, helperInstructionCallum;
 std::string userAnswer = "";
-std::string doorCode = "test";
+std::string doorCode = "2314";
 
 void renderCallumRoom() {
     loadArt(room4[currentWallIndex], art, artWidth, artHeight);
