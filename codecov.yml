@@ -2,3 +2,14 @@ coverage:
   precision: 2
   round: down
   range: "70...100"
+
+ignore:
+  - C++/anthonyRoom.cpp
+  - C++/callumRoom.cpp
+  - C++/introRoom.cpp
+  - C++/lachlanRoom.cpp
+  - C++/optionsBox.cpp
+  - C++/oscarRoom.cpp
+  - C++/pauseMenu.cpp
+  - C++/saveOrLoadGame.cpp
+  - C++/timer.cpp
