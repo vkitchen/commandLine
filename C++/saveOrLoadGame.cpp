@@ -17,7 +17,6 @@ std::string getCurrentTimeAsString() {
 
     std::strftime(buffer, sizeof(buffer), "%Y-%m-%d_%H-%M-%S", &localTime);
 
-    std::cout << std::string(buffer) << std::endl;
 
     return std::string(buffer);
 }
@@ -95,16 +94,10 @@ void loadGame(const std::string& saveFileName) {
         clearWholeScreen();
         if (key == "roomNumber") {
             roomNumber = std::stoi(value);
-            std::cout << roomNumber << std::endl;
-            Sleep(1000);
         } else if (key == "currentWallIndex") {
             currentWallIndex = std::stoi(value);
-            std::cout << roomNumber << std::endl;
-            Sleep(1000);
         } else if (key == "currentRoomZoomed") {
             globalZoomed = std::stoi(value);
-            std::cout << roomNumber << std::endl;
-            Sleep(1000);
         }
     }
 
@@ -128,7 +121,6 @@ std::vector<std::string> getSaveFilesList() {
     HANDLE hFind = FindFirstFile(TEXT("saveStates\\*.txt"), &findFileData);
 
     if (hFind == INVALID_HANDLE_VALUE) {
-        std::cerr << "Failed to open directory or no .txt files found." << std::endl;
         return fileList;
     }
 

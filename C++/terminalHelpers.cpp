@@ -97,7 +97,8 @@ void loadingGraphics() {
     const double probability = 0.1; // 10% chance
     const int arraysize = 26860;
     std::vector<std::vector<char>> array(85, std::vector<char>(316));
-
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 10);
     // Create a 2D vector of chars
     std::srand(static_cast<unsigned>(1));
     for(int i = 0; i < 85; i++){
@@ -127,4 +128,5 @@ void loadingGraphics() {
         }
         frames ++;
     }
+    SetConsoleTextAttribute(hConsole, 15);
 }
