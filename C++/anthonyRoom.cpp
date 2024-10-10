@@ -28,7 +28,7 @@ void runAnthony(){
             case 0:
                 loadArt(room3[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                outputAnthony = "Welcome to room 1, you will be attempting to find a mystery word based on the clues given by other walls, zoom into the lock on the doors to submit your guess when you think you have the answer";
+                outputAnthony = "Welcome to room 1, you will be attempting to find a single mystery word, each wall hides a clue to what that word is, when you think youve solved the puzzle zoom in on this door and enter your answer.";
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], helperInstructionAnthony);
                 if(room3VIEWED[currentWallIndex] == false) room3VIEWED[currentWallIndex] = true;
                 break;

@@ -38,8 +38,8 @@ void startScreen() {
             currentWallIndex = 0;
             globalZoomed = 0;
             roomNumber = 0;
-            //runIntro();
-            runCallum();
+            runIntro();
+            //runCallum();
             break;
 
         case 1: {
