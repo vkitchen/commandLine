@@ -10,6 +10,7 @@ bool solvedAnthony = false;
 bool anthonyZoomed = false;
 std::string outputAnthony;
 std::string borderCharAnthony;
+std::string lowerCaseStrAnt;
 std::string answerAnthony;
 std::string instructionAnthony;
 std::string helperInstructionAnthony;
@@ -66,7 +67,11 @@ void runAnthony(){
                 instructionAnthony = "Input your answer:";
                 renderBox(0, (totalConsoleWidth/5), (fullScreenTextBoxHeight - 5), fullScreenTextBoxHeight, instructionAnthony, anthonyZoomed, room3VIEWED[currentWallIndex], room3ZOOMEDVIEWED[currentWallIndex], "");
                 answerAnthony = stringInputBox("");
-                if (answerAnthony == "Area" || answerAnthony == "area") {
+                for (char c : answerAnthony) {
+                    lowerCaseStrAnt += std::tolower(c); // Convert each character to lowercase
+                }
+
+                if (lowerCaseStrAnt == "area") {
                     anthonyZoomed = false;
                     clearWholeScreen();
                     solvedAnthony = true;
