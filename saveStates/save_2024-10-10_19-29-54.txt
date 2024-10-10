@@ -1,3 +1,0 @@
-roomNumber=0
-currentWallIndex=0
-currentRoomZoomed=1
