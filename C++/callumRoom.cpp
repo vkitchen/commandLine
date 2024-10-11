@@ -50,7 +50,31 @@ void runCallum()
         {
             helperInstructionCallum = canZoom(currentWallIndex) ? "PRESS + TO ZOOM IN" : "";
             renderCallumRoom();
-            outputCallum = "Owheo's hallway! what secrets does it hold?";
+            switch (currentWallIndex)
+            {
+            case 0:
+                outputCallum = "Owheo's hallway! what secrets does it hold?";
+                break;
+            case 1:
+                outputCallum = "Owheo's hallway! what secrets does it hold?";
+                break;
+            case 2:
+                outputCallum = "Whats on this poster board? (zoomable)";
+                break;
+            case 3:
+                outputCallum = "Owheo's lunchroom! what secrets does it hold?";
+                break;
+            case 4:
+                outputCallum = "Whats on the table? (zoomable)";
+                break;
+            case 5:
+                outputCallum = "Whats on the wall? (zoomable)";
+                break;
+            case 6:
+                outputCallum = "Zoom in to enter the 4-digit code";
+                break;
+            }
+            
             renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, outputCallum, callumZoomed, room4VIEWED[currentWallIndex], room4ZOOMEDVIEWED[currentWallIndex], helperInstructionCallum);
         }
         else

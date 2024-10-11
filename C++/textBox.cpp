@@ -67,7 +67,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, const st
 }
 
 //Function to add in instruction in bottom left hand corner of a rendered box
-void renderHelperInstruction(std::string helperInstruction, int boxWidth, int boxHeight) {
+void renderHelperInstruction(const std::string& helperInstruction, int boxWidth, int boxHeight) {
     SHORT X = static_cast<SHORT>(boxWidth - helperInstruction.length() - 3);
     SHORT Y = static_cast<SHORT>(boxHeight - 3);
 
@@ -87,7 +87,7 @@ void renderHelperInstruction(std::string helperInstruction, int boxWidth, int bo
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen, std::string helperInstruction) {
+void renderBox(int startX, int endX, int startY, int endY, const std::string& text, bool zoomedIn, bool wallSeen, bool zoomedWallSeen, const std::string& helperInstruction) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 

@@ -30,7 +30,7 @@ extern bool globalZoomed;
  * @param partialWord [in] Should be intialised with "", unless you feel like having a pre-completed word
  * @return std::string of completed word wanting to be inputed in text box
  */
-std::string textInputListener(std::string partialWord);
+std::string textInputListener(const std::string& partialWord);
 
 /**
  * @brief listens for left and right arrow keys being pressed

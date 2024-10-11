@@ -100,7 +100,7 @@ std::vector<std::string> populateBoxMiddle(int boxWidth, int boxHeight, std::vec
 // endX   = bottom right x-coord
 // startY = top left y-coord
 // endY   = bottom right y-coord
-void renderBoxOptions(int startX, int endX, int startY, int endY, std::vector<std::string> displayedOptions) {
+void renderBoxOptions(int startX, int endX, int startY, int endY, const std::vector<std::string>& displayedOptions) {
     int boxHeight = endY - startY;
     int boxWidth = endX - startX;
 
@@ -118,7 +118,7 @@ void renderBoxOptions(int startX, int endX, int startY, int endY, std::vector<st
 } 
 
 
-std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selectedIndex, std::vector<std::string> selectOptions) {
+std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selectedIndex, const std::vector<std::string>& selectOptions) {
     std::vector<std::string> displayedOptions(numOfOptions);
     for (int i = 0; i < numOfOptions; i++) {
         if (i == selectedIndex) {
@@ -131,7 +131,7 @@ std::vector<std::string> populateDisplayedOptions (int numOfOptions, int selecte
 }
 
 
-int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn) {
+int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vector<std::string>& optionsIn) {
 
     options = optionsIn;
     int numOfOptions = static_cast<int>(options.size());
@@ -184,7 +184,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
     return selectedIndex;
 }
 
-int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed) {
+int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vector<std::string>& optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed) {
     
     options = optionsIn;
     int numOfOptions = static_cast<int>(options.size());
@@ -243,7 +243,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
     return selectedIndex;
 }
 
-std::string stringInputBox(std::string wordIn) {
+std::string stringInputBox(const std::string& wordIn) {
     std::vector<std::string> word(1);
     word[0] = wordIn;
     std::string zoomOutPrompt = "PRESS - TO ZOOM OUT";

@@ -24,7 +24,7 @@ extern int totalConsoleHeight, totalConsoleWidth;
  * @param options [in] string array of options to be displayed and chosen from
  * @return int returned is index of option chosen in inputed array
  */
-int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> options);
+int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vector<std::string>& options);
 
 /**
  * @brief Creates and displays box with options to select
@@ -39,7 +39,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
  * @param currentRoomZoomed [in] bool current rooms zoom status
  * @return int returned is index of option chosen in inputed array
  */
-int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std::string> optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed);
+int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vector<std::string>& optionsIn, bool* timerRunning, const int totalTimerSeconds, bool currentRoomZoomed);
 
 /**
  * @brief Creates and displays box that user can input word into
@@ -48,6 +48,6 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, std::vector<std
  * @param wordIn 
  * @return std::string 
  */
-std::string stringInputBox(std::string wordIn);
+std::string stringInputBox(const std::string& wordIn);
 
 #endif // OPTIONS_BOX_HPP

@@ -47,7 +47,7 @@ void runOscar(){
             case 3:
                 loadArt(room1[currentWallIndex], art, artWidth, artHeight);
                 renderCenteredArt(art, artWidth, artHeight);
-                output = "Your cipher text is 'bjurb', add the two hidden values together and shift each letter backwards by that value to deode the cipher.";            
+                output = "Your cipher text is 'bjurb', add the two hidden values together and shift each letter backwards by that value to decode the cipher.";            
                 renderBox(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, output, oscarZoomed, room1VIEWED[currentWallIndex], room1ZOOMEDVIEWED[currentWallIndex], "");
                 if(room1VIEWED[currentWallIndex] == false) room1VIEWED[currentWallIndex] = true;
                 break;

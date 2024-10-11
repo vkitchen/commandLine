@@ -172,7 +172,7 @@ int upDownEnterListener() {
 }
 
 
-std::string textInputListener(std::string partialWord) {
+std::string textInputListener(const std::string& partialWord) {
     std::string output = partialWord;
 
     // Check for letters (uppercase and lowercase) and space bar
