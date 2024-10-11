@@ -26,7 +26,7 @@ void startScreen() {
     int startYTitle = (startYBox - artHeight) / 2;
     renderArt(art, artWidth, artHeight, startXTitle, startYTitle);
     //std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "SR STATS", "SETTINGS", "EXIT"};
-    std::vector<std::string> options = {"NEW GAME", "LOAD GAME", "EXIT"};
+    std::vector<std::string> options = {"PLAY", "EXIT"};
     input  = ' ';
     int selectedIndex = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, options);
 
@@ -42,51 +42,51 @@ void startScreen() {
             //runOscar();
             break;
 
-        case 1: {
-            std::vector<std::string> saves = getSaveFilesList();
-            if (saves.empty()) {
-                std::string noSaves = "No Save Game Data Found";
-                renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
-                Sleep(1000);
-                clearWholeScreen();
-                startScreen();
-            }
+        // case 1: {
+        //     std::vector<std::string> saves = getSaveFilesList();
+        //     if (saves.empty()) {
+        //         std::string noSaves = "No Save Game Data Found";
+        //         renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
+        //         Sleep(1000);
+        //         clearWholeScreen();
+        //         startScreen();
+        //     }
             
-            int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
-            if (selectedSave == 50) {
-                startScreen();
-                break;
-            }
+        //     int selectedSave = renderOptionsBox(startXBox, endXBox, startYBox, endYBox, saves);
+        //     if (selectedSave == 50) {
+        //         startScreen();
+        //         break;
+        //     }
             
-            saveFileName = saves[selectedSave];
+        //     saveFileName = saves[selectedSave];
 
-            loadGame(saveFileName);
+        //     loadGame(saveFileName);
 
-            clearWholeScreen();
-            //loadingGraphics();
-            clearWholeScreen();
+        //     clearWholeScreen();
+        //     //loadingGraphics();
+        //     clearWholeScreen();
 
-            switch (roomNumber) {
-                case 0:
-                    runIntro();
-                    break;
-                case 1:
-                    runAnthony();
-                    break;
-                case 2:
-                    runOscar();
-                    break;
-                case 3:
-                    runLachlan();
-                    break;
-                case 4:
-                    runCallum();
-                    break;
-            }
-        }
-            break;
+        //     switch (roomNumber) {
+        //         case 0:
+        //             runIntro();
+        //             break;
+        //         case 1:
+        //             runAnthony();
+        //             break;
+        //         case 2:
+        //             runOscar();
+        //             break;
+        //         case 3:
+        //             runLachlan();
+        //             break;
+        //         case 4:
+        //             runCallum();
+        //             break;
+        //     }
+        // }
+        //     break;
 
-        case 2:
+        case 1:
             if(running != false){
                 running = false;
             };

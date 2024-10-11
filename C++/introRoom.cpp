@@ -112,4 +112,5 @@ void runIntro(){
     if (!running) return;
     // GAME LOOP
     runAnthony(); // goes to next room after being solved
+    return;
 } 

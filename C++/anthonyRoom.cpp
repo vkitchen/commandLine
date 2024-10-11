@@ -127,4 +127,5 @@ void runAnthony(){
     // GAME LOOP
     if (!running) return;
     runOscar(); // goes to next room after being solved
+    return;
 } 
