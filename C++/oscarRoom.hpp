@@ -4,9 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <conio.h>
-#include <windows.h>
 #include <cstring>
+#include "compat.hpp"
 #include "renderArt.hpp"
 #include "saveOrLoadGame.hpp"
 #include "readArt.hpp"

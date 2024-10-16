@@ -12,9 +12,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <conio.h>
-#include <windows.h>
 #include <cstring>
+#include "compat.hpp"
 #include "renderArt.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"

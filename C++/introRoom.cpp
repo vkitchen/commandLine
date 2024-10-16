@@ -107,10 +107,10 @@ void runIntro(){
         // Testing purposes
         // if(input =='s') solvedIntro = true;
         
-        Sleep(20); // Delay to control game speed
+        msleep(20); // Delay to control game speed
     }
     if (!running) return;
     // GAME LOOP
     runAnthony(); // goes to next room after being solved
     return;
-} 
+}

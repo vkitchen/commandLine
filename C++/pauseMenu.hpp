@@ -5,13 +5,13 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "compat.hpp"
 #include "textBox.hpp"
 #include "startScreen.hpp"
 #include "renderArt.hpp"
 #include "optionsBox.hpp"
 #include "terminalHelpers.hpp"
 #include "saveOrLoadGame.hpp"
-#include <windows.h>
 
 
 /*!

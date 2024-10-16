@@ -1,12 +1,11 @@
-#include <windows.h>
 #include <iostream>
 #include <thread>
 #include <chrono>
-#include<vector>
-#include<fstream>
-#include<string>
-#include<conio.h>
-#include"inputListener.hpp"
+#include <vector>
+#include <fstream>
+#include <string>
+#include "compat.hpp"
+#include "inputListener.hpp"
 #include "textBox.hpp"
 
 /*!
@@ -126,7 +125,7 @@ void renderBox(int startX, int endX, int startY, int endY, const std::string& te
                 SetConsoleCursorPosition(console, coord);
                 std::cout << c;
                 std::cout.flush();
-                Sleep(5); // Adjust delay as needed
+                msleep(5); // Adjust delay as needed
             }
         }
     }

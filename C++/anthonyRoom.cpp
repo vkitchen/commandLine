@@ -122,10 +122,10 @@ void runAnthony(){
 
         roomInputListenerAnthony(&anthonyZoomed);
 
-        Sleep(20); // Delay to control game speed
+        msleep(20); // Delay to control game speed
     }
     // GAME LOOP
     if (!running) return;
     runOscar(); // goes to next room after being solved
     return;
-} 
+}

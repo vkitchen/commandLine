@@ -23,14 +23,16 @@ add_library (FileSystem
 "renderArt.hpp"
 "startScreen.cpp"
 "startScreen.hpp"
-"saveOrLoadGame.cpp"
-"saveOrLoadGame.hpp"
+# "saveOrLoadGame.cpp"
+# "saveOrLoadGame.hpp"
 "terminalHelpers.cpp"
 "terminalHelpers.hpp"
 "timer.cpp"
 "timer.hpp"
 "textBox.cpp"
 "textBox.hpp"
+"compat.cpp"
+"compat.hpp"
 )
 
 add_executable (EscapeOwheo 

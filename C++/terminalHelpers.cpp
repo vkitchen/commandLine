@@ -1,4 +1,4 @@
-#include <windows.h>
+#include "compat.hpp"
 #include "terminalHelpers.hpp"
 
 /*!
@@ -16,8 +16,9 @@ void getFullScreenDimensions() {
         totalConsoleHeight = csbi.srWindow.Bottom - csbi.srWindow.Top;
         fullScreenTextBoxHeight = totalConsoleHeight * 4 / 5;
     } else {
-        totalConsoleWidth = 0;
-        totalConsoleHeight = 0;
+        totalConsoleWidth = 80;
+        totalConsoleHeight = 24;
+        fullScreenTextBoxHeight = totalConsoleHeight * 4 / 5;
     }
 }
 
@@ -48,7 +49,7 @@ void clearWholeScreen() {
     DWORD written;
 
     // Fill the entire console screen with spaces (effectively clearing it)
-    FillConsoleOutputCharacterA(console, ' ', consoleSize, topLeft, &written);
+    FillConsoleOutputCharacter(console, ' ', consoleSize, topLeft, &written);
 
     // Set the color attributes for all console characters (standard white text)
     FillConsoleOutputAttribute(console, screen.wAttributes, consoleSize, topLeft, &written);
@@ -124,7 +125,7 @@ void loadingGraphics() {
                 std::cout << ptrarray[i][j];
                 
             }
-             Sleep(10);
+             msleep(10);
         }
         frames ++;
     }

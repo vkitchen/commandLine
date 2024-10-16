@@ -1,9 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <vector>
-#include <conio.h>
-#include <windows.h>
 #include <string>
+#include "compat.hpp"
 #include "optionsBox.hpp"
 #include "inputListener.hpp"
 #include "timer.hpp"
@@ -174,7 +173,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vect
 
         input = ' ';
 
-        Sleep(20);
+        msleep(20);
 
     }
 
@@ -233,7 +232,7 @@ int renderOptionsBox(int startX, int endX, int startY, int endY, const std::vect
 
         input = ' ';
 
-        Sleep(20);
+        msleep(20);
 
     }
 
@@ -252,7 +251,7 @@ std::string stringInputBox(const std::string& wordIn) {
         // Render the text box with current input
         renderBoxOptions(0, totalConsoleWidth, fullScreenTextBoxHeight, totalConsoleHeight, word);// Assuming default console sizes for example
         renderHelperInstruction(zoomOutPrompt, totalConsoleWidth, totalConsoleHeight);
-        Sleep(20);
+        msleep(20);
 
         if (input == '^') {
             processInput();

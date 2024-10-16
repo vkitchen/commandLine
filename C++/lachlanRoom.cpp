@@ -183,7 +183,7 @@ void runLachlan()
         if (running == false) {
             return;
         }
-        Sleep(20); // Delay to control game speed
+        msleep(20); // Delay to control game speed
     }
     // GAME LOOP
     if (!running) return;

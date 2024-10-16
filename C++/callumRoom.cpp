@@ -129,7 +129,7 @@ void runCallum()
 
         if (!running)
             return;
-        Sleep(20);
+        msleep(20);
 
     }
 

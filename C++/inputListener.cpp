@@ -3,13 +3,13 @@
 #include <fstream>
 #include <vector>
 #include <string>
+#include "compat.hpp"
 #include "inputListener.hpp"
 #include "renderArt.hpp"
 #include "textBox.hpp"
 #include "optionsBox.hpp"
 #include "pauseMenu.hpp"
 #include "terminalHelpers.hpp"
-#include <conio.h>
 
 /*!
  * @file

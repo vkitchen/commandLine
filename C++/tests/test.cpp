@@ -2,11 +2,10 @@
 #include <stdexcept>
 #include <fstream>
 #include <vector>
-#include <conio.h>
-#include <windows.h>
 #include <cstring>
 #include <filesystem>
 #include <iostream>
+#include "../compat.hpp"
 #include "../renderArt.hpp"
 #include "../readArt.hpp"
 #include "../terminalHelpers.hpp"

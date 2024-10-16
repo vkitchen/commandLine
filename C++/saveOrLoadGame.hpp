@@ -7,8 +7,8 @@
 #include <string>
 #include <cstring>
 #include <ctime>
-#include <direct.h>
 #include <cerrno>
+#include "compat.hpp"
 #include "optionsBox.hpp"
 #include "introRoom.hpp"
 #include "oscarRoom.hpp"

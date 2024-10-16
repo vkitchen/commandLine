@@ -1,10 +1,10 @@
+#include "compat.hpp"
 #include "textBox.hpp"
 #include "startScreen.hpp"
 #include "renderArt.hpp"
 #include "optionsBox.hpp"
 #include "terminalHelpers.hpp"
 #include "saveOrLoadGame.hpp"
-#include <windows.h>
 
 /*!
  * @file
@@ -93,7 +93,7 @@ void startScreen() {
             break;       
         default:
             std::string noSaves = "Broke Start";
-            Sleep(1000);
+            msleep(1000);
             renderBox(startXBox, endXBox, startYBox, endYBox, noSaves, FALSE, FALSE, FALSE, "");
             break;
     }

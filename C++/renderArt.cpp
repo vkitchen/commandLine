@@ -1,6 +1,6 @@
-#include <windows.h>
 #include <iostream>
 #include <stdexcept>
+#include "compat.hpp"
 #include "renderArt.hpp"
 #include "readArt.hpp"
 #include "terminalHelpers.hpp"

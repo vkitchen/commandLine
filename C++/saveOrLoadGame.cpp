@@ -77,7 +77,7 @@ void loadGame(const std::string& saveFileName) {
     std::ifstream inFile("saveStates/" + saveFileName);
     if (!inFile) {
         std::cerr << "Failed to open save file: " + saveFileName << std::endl;
-        Sleep(1000);
+        msleep(1000);
         return;
     }
 
